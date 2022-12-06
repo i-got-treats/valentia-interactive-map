@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html style="height: 100%; margin: 0;">
+<head>
+    <title>Map of Valentia</title>
+
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="scripts\leaflet\leaflet.css">
+    <script src="scripts\leaflet\leaflet.js"></script>
+
+</head>
+<body style="height: 100%; margin: 0;">
+
+<div id="map" style="margin: 0; width:100%; height: 100%; background: #6A7882">
+</div>
+
+<script type="text/javascript">
+    // Declare Map Object
+    var map = L.map('map').setView([0, 0], 2);
+
+    // Reference the tiles
+    L.tileLayer('maps/tiles/{z}/{x}/{y}.png',
+    {minZoom: 0, maxZoom: 4, noWrap: true}
+    ).addTo(map);
+
+    // markers and popups
+    var Marker = L.marker([0, 0]).addTo(map);
+    Marker.bindPopup("<b>Longitude:</b> 0<br><b>Latitude:</b> 0");
+</script>
+
+</body>
+</html>
