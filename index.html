@@ -132,14 +132,14 @@
     .bindPopup("<b>Longitude:</b> -22<br>\
                <b>Latitude:</b> -22.5");
 
-    var popupContent = "<b>Hello world!</b><br />I am a popup.";
+    /*var popupContent = "<b>Hello world!</b><br />I am a popup.";
     var popupOptions =
         {
         'maxWidth': '500',
         'className' : 'another-popup' // classname for another popup
         }
     L.marker([51.5, -0.09], {icon: doticon}).addTo(map)
-        .bindPopup(popupContent);
+        .bindPopup(popupContent);*/
     // MARKERS and POPUPS END
 
 
@@ -174,40 +174,40 @@
        TOOLTIPS
        =========================
     */
-    var estoria = L.tooltip([-66, -80], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    var estoria = L.tooltip([-58, -68], {direction: 'center', interactive: true, permanent: true, className: "countries"})
     .setContent('Estoria')
     .addTo(map).
     on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
 
-    var siberia = L.tooltip([29, -107], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    var siberia = L.tooltip([35, -94], {direction: 'center', interactive: true, permanent: true, className: "countries"})
     .setContent('Siberia')
     .addTo(map).
     on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
 
-    var tova = L.tooltip([15, 65], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    var tova = L.tooltip([26, 80], {direction: 'center', interactive: true, permanent: true, className: "countries"})
     .setContent('Tova')
     .addTo(map).
     on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
 
-    var storm_isles = L.tooltip([67, 55], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    var storm_isles = L.tooltip([72, 63], {direction: 'center', interactive: true, permanent: true, className: "countries"})
     .setContent('Storm<br>Isles')
     .addTo(map).
     on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
 
-    var yellow_country = L.tooltip([-16, -39], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    var yellow_country = L.tooltip([-10, -18], {direction: 'center', interactive: true, permanent: true, className: "countries"})
     .setContent('Yellow<br>Country')
     .addTo(map).
-    on('click', function() {window.open('', "_blank")});
+    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
 
-    var green_country = L.tooltip([-59, 75], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    var green_country = L.tooltip([-50, 61], {direction: 'center', interactive: true, permanent: true, className: "countries"})
     .setContent('Green<br>Country')
     .addTo(map).
-    on('click', function() {window.open('', "_blank")});
+    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
 
-    var purple_country = L.tooltip([44, -21], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    var purple_country = L.tooltip([59, -14], {direction: 'center', interactive: true, permanent: true, className: "countries"})
     .setContent('Purple<br>Country')
     .addTo(map).
-    on('click', function() {window.open('', "_blank")});
+    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
 
     //countries only appear on zoom level 0
     map.on('zoomend', function(e){
