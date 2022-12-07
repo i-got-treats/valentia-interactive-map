@@ -3,27 +3,75 @@
 <head>
     <style>
         /* grid 
-        .leaflet-tile { border: solid rgba(255, 255, 255, 0.406) 1px;}*/
+        .leaflet-tile { border: solid rgba(255, 255, 255, 0.406) 1px;}
+        grid end*/
 
         /* change layers icon */
         .leaflet-control-layers-toggle {
-            background-image: url(images/icons/dot.png)!important;
+            background-color: #8ea1ae;
+            background-image: url('images/icons/unused/dot.png')!important;
         }
+        /* change layers icon end*/
+
+        /*POPUP STYLEs*/
+        .another-popup .leaflet-popup-content-wrapper {
+            background: #2ce897;
+            color: #eee;
+            font-size: 12px;
+            line-height: 24px;
+            border-radius: 0px;
+        }
+        .another-popup .leaflet-popup-content-wrapper a {
+            color: rgba(200, 200, 200, 0.1);
+        }
+        .another-popup .leaflet-popup-tip {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        /*POPUP STYLEs end*/
+
+        /* TOOLTIP STYLES */
+        .countries {
+            text-align: center;
+            line-height: 0.7;
+            background: rgba(0, 0, 0, 0)!important;
+            text-shadow:-1px 0px 1px rgba(0, 0, 0, 0.3),
+                        0px 1px 1px rgba(0, 0, 0, 0.3),
+                        1px 0px 1px rgba(0, 0, 0, 0.3),
+                        0px -1px 1px rgba(0, 0, 0, 0.3);
+            color:rgba(255, 255, 255, 0.8)!important;
+            font-size: 35px;
+            font-family: Copperplate Gothic Light;
+            border: none!important;
+            box-shadow: none!important;
+        }
+
+        /* no triangle at tooltip */
+        .leaflet-tooltip-top:before, 
+        .leaflet-tooltip-bottom:before, 
+        .leaflet-tooltip-left:before, 
+        .leaflet-tooltip-right:before {
+            border: none !important;
+        }
+        /* TOOLTIPS STYLES end*/
     </style>
 
     <title>Map of Valentia</title>
 
     <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 
+    <!-- leflet import -->
     <link rel="stylesheet" href="scripts\leaflet\leaflet.css">
     <script src="scripts\leaflet\leaflet.js"></script>
-
+    <!-- grouped layer import-->
     <link rel="stylesheet" href="scripts\dist\leaflet.groupedlayercontrol.min.css">
     <script src="scripts\dist\leaflet.groupedlayercontrol.min.js"></script>
 
 </head>
 <body style="height: 100%; margin: 0;">
 
+<!-- map holder -->
 <div id="map" style="margin-left:auto; margin-right:auto; width:100%; height: 100%; background: #6A7882">
 </div>
 
@@ -33,12 +81,13 @@
         mapNE = [8192, 0];
     var customMinZoom = 1;
     var customMaxZoom = 4;
+    //variables end
 
     // Declare Map Object
     var map = L.map('map').setView([0, 0], customMinZoom);
 
     // Reference the tiles
-    L.tileLayer('maps/tiles/{z}/{x}/{y}.png',{
+    L.tileLayer('images/tiles/{z}/{x}/{y}.png',{
     minZoom: customMinZoom, maxZoom: customMaxZoom,
     noWrap: true,
     crs: L.CRS.Simple,}
@@ -52,54 +101,129 @@
     // no zoom on doubleclick
     map.doubleClickZoom.disable();
 
-
-    // icons
+    /* =========================
+       ICONS
+       =========================
+    */
     var doticon = L.icon({
-    iconUrl: 'images/icons/dot.png',
+    iconUrl: 'images/icons/unused/dot.png',
     iconSize: [46, 40],
     iconAnchor: [23, 40],
-    popupAnchor: [0, -46],
-    //shadowUrl: 'my-icon-shadow.png',
-    //shadowSize: [68, 95],
-    //shadowAnchor: [22, 94]
+    popupAnchor: [0, -46]
     });
+    // ICONS END
 
 
-    // markers and popups
-    var middle = L.marker([0, 0], {
-        draggable:true
+
+    /* =========================
+       MARKERS and POPUPS
+       =========================
+    */
+    var latlngmarker = L.marker([0, 0], {
+        draggable:true,
+        icon: doticon
     }).
-    bindPopup("LatLng Getter").
-    openPopup();
-
-    middle.on('click', function(e){
-        middle.getPopup().setContent(e.latlng.toString())
+    bindPopup().
+    addTo(map).
+    on('click', function(e){latlngmarker.getPopup().setContent(e.latlng.toString())
     });
 
-    L.marker([-22, -22.5], {icon: doticon}).addTo(map)
+    var longlat22 = L.marker([-22, -22.5], {icon: doticon})
     .bindPopup("<b>Longitude:</b> -22<br>\
                <b>Latitude:</b> -22.5");
 
-    // layer groups
-    var lgbt = L.layerGroup([middle]);
+    var popupContent = "<b>Hello world!</b><br />I am a popup.";
+    var popupOptions =
+        {
+        'maxWidth': '500',
+        'className' : 'another-popup' // classname for another popup
+        }
+    L.marker([51.5, -0.09], {icon: doticon}).addTo(map)
+        .bindPopup(popupContent, popupOptions);
+    // MARKERS and POPUPS END
+
+
+
+    /* =========================
+       LAYER GROUPS 
+       =========================
+    */
+    var lgbt = L.layerGroup([longlat22]);
     var groupedOverlays = {
         "icon category 1": {
-            "icon category 1.1": L.layerGroup([middle]),
-            "icon category 1.2": L.layerGroup([middle])
+            "icon category 1.1": L.layerGroup([longlat22]),
+            "icon category 1.2": L.layerGroup([longlat22])
         },
         "icon category 2": {
-            "icon category 2.2": L.layerGroup([middle])
+            "icon category 2.2": L.layerGroup([longlat22])
         }
     };
 
     var options = {
-        // Make the "Landmarks" group exclusive (use radio inputs)
         exclusiveGroups: ["icon category 1"],
         // Show a checkbox next to non-exclusive group labels for toggling all
         groupCheckboxes: true
     };
 
     L.control.groupedLayers(null, groupedOverlays, options).addTo(map);
+    // LAYER GROUPS END
+
+
+
+    /* =========================
+       TOOLTIPS
+       =========================
+    */
+    var estoria = L.tooltip([-66, -80], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    .setContent('Estoria')
+    .addTo(map).
+    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
+
+    var siberia = L.tooltip([29, -107], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    .setContent('Siberia')
+    .addTo(map).
+    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
+
+    var tova = L.tooltip([15, 65], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    .setContent('Tova')
+    .addTo(map).
+    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
+
+    var storm_isles = L.tooltip([67, 55], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    .setContent('Storm<br>Isles')
+    .addTo(map).
+    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
+
+    var yellow_country = L.tooltip([-16, -39], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    .setContent('Yellow<br>Country')
+    .addTo(map).
+    on('click', function() {window.open('', "_blank")});
+
+    var green_country = L.tooltip([-59, 75], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    .setContent('Green<br>Country')
+    .addTo(map).
+    on('click', function() {window.open('', "_blank")});
+
+    var purple_country = L.tooltip([44, -21], {offset: [-73, -20], interactive: true, permanent: true, className: "countries"})
+    .setContent('Purple<br>Country')
+    .addTo(map).
+    on('click', function() {window.open('', "_blank")});
+
+    //countries only appear on zoom level 0
+    map.on('zoomend', function(e){
+    var zoomLevel = map.getZoom();
+    if (zoomLevel > 1 ){
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (el) {
+            el.style.visibility = 'hidden';
+        });
+    }else{
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (el) {
+            el.style.visibility = 'visible';
+        });
+    }
+    });
+    // TOOLTIPS END
+
 </script>
 
 </body>
