@@ -42,6 +42,20 @@
         map.unproject(mapSW, (customMaxZoom+1))
     ));
 
+
+    // icons
+    var doticon = L.icon({
+    iconUrl: 'images/icons/dot.png',
+    iconSize: [73, 64],
+    iconAnchor: [36, 64],
+    popupAnchor: [-3, -76],
+    //shadowUrl: 'my-icon-shadow.png',
+    //shadowSize: [68, 95],
+    //shadowAnchor: [22, 94]
+    });
+    //L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);
+
+
     // markers and popups
     var middle = L.marker([0, 0], {
         draggable:true
@@ -53,12 +67,19 @@
         middle.getPopup().setContent(e.latlng.toString())
     });
 
-    L.marker([-22, -22.5]).addTo(map)
+    L.marker([-22, -22.5], {icon: doticon}).addTo(map)
     .bindPopup("<b>Longitude:</b> -22<br>\
                <b>Latitude:</b> -22.5");
 
     // layer groups
-    var lgbt = L.layerGroup([middle]).addTo(map);
+    var lgbt = L.layerGroup([middle]);
+
+    var overlays = {
+        "Layer 1" : lgbt,
+    }
+
+    // add layer controls
+    L.control.layers(null, overlays).addTo(map);
 </script>
 
 </body>
