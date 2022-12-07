@@ -13,21 +13,21 @@
         }
         /* change layers icon end*/
 
-        /*POPUP STYLEs*/
-        .another-popup .leaflet-popup-content-wrapper {
-            background: #2ce897;
-            color: #eee;
-            font-size: 12px;
-            line-height: 24px;
-            border-radius: 0px;
+        /*POPUP STYLE*/
+        .leaflet-popup-content-wrapper {
+            background: #2ce897!important;
+            color: #eee!important;
+            font-size: 12px!important;
+            line-height: 24px!important;
+            border-radius: 0px!important;
         }
-        .another-popup .leaflet-popup-content-wrapper a {
-            color: rgba(200, 200, 200, 0.1);
+        .leaflet-popup-content-wrapper a {
+            color: rgba(200, 200, 200, 0.1)!important;
         }
-        .another-popup .leaflet-popup-tip {
-            background: transparent;
-            border: none;
-            box-shadow: none;
+        .leaflet-popup-tip {
+            background: transparent!important;
+            border: none!important;
+            box-shadow: none!important;
         }
         /*POPUP STYLEs end*/
 
@@ -132,14 +132,14 @@
     .bindPopup("<b>Longitude:</b> -22<br>\
                <b>Latitude:</b> -22.5");
 
-    /*var popupContent = "<b>Hello world!</b><br />I am a popup.";
+    var popupContent = "<b>Hello world!</b><br />I am a popup.";
     var popupOptions =
         {
         'maxWidth': '500',
         'className' : 'another-popup' // classname for another popup
         }
     L.marker([51.5, -0.09], {icon: doticon}).addTo(map)
-        .bindPopup(popupContent);*/
+        .bindPopup(popupContent, popupOptions);
     // MARKERS and POPUPS END
 
 
