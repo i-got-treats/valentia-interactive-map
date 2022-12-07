@@ -20,7 +20,8 @@
 
     // Reference the tiles
     L.tileLayer('maps/tiles/{z}/{x}/{y}.png',
-    {minZoom: 0, maxZoom: 4, noWrap: true}
+    {minZoom: 1, maxZoom: 4, noWrap: true,
+    crs: L.CRS.Simple}
     ).addTo(map);
 
     // markers and popups
