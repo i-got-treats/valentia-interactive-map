@@ -345,7 +345,7 @@
    var countries = [estoria, siberia, storm_isles, tova, green_country, yellow_country, purple_country];
     //countries only appear on zoom level 0
     map.on('zoomend', function () {
-        L.layerGroup(countries).eachLayer(function (layer) {
+        L.LayerGroup(countries).eachLayer(function (layer) {
             if (map.getZoom() > 1 && map.hasLayer(layer)) {
                 map.removeLayer(layer);
             }
@@ -405,7 +405,7 @@
         "<span class='unboldify'>click the icons to toggle visability</span>": {
             "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/>\
                 <b>SHOW LETTERS</b>\
-            </span>": L.layerGroup([estoria, tova, siberia, storm_isles, green_country, purple_country, yellow_country])
+            </span>": L.layerGroup(lakes)
         },
 
         "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/> SETTLEMENTS\
