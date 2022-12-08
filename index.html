@@ -187,13 +187,6 @@
     // no zoom on doubleclick
     map.doubleClickZoom.disable();
 
-    /* =========================
-    ICONS
-    ============================*/
-    
-    // ICONS END
-
-
 
     /* =========================
        MARKERS and POPUPS
@@ -202,11 +195,28 @@
         draggable:true,
         icon: doticon,
         opacity: .5
-    }).
-    bindPopup().
-    addTo(map).
-    on('click', function(e){latlngmarker.getPopup().setContent(e.latlng.toString())
+    }).bindPopup().addTo(map).
+    on('click', function(e){
+        latlngmarker.getPopup().setContent(e.latlng.toString())
     });
+
+    //BUILDINGS
+    var castles = []
+    var cathedrals = []
+    var colig = []
+    var crypts = []
+    var evil_towers = []
+    var forts = []
+    var keeps = []
+    var lighthouses = []
+    var mills = []
+    var strongholds = []
+    var taverns = []
+    var temples = []
+    var towers = []
+    var watchtowers = []
+    var windmills = []
+
 
     var cities = []
     cities.push(L.marker([-72, -117], {icon: city_i})
@@ -356,6 +366,12 @@
             layer.setOpacity(1)})
     });
 
+
+
+    /*  ===================
+        LEGEND
+        ===================
+    */
     var groupedOverlays = {
         "<span class='unboldify'>click the icons to toggle visability</span>": {
             "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/>\
@@ -363,16 +379,83 @@
             </span>": L.layerGroup(lettering)
         },
 
+        "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/> BUILDINGS\
+        </span>": {
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/castle.png'/>\
+                castles\
+            </span>": L.layerGroup(castles),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/cathedral.png'/>\
+                cathedrals\
+            </span>": L.layerGroup(cathedrals),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/colig.png'/>\
+                colig\
+            </span>": L.layerGroup(colig),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/crypts.png'/>\
+                crypts\
+            </span>": L.layerGroup(crypts),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/evil_tower.png'/>\
+                evil towers\
+            </span>": L.layerGroup(evil_towers),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/fort.png'/>\
+                forts\
+            </span>": L.layerGroup(forts),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/keep.png'/>\
+                keeps\
+            </span>": L.layerGroup(keeps),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/lighthouse.png'/>\
+                lighthouses\
+            </span>": L.layerGroup(lighthouses),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/mill.png'/>\
+                mills\
+            </span>": L.layerGroup(mills),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/stronghold.png'/>\
+                strongholds\
+            </span>": L.layerGroup(strongholds),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/tavern.png'/>\
+                taverns\
+            </span>": L.layerGroup(taverns),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/temple.png'/>\
+                temples\
+            </span>": L.layerGroup(temples),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/tower.png'/>\
+                towers\
+            </span>": L.layerGroup(towers),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/watchtower.png'/>\
+                watchtowers\
+            </span>": L.layerGroup(watchtowers),
+
+            "<span class='clickable'> <img width='20px' src='images/icons/buildings/windmill.png'/>\
+                windmills\
+            </span>": L.layerGroup(windmills),
+        },
+
         "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/> SETTLEMENTS\
         </span>": {
             "<span class='clickable'> <img width='20px' src='images/icons/settlements/city.png'/>\
                 cities\
             </span>": L.layerGroup(cities),
+
             "<span class='clickable'> <img width='20px' src='images/icons/settlements/town.png'/>\
                 towns\
             </span>": L.layerGroup(towns)
         }
     };
+    /*  ===================
+        LEGEND end
+        ===================*/
 
     var options = {
         collapsed: true,
