@@ -253,14 +253,15 @@
     .bindPopup("<b>Longitude:</b> -22<br>\
                <b>Latitude:</b> -22.5");
 
-    var silverport = L.marker([-72, -117], {icon: city_i})
+    var cities = []
+    cities.push(L.marker([-72, -117], {icon: city_i})
     .bindPopup("<b>Silverport</b><br>\
-               ...");
+               ..."));
 
-
-    var dwarftown1 = L.marker([-44, -47], {icon: town_i})
+    var towns = []
+    towns.push(L.marker([-44, -47], {icon: town_i})
     .bindPopup("<b>Dwarf Town</b><br>\
-                ...");
+                ..."));
     // MARKERS and POPUPS END
 
 
@@ -345,7 +346,7 @@
    var countries = [estoria, siberia, storm_isles, tova, green_country, yellow_country, purple_country];
     //countries only appear on zoom level 0
     map.on('zoomend', function () {
-        L.LayerGroup(countries).eachLayer(function (layer) {
+        L.layerGroup(countries).eachLayer(function (layer) {
             if (map.getZoom() > 1 && map.hasLayer(layer)) {
                 map.removeLayer(layer);
             }
@@ -399,9 +400,6 @@
         layer.on('popupclose', function(){
             layer.setOpacity(1)})
     });
-
-    var cities = [silverport]
-    var towns = [dwarftown1]
 
     var groupedOverlays = {
         "<span class='unboldify'>click the icons to toggle visability</span>": {
