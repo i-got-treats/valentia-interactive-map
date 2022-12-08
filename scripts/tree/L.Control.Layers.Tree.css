@@ -6,6 +6,7 @@
 }
 
 .leaflet-layerstree-node {
+    font-size: 13px!important;
 }
 
 .leaflet-layerstree-header input{
@@ -14,6 +15,7 @@
 
 
 .leaflet-layerstree-header {
+    font-size: 13px!important;
 }
 
 .leaflet-layerstree-header-pointer {
@@ -43,9 +45,11 @@
 }
 
 .leaflet-layerstree-closed {
+    font-size: 15px;
 }
 
 .leaflet-layerstree-opened {
+    font-size: 15px;
 }
 
 .leaflet-layerstree-hide {

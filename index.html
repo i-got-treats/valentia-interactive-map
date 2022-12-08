@@ -2,16 +2,31 @@
 <html style="height: 100%; width:100%; margin: 0;">
 <head>
     <style>
+        /* zoom button style*/
+        
+        .leaflet-bar a {
+            background-color: rgba(255, 255, 255, 0.4)!important;
+        }
+        .leaflet-bar a:hover,
+        .leaflet-bar a:focus {
+            background-color: rgba(244, 244, 244, 0.7)!important;
+        }
+        .leaflet-bar a.leaflet-disabled {
+            background-color: rgba(244, 244, 244, 0.2)!important;
+            color: rgba(86, 86, 86, 0.4)!important;
+            }
+
+
         /* change layers ansicht */
         .leaflet-control-layers-toggle{
             height: 0px!important;
         }
         .leaflet-control-layers {
-            overflow-y: auto;
+            /*overflow-y: auto;
             max-height: 95%;
             max-height: 95vh;
             position: sticky!important;
-            width: auto;
+            width: auto;*/
             color:rgba(0, 0, 0, 0.4)!important;
             opacity: 0.5;
             background-color: rgba(197, 212, 221, 0.8)!important;
@@ -29,30 +44,17 @@
             content:"Map Legend";
             color:rgba(0, 0, 0, .7);
         }
-        /*no radio/checkbox button*/
-        [type="radio"]{
-            visibility:hidden;
-        }
-        [type="checkbox"] {
-            visibility:hidden;
-        }
+
+        /*radio/checkbox button*/
         input[type=checkbox]:checked + span{
             color:rgba(0, 0, 0, 0.7) !important;
             font-weight: bold;
         }
-
-        .clickable{
-            cursor: pointer;
+        /* hoping to get the icon over the checkbox */
+        .ico{
+            vertical-align: middle;
+            height: 17px;
         }
-        /* for the message at the top */
-        .unboldify {
-            padding-right: 25px!important;
-            font-size: 10px;
-            font-style: italic;
-            font-weight: 100!important;
-            text-decoration: underline;
-        }
-
         /* change layers ansicht end*/
 
         /*POPUP STYLE*/
@@ -148,9 +150,13 @@
     <!-- leflet import -->
     <link rel="stylesheet" href="scripts\leaflet\leaflet.css">
     <script src="scripts\leaflet\leaflet.js"></script>
-    <!-- grouped layer import-->
+    <!-- grouped layer import
     <link rel="stylesheet" href="scripts\dist\leaflet.groupedlayercontrol.min.css">
-    <script src="scripts\dist\leaflet.groupedlayercontrol.min.js"></script>
+    <script src="scripts\dist\leaflet.groupedlayercontrol.min.js"></script>-->
+    <!-- tree import-->
+    <link rel="stylesheet" href="scripts\tree\L.Control.Layers.Tree.css">
+    <script src="scripts\tree\L.Control.Layers.Tree.js"></script>
+
     <!-- icons import-->
     <script src="scripts\my_scripts\icons.js"></script>
 
@@ -372,98 +378,24 @@
         LEGEND
         ===================
     */
-    var groupedOverlays = {
-        "<span class='unboldify'>click the icons to toggle visability</span>": {
-            "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/>\
-                <b>SHOW LETTERS</b>\
-            </span>": L.layerGroup(lettering)
-        },
-
-        "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/> BUILDINGS\
-        </span>": {
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/castle.png'/>\
-                castles\
-            </span>": L.layerGroup(castles),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/cathedral.png'/>\
-                cathedrals\
-            </span>": L.layerGroup(cathedrals),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/colig.png'/>\
-                colig\
-            </span>": L.layerGroup(colig),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/crypts.png'/>\
-                crypts\
-            </span>": L.layerGroup(crypts),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/evil_tower.png'/>\
-                evil towers\
-            </span>": L.layerGroup(evil_towers),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/fort.png'/>\
-                forts\
-            </span>": L.layerGroup(forts),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/keep.png'/>\
-                keeps\
-            </span>": L.layerGroup(keeps),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/lighthouse.png'/>\
-                lighthouses\
-            </span>": L.layerGroup(lighthouses),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/mill.png'/>\
-                mills\
-            </span>": L.layerGroup(mills),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/stronghold.png'/>\
-                strongholds\
-            </span>": L.layerGroup(strongholds),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/tavern.png'/>\
-                taverns\
-            </span>": L.layerGroup(taverns),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/temple.png'/>\
-                temples\
-            </span>": L.layerGroup(temples),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/tower.png'/>\
-                towers\
-            </span>": L.layerGroup(towers),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/watchtower.png'/>\
-                watchtowers\
-            </span>": L.layerGroup(watchtowers),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/buildings/windmill.png'/>\
-                windmills\
-            </span>": L.layerGroup(windmills),
-        },
-
-        "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/> SETTLEMENTS\
-        </span>": {
-            "<span class='clickable'> <img width='20px' src='images/icons/settlements/city.png'/>\
-                cities\
-            </span>": L.layerGroup(cities),
-
-            "<span class='clickable'> <img width='20px' src='images/icons/settlements/town.png'/>\
-                towns\
-            </span>": L.layerGroup(towns)
-        }
+    var bruh = {
+        label: "EVERYTHING",
+        selectAllCheckbox: 'Un/select all',
+        children: [
+            {label: "Letters", layer: L.layerGroup(lettering)},
+            {label: "BUILDINGS",
+            selectAllCheckbox: true,
+            children:[
+                { label: "<img class='ico' src='images/icons/buildings/castle.png'/>\
+                Castles", layer: L.marker(castles) },
+                { label: "<img class='ico' src='images/icons/buildings/cathedral.png'/>\
+                Cathedral", layer: L.marker(cathedrals) },
+                { label: "<img class='ico' src='images/icons/buildings/colig.png'/>\
+                Colig", layer: L.marker(colig) },
+            ]}
+        ]
     };
-    /*  ===================
-        LEGEND end
-        ===================*/
-
-    var options = {
-        collapsed: true,
-        // exclusiveGroups: ["icon category 1"],
-        groupCheckboxes: true
-    };
-
-    L.control.groupedLayers(null, groupedOverlays, options).addTo(map);
+    L.control.layers.tree(null, bruh).addTo(map);
     // LAYER GROUPS END
 
 </script>
