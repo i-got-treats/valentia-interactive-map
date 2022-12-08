@@ -393,18 +393,18 @@
 
     var lettering = [].concat(countries, lakes, smol_lakes);
     // opacity to .5 when opening letters popup
-    /*L.layerGroup(lettering).eachLayer(function(layer){
+    L.layerGroup(lettering).eachLayer(function(layer){
         layer.on('popupopen', function(){
             layer.setOpacity(.3)}),
         layer.on('popupclose', function(){
             layer.setOpacity(1)})
-    });*/
+    });
 
     var groupedOverlays = {
         "<span class='unboldify'>click the icons to toggle visability</span>": {
             "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/>\
                 <b>SHOW LETTERS</b>\
-            </span>": L.layerGroup(lettering)
+            </span>": L.layerGroup([estoria])
         },
 
         "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/> SETTLEMENTS\
