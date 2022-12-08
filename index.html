@@ -104,7 +104,6 @@
 
 
         /* TOOLTIP STYLES */
-        /* fix so that tooltips dont show in wrong position on page reload*/
         .leaflet-tooltip {
             min-width: 85px;
             min-height: 50px;
@@ -245,7 +244,7 @@
     /* =========================
        MARKERS and POPUPS
        =========================*/
-    var latlngmarker = L.marker([-73, 131], {
+    var latlngmarker = L.marker([-68, 50], {
         draggable:true,
         icon: doticon,
         opacity: .5
@@ -254,6 +253,10 @@
     addTo(map).
     on('click', function(e){latlngmarker.getPopup().setContent(e.latlng.toString())
     });
+
+    var longlat22 = L.marker([-22, -22.5], {icon: doticon})
+    .bindPopup("<b>Longitude:</b> -22<br>\
+               <b>Latitude:</b> -22.5");
 
     var cities = []
     cities.push(L.marker([-72, -117], {icon: city_i})
