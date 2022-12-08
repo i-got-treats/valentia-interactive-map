@@ -276,37 +276,32 @@
 
     var estoria = L.tooltip([-58, -68], countries_options)
     .setContent('Estoria')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
+    estoria.addTo(map);
+    estoria.removeLayer();
 
     var siberia = L.tooltip([35, -94], countries_options)
     .setContent('Siberia')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
 
     var tova = L.tooltip([26, 80], countries_options)
     .setContent('Tova')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
 
     var storm_isles = L.tooltip([72, 63], countries_options)
     .setContent('Storm<br>Isles')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
 
     var yellow_country = L.tooltip([-10, -18], countries_options)
     .setContent('Yellow<br>Country')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
 
     var green_country = L.tooltip([-50, 61], countries_options)
     .setContent('Green<br>Country')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
 
     var purple_country = L.tooltip([59, -14], countries_options)
     .setContent('Purple<br>Country')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
 
 
