@@ -79,6 +79,10 @@ var altar_i = L.icon({
     iconUrl: 'images/icons/landmarks/altar.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
+var bridge_i = L.icon({
+    iconUrl: 'images/icons/landmarks/bridge.png',
+    iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
+
 var dangerzone_i = L.icon({
     iconUrl: 'images/icons/landmarks/dangerzone.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
@@ -122,6 +126,10 @@ var whirlpool_i = L.icon({
 
 
 /* LOCATIONS */
+var alchemist_i = L.icon({
+    iconUrl: 'images/icons/locations/alchemist.png',
+    iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
+
 var cave_i = L.icon({
     iconUrl: 'images/icons/locations/cave.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
