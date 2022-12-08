@@ -1,33 +1,80 @@
 <!DOCTYPE html>
-<html style="height: 100%; margin: 0;">
+<html style="height: 100%; width:100%; margin: 0;">
 <head>
     <style>
         /* grid 
         .leaflet-tile { border: solid rgba(255, 255, 255, 0.406) 1px;}
         grid end*/
 
-        /* change layers icon */
-        .leaflet-control-layers-toggle {
-            background-color: #8ea1ae;
-            background-image: url('images/icons/unused/dot.png')!important;
+        /* change layers ansicht */
+        .leaflet-control-layers-toggle{
+            height: 0px!important;
         }
-        /* change layers icon end*/
+        .leaflet-control-layers {
+            overflow-y: auto;
+            max-height: 95%;
+            max-height: 95vh;
+            position: sticky!important;
+            width: auto;
+            color:rgba(0, 0, 0, 0.4)!important;
+            opacity: 0.5;
+            background-color: rgba(197, 212, 221, 0.8)!important;
+            transition: .2s;
+        }
+        .leaflet-control-layers:hover {
+            opacity: 1;
+        }
+        .leaflet-control-layers:before{
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            content:"Map Legend";
+            color:rgba(0, 0, 0, .7);
+        }
+        /*no radio/checkbox button*/
+        [type="radio"]{
+            visibility:hidden;
+        }
+        [type="checkbox"] {
+            visibility:hidden;
+        }
+        input[type=checkbox]:checked + span{
+            color:rgba(0, 0, 0, 0.7) !important;
+            font-weight: bold;
+        }
+
+        .clickable{
+            cursor: pointer;
+        }
+        /* for the message at the top */
+        .unboldify {
+            padding-right: 25px!important;
+            font-size: 10px;
+            font-style: italic;
+            font-weight: 100!important;
+            text-decoration: underline;
+        }
+        /* change layers ansicht end*/
 
         /*POPUP STYLE*/
         .leaflet-popup-content-wrapper {
-            background: #2ce897!important;
-            color: #eee!important;
-            font-size: 12px!important;
+            background: rgba(98, 98, 98, 0.8)!important;
+            color: rgb(220, 220, 220)!important;
+            font-size: 13px!important;
             line-height: 24px!important;
             border-radius: 0px!important;
+            border: 2px solid rgba(185, 185, 185, 0.8)!important;
+            box-shadow:rgba(0, 0, 0, .5) 0px 0px 10px!important;
         }
         .leaflet-popup-content-wrapper a {
             color: rgba(200, 200, 200, 0.1)!important;
         }
         .leaflet-popup-tip {
-            background: transparent!important;
-            border: none!important;
-            box-shadow: none!important;
+            background: rgba(185, 185, 185, 0.7)!important;
+            border: 2px solid rgba(185, 185, 185, 0.8)!important;
+            box-shadow: rgba(0, 0, 0, .5) 0px 0px 10px!important;
         }
         /*POPUP STYLEs end*/
 
@@ -36,10 +83,10 @@
             text-align: center;
             line-height: 0.7;
             background: rgba(0, 0, 0, 0)!important;
-            text-shadow:-1px 0px 1px rgba(0, 0, 0, 0.3),
-                        0px 1px 1px rgba(0, 0, 0, 0.3),
-                        1px 0px 1px rgba(0, 0, 0, 0.3),
-                        0px -1px 1px rgba(0, 0, 0, 0.3);
+            text-shadow:-1px 0px 2px rgba(46, 46, 46, 0.3),
+                        0px 1px 2px rgba(46, 46, 46, 0.3),
+                        1px 0px 2px rgba(46, 46, 46, 0.3),
+                        0px -1px 2px rgba(46, 46, 46, 0.3);
             color:rgba(255, 255, 255, 0.8)!important;
             font-size: 35px;
             font-family: Copperplate Gothic Light;
@@ -69,7 +116,7 @@
     <script src="scripts\dist\leaflet.groupedlayercontrol.min.js"></script>
 
 </head>
-<body style="height: 100%; margin: 0;">
+<body style="height: 100%; width:100%;  margin: 0;">
 
 <!-- map holder -->
 <div id="map" style="margin-left:auto; margin-right:auto; width:100%; height: 100%; background: #6A7882">
@@ -102,14 +149,48 @@
     map.doubleClickZoom.disable();
 
     /* =========================
-       ICONS
-       =========================
-    */
+    ICONS
+    ============================*/
+    var i_size = [46, 40];
+    var i_anchor = [23, 20];
+    var p_anchor = [0, -46];
+
     var doticon = L.icon({
-    iconUrl: 'images/icons/unused/dot.png',
-    iconSize: [46, 40],
-    iconAnchor: [23, 40],
-    popupAnchor: [0, -46]
+        iconUrl: 'images/icons/unused/dot.png',
+        iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor
+    });
+
+    /* BUILDINGS*/
+    var colig_i = L.icon({
+        iconUrl: 'images/icons/buildings/colig.png',
+        iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor
+    })
+
+    var lighthouse_i = L.icon({
+        iconUrl: 'images/icons/buildings/lighthouse.png',
+        iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor
+    });
+
+    /* LANDMARKS*/
+
+    /*LOCATIONS*/
+
+    /* SETTLEMENTS */
+    var camp_i = L.icon({
+        iconUrl: 'images/icons/settlements/camp.png',
+        iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor
+    })
+
+    var city_i = L.icon({
+        iconUrl: 'images/icons/settlements/city.png',
+        iconSize: [85, 60],
+        iconAnchor: [42, 30],
+        popupAnchor: [0, -36]
+    });
+
+    var town_i = L.icon({
+        iconUrl: 'images/icons/settlements/town.png',
+        iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor
     });
     // ICONS END
 
@@ -117,9 +198,8 @@
 
     /* =========================
        MARKERS and POPUPS
-       =========================
-    */
-    var latlngmarker = L.marker([0, 0], {
+       =========================*/
+    var latlngmarker = L.marker([0, -232], {
         draggable:true,
         icon: doticon
     }).
@@ -132,82 +212,52 @@
     .bindPopup("<b>Longitude:</b> -22<br>\
                <b>Latitude:</b> -22.5");
 
-    var popupContent = "<b>Hello world!</b><br />I am a popup.";
-    var popupOptions =
-        {
-        'maxWidth': '500',
-        'className' : 'another-popup' // classname for another popup
-        }
-    L.marker([51.5, -0.09], {icon: doticon}).addTo(map)
-        .bindPopup(popupContent, popupOptions);
+    var silverport = L.marker([-72, -117], {icon: city_i})
+    .bindPopup("<b>Silverport</b><br>\
+               ...");
+
+
+    var dwarftown1 = L.marker([-44, -47], {icon: town_i})
+    .bindPopup("<b>Dwarf Town</b><br>\
+                ...");
     // MARKERS and POPUPS END
 
 
 
     /* =========================
-       LAYER GROUPS 
-       =========================
-    */
-    var lgbt = L.layerGroup([longlat22]);
-    var groupedOverlays = {
-        "icon category 1": {
-            "icon category 1.1": L.layerGroup([longlat22]),
-            "icon category 1.2": L.layerGroup([longlat22])
-        },
-        "icon category 2": {
-            "icon category 2.2": L.layerGroup([longlat22])
-        }
-    };
-
-    var options = {
-        exclusiveGroups: ["icon category 1"],
-        // Show a checkbox next to non-exclusive group labels for toggling all
-        groupCheckboxes: true
-    };
-
-    L.control.groupedLayers(null, groupedOverlays, options).addTo(map);
-    // LAYER GROUPS END
-
-
-
-    /* =========================
        TOOLTIPS
-       =========================
-    */
-    var estoria = L.tooltip([-58, -68], {direction: 'center', interactive: true, permanent: true, className: "countries"})
+       =========================*/
+
+    // COUNTRIES
+    var countries_options= ({direction: 'center', interactive: true, permanent: true, className: "countries"});
+
+    var estoria = L.tooltip([-58, -68], countries_options)
     .setContent('Estoria')
-    .addTo(map).
-    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
 
-    var siberia = L.tooltip([35, -94], {direction: 'center', interactive: true, permanent: true, className: "countries"})
+    var siberia = L.tooltip([35, -94], countries_options)
     .setContent('Siberia')
-    .addTo(map).
-    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
 
-    var tova = L.tooltip([26, 80], {direction: 'center', interactive: true, permanent: true, className: "countries"})
+    var tova = L.tooltip([26, 80], countries_options)
     .setContent('Tova')
-    .addTo(map).
-    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
 
-    var storm_isles = L.tooltip([72, 63], {direction: 'center', interactive: true, permanent: true, className: "countries"})
+    var storm_isles = L.tooltip([72, 63], countries_options)
     .setContent('Storm<br>Isles')
-    .addTo(map).
-    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
 
-    var yellow_country = L.tooltip([-10, -18], {direction: 'center', interactive: true, permanent: true, className: "countries"})
+    var yellow_country = L.tooltip([-10, -18], countries_options)
     .setContent('Yellow<br>Country')
-    .addTo(map).
-    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
 
-    var green_country = L.tooltip([-50, 61], {direction: 'center', interactive: true, permanent: true, className: "countries"})
+    var green_country = L.tooltip([-50, 61], countries_options)
     .setContent('Green<br>Country')
-    .addTo(map).
-    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
 
-    var purple_country = L.tooltip([59, -14], {direction: 'center', interactive: true, permanent: true, className: "countries"})
+    var purple_country = L.tooltip([59, -14], countries_options)
     .setContent('Purple<br>Country')
-    .addTo(map).
-    on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
 
     //countries only appear on zoom level 0
     map.on('zoomend', function(e){
@@ -223,6 +273,45 @@
     }
     });
     // TOOLTIPS END
+
+
+
+    /* =========================
+       LAYER GROUPS 
+       =========================
+    */
+   var countries = [estoria, siberia, storm_isles, tova, green_country, yellow_country, purple_country];
+   var lakes = [];
+   var rivers = [];
+   var mountain_ranges = [];
+   var forests = [];
+
+    var groupedOverlays = {
+        "<span class='unboldify'>click the icons to toggle visability</span>": {
+            "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/>\
+                <b>LETTERING</b>\
+            </span>": L.layerGroup(countries).addTo(map)
+        },
+
+        "<span class='clickable'><img width='20px' src='images/icons/unused/dot.png'/> SETTLEMENTS\
+        </span>": {
+            "<span class='clickable'> <img width='20px' src='images/icons/settlements/city.png'/>\
+                cities\
+            </span>": L.layerGroup([silverport]),
+            "<span class='clickable'> <img width='20px' src='images/icons/settlements/town.png'/>\
+                towns\
+            </span>": L.layerGroup([dwarftown1])
+        }
+    };
+
+    var options = {
+        collapsed: true,
+        // exclusiveGroups: ["icon category 1"],
+        groupCheckboxes: true
+    };
+
+    L.control.groupedLayers(null, groupedOverlays, options).addTo(map);
+    // LAYER GROUPS END
 
 </script>
 
