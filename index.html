@@ -104,10 +104,6 @@
 
 
         /* TOOLTIP STYLES */
-        .leaflet-tooltip {
-            min-width: 85px;
-            min-height: 50px;
-        }
         .countries {
             text-align: center;
             line-height: 0.7;
@@ -254,10 +250,6 @@
     on('click', function(e){latlngmarker.getPopup().setContent(e.latlng.toString())
     });
 
-    var longlat22 = L.marker([-22, -22.5], {icon: doticon})
-    .bindPopup("<b>Longitude:</b> -22<br>\
-               <b>Latitude:</b> -22.5");
-
     var cities = []
     cities.push(L.marker([-72, -117], {icon: city_i})
     .bindPopup("<b>Silverport</b><br>\
@@ -320,7 +312,7 @@
     // GREEN COUNTRY lakes
     var pp_lake = L.tooltip([-65.5, 77], lakes_options)
     .setContent("PP Lake")
-    .bindPopup("A vaguely phallic shaped lake in the south of [green country].", {offset: [0, -6]})
+    .bindPopup("A vaguely phallic shaped lake in the south of [green country].", {offset: [0, 0]})
     //.on('popupopen', function() {pp_lake.setOpacity(.5)}).on('popupclose', function(){pp_lake.setOpacity(1)})
     ;
 
