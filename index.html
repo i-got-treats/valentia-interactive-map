@@ -104,6 +104,11 @@
 
 
         /* TOOLTIP STYLES */
+        /* fix so that tooltips dont show in wrong position on page reload*/
+        .leaflet-tooltip {
+            min-width: 85px!important;
+            min-height: 50px!important;
+        }
         .countries {
             text-align: center;
             line-height: 0.7;
@@ -270,16 +275,10 @@
     // COUNTRIES
     var countries_options= ({direction: 'center', interactive: true, permanent: true, className: "countries"});
 
-    /*marker.bindTooltip('<img src=' + geoConfig.img + '/>' + geoConfig.description.title);
-    marker.bindTooltip('<img src=' + geoConfig.img + '/>' + geoConfig.description.title).openTooltip();
-    marker.bindTooltip('<img src=' + geoConfig.img + '/>' + geoConfig.description.title).closeTooltip();*/
-
     var estoria = L.tooltip([-58, -68], countries_options)
     .setContent('Estoria')
     .addTo(map)
-    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")})
-    .openTooltip();
-    estoria.closeTooltip();
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
 
     var siberia = L.tooltip([35, -94], countries_options)
     .setContent('Siberia')
