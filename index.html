@@ -101,36 +101,7 @@
 
 
 
-        /* TOOLTIP STYLES */
-        .countries {
-            text-align: center;
-            line-height: 0.7;
-            background: rgba(0, 0, 0, 0)!important;
-            border: none!important;
-            box-shadow: none!important;
-            text-shadow:-1px 0px 2px rgba(46, 46, 46, 0.3),
-                        0px 1px 2px rgba(46, 46, 46, 0.3),
-                        1px 0px 2px rgba(46, 46, 46, 0.3),
-                        0px -1px 2px rgba(46, 46, 46, 0.3);
-            color:rgba(255, 255, 255, 0.8)!important;
-            font-size: 35px;
-            font-family: Copperplate Gothic Light;
-        }
-
-        .lakes {
-            text-align: center;
-            line-height: 1;
-            background: rgba(0, 0, 0, 0)!important;
-            border: none!important;
-            box-shadow: none!important;
-            text-shadow:-1px 0px 1px rgba(255, 255, 255, 0.4),
-                        0px 1px 1px rgba(255, 255, 255, 0.4),
-                        1px 0px 1px rgba(255, 255, 255, 0.4),
-                        0px -1px 1px rgba(255, 255, 255, 0.4);
-            color:rgba(28, 31, 47, 0.8)!important;
-            font-size: 15px;
-        }
-
+        /* TOOLTIP STYLE */
         /* no triangle at tooltip */
         .leaflet-tooltip-top:before, 
         .leaflet-tooltip-bottom:before, 
@@ -138,7 +109,7 @@
         .leaflet-tooltip-right:before {
             border: none !important;
         }
-        /* TOOLTIPS STYLES end*/
+        /* TOOLTIPS STYLE end*/
     </style>
 
     <title>Map of Valentia</title>
@@ -157,6 +128,8 @@
 
     <!-- icons import-->
     <script src="scripts\my_scripts\icons.js"></script>
+    <!-- rotations import -->
+    <link rel="stylesheet" href="scripts\my_scripts\rotations.css">
 
 </head>
 <body style="height: 100%; width:100%;  margin: 0;">
@@ -265,7 +238,7 @@
     var silverport = (L.marker([-72, -117], {icon: city_i})
     .bindPopup("<b>Silverport</b><br>\
                ..."));
-    cities = [silverport]
+    cities.push(silverport);
     var hut_villages = [];
     var huts = [];
     var legion_camps = [];
@@ -296,6 +269,9 @@
     /* =========================
        TOOLTIPS
        =========================*/
+    var zoom1 = [];
+    var zoom2 = [];
+    var zoom3 = [];
 
     // COUNTRIES
     var countries_options= ({direction: 'center', interactive: true, permanent: true, className: "countries"});
@@ -335,32 +311,53 @@
     .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
 
+    // WATERS
 
-    // LAKES
-    var lakes_options= ({direction: 'center', interactive: true, permanent: true, className: "lakes"});
+    var water_options= ({direction: 'center', interactive: true, permanent: true, className: "water"});
 
-    // GREEN COUNTRY lakes
-    var pp_lake = L.tooltip([-65.5, 77], lakes_options)
+    // ESTORIA
+    var silver_bay = L.tooltip([-74.140276, -121.025391], water_options)
+    .setContent("<div class='silver_bay'>Silver Bay</div>");
+    zoom1.push(silver_bay);
+
+    // GREEN COUNTRY
+    var winged_lions_sea = L.tooltip([-29, 124], water_options)
+    .setContent("<div class='winged_lions_sea'>Winged Lion's Sea</div>");
+    zoom1.push(winged_lions_sea);
+
+    var dalmation_gulf = L.tooltip([-30, 32], water_options)
+    .setContent("<div class='dalmation_gulf'>Dalmatian Gulf</div>");
+    zoom1.push(dalmation_gulf);
+
+    var pp_lake = L.tooltip([-65.5, 77], water_options)
     .setContent("PP Lake")
     .bindPopup("A vaguely phallic shaped lake in the south of [green country].", {offset: [0, 0]})
-    //.on('popupopen', function() {pp_lake.setOpacity(.5)}).on('popupclose', function(){pp_lake.setOpacity(1)})
     ;
+    zoom1.push(pp_lake);
 
-    //smol GREEN COUNTRY lakes
-    var lovelets_crater = L.tooltip([-76.2, 58], lakes_options)
+    var lovelets_crater = L.tooltip([-76.2, 58], water_options)
     .setContent("Lovelet's<br>Crater")
     .bindPopup("A rounded body of freshwater, said to be created by the powerful mage 'Lovelet',\
                 who sent a comet filled with water into the desert. Some say they can 'taste the cosmos'.", {offset: [0, -6]})
-    //.on('popupopen', function() {lovelets_crater.setOpacity(.5)}).on('popupclose', function(){lovelets_crater.setOpacity(1)})
     ;
+    zoom2.push(lovelets_crater);
 
-    var soaring_lagoon = L.tooltip([-74.7, 71], lakes_options)
+    var soaring_lagoon = L.tooltip([-74.7, 71], water_options)
     .setContent("Soaring<br>Lagoon")
     .bindPopup("A grand exposed coral reef, too hot to even dip a toe in for common folk.\
                 Legends speak of a dragon sleeping under the reef.", {offset: [0, -6]})
-    //.on('popupopen', function() {soaring_lagoon.setOpacity(.5)}).on('popupclose', function(){soaring_lagoon.setOpacity(1)})
+    zoom2.push(soaring_lagoon);
     ;
-    // GREEN COUNTRY lakes END
+    // GREEN COUNTRY waters END
+
+    // islands
+    var island_options = ({direction: 'center', interactive: true, permanent: true, className: "island"});
+
+    // ESTORIA
+    var fortune_island = L.tooltip([-37, 12], island_options)
+    .setContent("Fortune Island")
+    .addTo(map);
+    zoom1.push(fortune_island);
 
     // TOOLTIPS END
 
@@ -399,11 +396,9 @@
         })
     });
 
-    var lakes = [pp_lake]
-    var smol_lakes = [lovelets_crater, soaring_lagoon]
-    //lakes only appear from zoom level 1 on
+    // appear from zoom level 1 on
     map.on('zoomend', function () {
-        L.layerGroup(lakes).eachLayer(function (layer) {
+        L.layerGroup(zoom1).eachLayer(function (layer) {
             if (map.getZoom() == 1 && map.hasLayer(layer)) {
                 map.removeLayer(layer);
             }
@@ -413,10 +408,9 @@
         })
     });
 
-
-    //smol lakes only appear from zoom level 1 on
+    // appear from zoom level 2 on
     map.on('zoomend', function () {
-        L.layerGroup(smol_lakes).eachLayer(function (layer) {
+        L.layerGroup(zoom2).eachLayer(function (layer) {
             if (map.getZoom() < 3 && map.hasLayer(layer)) {
                 map.removeLayer(layer);
             }
@@ -425,6 +419,8 @@
             }
         })
     });
+
+    // appear from zoom level 3 on
 
     var rivers = [];
     // rivers only appear from zoom level 1
@@ -435,7 +431,7 @@
     var forests = [];
     // forests only appear from zoom level 1
 
-    var lettering = [].concat(countries, lakes, smol_lakes);
+    var lettering = [].concat(countries, zoom1, zoom2, zoom3);
     // opacity to .5 when opening letters popup
     L.layerGroup(lettering).eachLayer(function(layer){
         layer.on('popupopen', function(){

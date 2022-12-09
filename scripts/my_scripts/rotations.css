@@ -1,0 +1,56 @@
+.countries {
+    text-align: center;
+    line-height: 0.7;
+    background: rgba(0, 0, 0, 0)!important;
+    border: none!important;
+    box-shadow: none!important;
+    text-shadow:-1px 0px 2px rgba(46, 46, 46, 0.3),
+                0px 1px 2px rgba(46, 46, 46, 0.3),
+                1px 0px 2px rgba(46, 46, 46, 0.3),
+                0px -1px 2px rgba(46, 46, 46, 0.3);
+    color:rgba(255, 255, 255, 0.8)!important;
+    font-size: 35px;
+    font-family: Copperplate Gothic Light;
+}
+
+.island {
+    text-align: center;
+    line-height: 0.7;
+    background: rgba(0, 0, 0, 0)!important;
+    border: none!important;
+    box-shadow: none!important;
+    text-shadow:-1px 0px 2px rgba(46, 46, 46, 0.3),
+                0px 1px 2px rgba(46, 46, 46, 0.3),
+                1px 0px 2px rgba(46, 46, 46, 0.3),
+                0px -1px 2px rgba(46, 46, 46, 0.3);
+    color:rgba(255, 255, 255, 0.8)!important;
+    font-size: 15px;
+}
+
+.water {
+    text-align: center;
+    line-height: 1;
+    background: rgba(0, 0, 0, 0)!important;
+    border: none!important;
+    box-shadow: none!important;
+    text-shadow:-1px 0px 1px rgba(255, 255, 255, 0.4),
+                0px 1px 1px rgba(255, 255, 255, 0.4),
+                1px 0px 1px rgba(255, 255, 255, 0.4),
+                0px -1px 1px rgba(255, 255, 255, 0.4);
+    color:rgba(38, 44, 75, 0.8)!important;
+    font-size: 15px;
+}
+
+/* GREEN COUNTRY WATER*/
+.winged_lions_sea{
+    transform: rotate(-55deg);
+    font-size: 28px;
+}
+.dalmation_gulf{
+    transform: rotate(-5deg);
+}
+
+/* ESTORIA WATER */
+.silver_bay{
+    transform: rotate(24deg);
+}
