@@ -320,6 +320,8 @@
     .setContent("<div class='silver_bay'>Silver Bay</div>");
     zoom1.push(silver_bay);
 
+    // SIBERIA
+
     // GREEN COUNTRY
     var winged_lions_sea = L.tooltip([-29, 124], water_options)
     .setContent("<div class='winged_lions_sea'>Winged Lion's Sea</div>");
@@ -350,14 +352,24 @@
     ;
     // GREEN COUNTRY waters END
 
-    // islands
+    // ISLANDS
     var island_options = ({direction: 'center', interactive: true, permanent: true, className: "island"});
 
-    // ESTORIA
     var fortune_island = L.tooltip([-37, 12], island_options)
-    .setContent("Fortune Island")
-    .addTo(map);
-    zoom1.push(fortune_island);
+    .setContent("Fortune<br>Island")
+    .bindPopup("A volcanic island.", {offset: [0,-12]});
+    zoom2.push(fortune_island);
+
+    var harolds_boot = L.tooltip([-78.5, -137], island_options)
+    .setContent("Harold's Boot")
+    .bindPopup("An island, vaguely the shape of a shoe. Under perfect conditions, Harold's Boot can be seen from Estoria's mainland.", {offset: [0,-6]});
+    zoom1.push(harolds_boot);
+
+    var hawkflight_island = L.tooltip([20, 1], island_options)
+    .setContent("Hawkflight<br>Island")
+    .bindPopup("An island, vaguely the shape of a shoe. Under perfect conditions, Harold's Boot can be seen from Estoria's mainland.", {offset: [0,-6]});
+    zoom1.push(hawkflight_island);
+    //ISLANDS end
 
     // TOOLTIPS END
 
