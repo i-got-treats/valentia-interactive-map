@@ -131,8 +131,6 @@
             font-size: 15px;
         }
 
-
-
         /* no triangle at tooltip */
         .leaflet-tooltip-top:before, 
         .leaflet-tooltip-bottom:before, 
@@ -194,6 +192,14 @@
     map.doubleClickZoom.disable();
 
 
+
+
+
+
+
+
+
+
     /* =========================
        MARKERS and POPUPS
        =========================*/
@@ -207,33 +213,83 @@
     });
 
     //BUILDINGS
-    var castles = []
-    var cathedrals = []
-    var colig = []
-    var crypts = []
-    var evil_towers = []
-    var forts = []
-    var keeps = []
-    var lighthouses = []
-    var mills = []
-    var strongholds = []
-    var taverns = []
-    var temples = []
-    var towers = []
-    var watchtowers = []
-    var windmills = []
+    var castles = [];
+    var cathedrals = [];
+    var colig = [];
+    var crypts = [];
+    var forts = [];
+    var lighthouses = [];
+    var stables = [];
+    var strongholds = [];
+    var taverns = [];
+    var temples = [];
+    var towers = [];
+    var windmills = [];
+    var buildings = [].concat(castles, cathedrals, colig, crypts, forts,
+                              lighthouses, stables, strongholds, taverns, temples,
+                              towers);
 
+    //LANDMARKS
+    var altars = [];
+    var bridges = [];
+    var dangerzones = [];
+    var monoliths = [];
+    var obelisks = [];
+    var ruins = [];
+    var shipwrecks = [];
+    var shrines = [];
+    var standing_stones = [];
+    var thorns = [];
+    var waterfall = [];
+    var whirlpool = [];
+    var landmarks = [].concat(altars, bridges, dangerzones, monoliths, obelisks, ruins,
+                              shipwrecks, shrines, standing_stones, thorns, waterfall,
+                              whirlpool, landmarks);
 
+    //LOCATIONS
+    var alchemists = [];
+    var caves = [];
+    var docs = [];
+    var dungeons = [];
+    var forges = [];
+    var grainfarms = [];
+    var mines = [];
+    var ravenskulls = [];
+    var vineyards = [];
+    var locations = [].concat(alchemists, caves, docs, dungeons, forges, grainfarms, mines,
+                              ravenskulls, vineyards);
+
+    //SETTLEMENTS
+    var camps = [];
     var cities = []
-    cities.push(L.marker([-72, -117], {icon: city_i})
+    var silverport = (L.marker([-72, -117], {icon: city_i})
     .bindPopup("<b>Silverport</b><br>\
                ..."));
-
+    cities = [silverport]
+    var hut_villages = [];
+    var huts = [];
+    var legion_camps = [];
     var towns = []
     towns.push(L.marker([-44, -47], {icon: town_i})
     .bindPopup("<b>Dwarf Town</b><br>\
                 ..."));
+    var villages = [];
+    var settlements = [].concat(camps, cities, hut_villages, huts, legion_camps, towns, villages);
     // MARKERS and POPUPS END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -310,6 +366,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* =========================
        LAYER GROUPS
        =========================
@@ -378,24 +450,81 @@
         LEGEND
         ===================
     */
-    var bruh = {
+    var legend = {
         label: "EVERYTHING",
-        selectAllCheckbox: 'Un/select all',
+        selectAllCheckbox: true,
         children: [
-            {label: "Letters", layer: L.layerGroup(lettering)},
+            {label: "Lettering",
+            layer: L.layerGroup(lettering)},
+
             {label: "BUILDINGS",
             selectAllCheckbox: true,
             children:[
                 { label: "<img class='ico' src='images/icons/buildings/castle.png'/>\
-                Castles", layer: L.marker(castles) },
+                Castles", layer: L.layerGroup(castles) },
+
                 { label: "<img class='ico' src='images/icons/buildings/cathedral.png'/>\
-                Cathedral", layer: L.marker(cathedrals) },
+                Cathedrals", layer: L.layerGroup(cathedrals) },
+
                 { label: "<img class='ico' src='images/icons/buildings/colig.png'/>\
-                Colig", layer: L.marker(colig) },
+                Colig", layer: L.layerGroup(colig) },
+
+                { label: "<img class='ico' src='images/icons/buildings/crypts.png'/>\
+                Crypts", layer: L.layerGroup(crypts) },
+
+                { label: "<img class='ico' src='images/icons/buildings/fort.png'/>\
+                Forts", layer: L.layerGroup(forts) },
+
+                { label: "<img class='ico' src='images/icons/buildings/lighthouse.png'/>\
+                Lighthouses", layer: L.layerGroup(lighthouses) },
+
+                { label: "<img class='ico' src='images/icons/buildings/stable.png'/>\
+                Stables", layer: L.layerGroup(stables) },
+
+                { label: "<img class='ico' src='images/icons/buildings/stronghold.png'/>\
+                Strongholds", layer: L.layerGroup(strongholds) },
+
+                { label: "<img class='ico' src='images/icons/buildings/tavern.png'/>\
+                Taverns", layer: L.layerGroup(taverns) },
+
+                { label: "<img class='ico' src='images/icons/buildings/temple.png'/>\
+                Temples", layer: L.layerGroup(temples) },
+
+                { label: "<img class='ico' src='images/icons/buildings/tower.png'/>\
+                Towers", layer: L.layerGroup(towers) },
+
+                { label: "<img class='ico' src='images/icons/buildings/windmill.png'/>\
+                Windmills", layer: L.layerGroup(windmills) }
+            ]},
+
+            {label: "LANDMARKS",
+            selectAllCheckbox: true,
+            children:[
+                { label: "<img class='ico' src='images/icons/landmarks/altar.png'/>\
+                Altars", layer: L.layerGroup(altars) }
+            ]},
+
+            {label: "LOCATIONS",
+            selectAllCheckbox: true,
+            children:[
+                { label: "<img class='ico' src='images/icons/locations/alchemist.png'/>\
+                Alchemists", layer: L.layerGroup(alchemists) }
+            ]},
+
+            {label: "SETTLEMENTS",
+            selectAllCheckbox: true,
+            children:[
+                { label: "<img class='ico' src='images/icons/settlements/city.png'/>\
+                Cities", layer: L.layerGroup(cities) },
+                { label: "<img class='ico' src='images/icons/settlements/town.png'/>\
+                Towns", layer: L.layerGroup(towns) }
             ]}
+            
         ]
     };
-    L.control.layers.tree(null, bruh).addTo(map);
+    L.control.layers.tree(null, legend).addTo(map)
+    //.collapseTree(true).expandSelected(true)
+    ;
     // LAYER GROUPS END
 
 </script>
