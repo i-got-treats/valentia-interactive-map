@@ -45,6 +45,59 @@
     font-size: 15px;
 }
 
+h1 span, h2 span {
+    display:inline-block;
+    position: absolute;
+    bottom: 0;
+    height: 350px;
+    text-align: center;
+    transform-origin: bottom center;
+    font-family: Xahn Mono;
+    font-weight: 400;
+    line-height: 70px;
+    text-shadow:-1px 0px 3px rgba(255, 255, 255, 0.2),
+                0px 1px 3px rgba(255, 255, 255, 0.2),
+                1px 0px 3px rgba(255, 255, 255, 0.2),
+                0px -1px 3px rgba(255, 255, 255, 0.2);
+    opacity: .9;
+    /*border: 1px solid rgba(255, 0, 0, 0.5);*/
+}
+/* ocean rotation */
+.ne_1 { transform: rotate(6deg); }
+.ne_2 { transform: rotate(12deg); }
+.ne_3 { transform: rotate(18deg); }
+.ne_4 { transform: rotate(24deg); }
+.ne_5 { transform: rotate(30deg); }
+.ne_6 { transform: rotate(36deg); }
+.ne_7 { transform: rotate(42deg); }
+.ne_8 { transform: rotate(48deg); }
+.ne_9 { transform: rotate(54deg); }
+.ne_10 { transform: rotate(60deg); }
+.ne_11 { transform: rotate(66deg); }
+.ne_12 { transform: rotate(72deg); }
+.ne_13 { transform: rotate(78deg); }
+.ne_14 { transform: rotate(84deg); }
+.ne_15 { transform: rotate(90deg); }
+.ne_16 { transform: rotate(96deg); }
+.ne_17 { transform: rotate(102deg); }
+
+.sw_1 { transform: rotate(210deg); }
+.sw_2 { transform: rotate(216deg); }
+.sw_3 { transform: rotate(222deg); }
+.sw_4 { transform: rotate(228deg); }
+.sw_5 { transform: rotate(234deg); }
+.sw_6 { transform: rotate(240deg); }
+.sw_7 { transform: rotate(246deg); }
+.sw_8 { transform: rotate(252deg); }
+.sw_9 { transform: rotate(258deg); }
+.sw_10 { transform: rotate(264deg); }
+.sw_11 { transform: rotate(270deg); }
+.sw_12 { transform: rotate(276deg); }
+.sw_13 { transform: rotate(282deg); }
+.sw_14 { transform: rotate(288deg); }
+.sw_15 { transform: rotate(294deg); }
+.sw_16 { transform: rotate(300deg); }
+
 /* GREEN COUNTRY WATER*/
 .winged_lions_sea{
     transform: rotate(-55deg);
@@ -52,6 +105,15 @@
 }
 .dalmation_gulf{
     transform: rotate(-5deg);
+}
+.the_great_tear{
+    transform: rotate(-80deg);
+    font-size: 20px;
+}
+
+/* YELLOW COUNTRY WATER*/
+.vistola{
+    font-size: 12px;
 }
 
 /* ESTORIA WATER */

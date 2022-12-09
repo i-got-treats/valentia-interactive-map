@@ -176,6 +176,11 @@
     /* =========================
        MARKERS and POPUPS
        =========================*/
+    var zoom0 = [];
+    var zoom1 = [];
+    var zoom2 = [];
+    var zoom3 = [];
+
     var latlngmarker = L.marker([-76, 94], {
         draggable:true,
         icon: doticon,
@@ -185,7 +190,7 @@
         latlngmarker.getPopup().setContent(e.latlng.toString())
     });
 
-    //BUILDINGS
+    // BUILDINGS
     var castles = [];
     var cathedrals = [];
     var colig = [];
@@ -198,11 +203,9 @@
     var temples = [];
     var towers = [];
     var windmills = [];
-    var buildings = [].concat(castles, cathedrals, colig, crypts, forts,
-                              lighthouses, stables, strongholds, taverns, temples,
-                              towers);
+    // BUILDINGS end
 
-    //LANDMARKS
+    // LANDMARKS
     var altars = [];
     var bridges = [];
     var dangerzones = [];
@@ -215,11 +218,9 @@
     var thorns = [];
     var waterfall = [];
     var whirlpool = [];
-    var landmarks = [].concat(altars, bridges, dangerzones, monoliths, obelisks, ruins,
-                              shipwrecks, shrines, standing_stones, thorns, waterfall,
-                              whirlpool, landmarks);
+    // LANDMARKS end
 
-    //LOCATIONS
+    // LOCATIONS
     var alchemists = [];
     var caves = [];
     var docs = [];
@@ -229,25 +230,46 @@
     var mines = [];
     var ravenskulls = [];
     var vineyards = [];
-    var locations = [].concat(alchemists, caves, docs, dungeons, forges, grainfarms, mines,
-                              ravenskulls, vineyards);
+    // LOCATIONS end
 
-    //SETTLEMENTS
+    // SETTLEMENTS
     var camps = [];
+
     var cities = []
+
     var silverport = (L.marker([-72, -117], {icon: city_i})
-    .bindPopup("<b>Silverport</b><br>\
-               ..."));
+    .bindPopup("<big>&#x1F661</big> <b>Silverport</b> <big>&#128611</big><br>\
+               An orc and an elf, who loved each other. A human who refused to execute a dwarven prisoner.\
+               They were the founders of the coastal city Silverport, home to the outcasts."));
     cities.push(silverport);
+    zoom1.push(silverport);
+
+    var the_grand_city_of_blackwater = (L.marker([71.928101, 41.484375], {icon: city_i})
+    .bindPopup("The Grand City of<br>\
+                <big>&#x1F661</big> <b>Blackwater</b> <big>&#128611</big><br>\
+               ..."));
+    cities.push(the_grand_city_of_blackwater);
+    zoom1.push(the_grand_city_of_blackwater);
+
     var hut_villages = [];
+
+    var bar_akh = (L.marker([76, 6], {icon: hut_village_i})
+    .bindPopup("<big>&#x1F661</big> <b>Bar-Akh</b> <big>&#128611</big><br>\
+               An Orc Village. Thronn's former home."));
+    zoom1.push(bar_akh);
+    hut_villages.push(bar_akh);
+
     var huts = [];
+
     var legion_camps = [];
+
     var towns = []
     towns.push(L.marker([-44, -47], {icon: town_i})
-    .bindPopup("<b>Dwarf Town</b><br>\
+    .bindPopup("<big>&#x1F661</big> <b>Bar-Akh</b> <big>&#128611</big><br>\
                 ..."));
+
     var villages = [];
-    var settlements = [].concat(camps, cities, hut_villages, huts, legion_camps, towns, villages);
+    // SETTLEMENTS end
     // MARKERS and POPUPS END
 
 
@@ -269,9 +291,6 @@
     /* =========================
        TOOLTIPS
        =========================*/
-    var zoom1 = [];
-    var zoom2 = [];
-    var zoom3 = [];
 
     // COUNTRIES
     var countries_options= ({direction: 'center', interactive: true, permanent: true, className: "countries"});
@@ -280,93 +299,163 @@
     .setContent('Estoria')
     .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
+    zoom0.push(estoria);
 
     var siberia = L.tooltip([35, -94], countries_options)
     .setContent('Siberia')
     .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
+    zoom0.push(siberia);
 
     var tova = L.tooltip([26, 80], countries_options)
     .setContent('Tova')
     .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
+    zoom0.push(tova);
 
     var storm_isles = L.tooltip([72, 63], countries_options)
     .setContent('Storm<br>Isles')
     .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
+    zoom0.push(storm_isles);
 
     var yellow_country = L.tooltip([-10, -18], countries_options)
     .setContent('Yellow<br>Country')
     .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
+    zoom0.push(yellow_country);
 
     var green_country = L.tooltip([-50, 61], countries_options)
     .setContent('Green<br>Country')
     .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
+    zoom0.push(green_country);
 
     var purple_country = L.tooltip([59, -14], countries_options)
     .setContent('Purple<br>Country')
     .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
+    zoom0.push(purple_country);
 
     // WATERS
-
     var water_options= ({direction: 'center', interactive: true, permanent: true, className: "water"});
+    var water_options_nopopup = ({direction: 'center', permanent: true, className: "water"});
+
+    var se_ocean = L.tooltip([4, -20], {direction: 'center', permanent: true, className: "water"}) //curving text, must remove pointer cursor, instead grabby mouse like everywhere else
+    .setContent("<h1>"+
+    "<span class='sw_1'>T</span>"+
+    "<span class='sw_2'>H</span>"+
+    "<span class='sw_3'>E</span>"+
+    "<span class='sw_4'> </span>"+
+    "<span class='sw_5'>T</span>"+
+    "<span class='sw_6'>I</span>"+
+    "<span class='sw_7'>N</span>"+
+    "<span class='sw_8'>T</span>"+
+    "<span class='sw_9'>E</span>"+
+    "<span class='sw_10'>D</span>"+
+    "<span class='sw_11'> </span>"+
+    "<span class='sw_12'>T</span>"+
+    "<span class='sw_13'>I</span>"+
+    "<span class='sw_14'>D</span>"+
+    "<span class='sw_15'>E</span>"+
+    "<span class='sw_16'>S</span>"+
+    "</h1>")
+    .addTo(map);
+    zoom0.push(se_ocean);
+
+    var nw_ocean = L.tooltip([4, -20], {direction: 'center', permanent: true, className: "water"})
+    .setContent("<h1>"+
+    "<span class='ne_1'>T</span>"+
+    "<span class='ne_2'>H</span>"+
+    "<span class='ne_3'>E</span>"+
+    "<span class='ne_4'> </span>"+
+    "<span class='ne_5'>S</span>"+
+    "<span class='ne_6'>A</span>"+
+    "<span class='ne_7'>V</span>"+
+    "<span class='ne_8'>A</span>"+
+    "<span class='ne_9'>G</span>"+
+    "<span class='ne_10'>E</span>"+
+    "<span class='ne_11'> </span>"+
+    "<span class='ne_12'>W</span>"+
+    "<span class='ne_13'>A</span>"+
+    "<span class='ne_14'>T</span>"+
+    "<span class='ne_15'>E</span>"+
+    "<span class='ne_16'>R</span>"+
+    "<span class='ne_17'>S</span>"+
+    "</h1>")
+    .addTo(map);
+    zoom0.push(nw_ocean);
+
+    var winged_lions_sea = L.tooltip([-35, 132], water_options_nopopup)
+    .setContent("<div class='winged_lions_sea'>Winged Lion's<br>Sea</div>");
+    zoom1.push(winged_lions_sea);
+
+    var the_great_tear = L.tooltip([-60, 2], water_options_nopopup)
+    .setContent("<div class='the_great_tear'>The Great Tear</div>");
+    zoom1.push(the_great_tear);
 
     // ESTORIA
-    var silver_bay = L.tooltip([-74.140276, -121.025391], water_options)
+    var silver_bay = L.tooltip([-74.140276, -121.025391], water_options_nopopup)
     .setContent("<div class='silver_bay'>Silver Bay</div>");
     zoom1.push(silver_bay);
 
     // GREEN COUNTRY
-    var winged_lions_sea = L.tooltip([-29, 124], water_options)
-    .setContent("<div class='winged_lions_sea'>Winged Lion's Sea</div>");
-    zoom1.push(winged_lions_sea);
 
-    var dalmation_gulf = L.tooltip([-30, 32], water_options)
+    var dalmation_gulf = L.tooltip([-30, 32], water_options_nopopup)
     .setContent("<div class='dalmation_gulf'>Dalmatian Gulf</div>");
     zoom1.push(dalmation_gulf);
 
-    var pp_lake = L.tooltip([-65.5, 77], water_options)
-    .setContent("PP Lake")
-    .bindPopup("A vaguely phallic shaped lake in the south of [green country].", {offset: [0, 0]})
-    ;
+    var satyr_bay = L.tooltip([-45.8, 23], water_options_nopopup)
+    .setContent("Satyr<br>Bay");
+    zoom2.push(satyr_bay);
+
+    var pp_lake = L.tooltip([-65.5, 77], water_options_nopopup)
+    .setContent("PP Lake");
     zoom1.push(pp_lake);
 
     var lovelets_crater = L.tooltip([-76.2, 58], water_options)
     .setContent("Lovelet's<br>Crater")
-    .bindPopup("A rounded body of freshwater, said to be created by the powerful mage 'Lovelet',\
+    .bindPopup("<big>&#x1F661</big> <b>Lovelet's Crater</b> <big>&#128611</big><br>\
+                A rounded body of freshwater, said to be created by the powerful mage 'Lovelet',\
                 who sent a comet filled with water into the desert. Some say they can 'taste the cosmos'.", {offset: [0, -6]})
     ;
     zoom2.push(lovelets_crater);
 
     var soaring_lagoon = L.tooltip([-74.7, 71], water_options)
     .setContent("Soaring<br>Lagoon")
-    .bindPopup("A grand exposed coral reef, too hot to even dip a toe in for common folk.\
+    .bindPopup("<big>&#x1F661</big> <b>Soaring Lagoon</b> <big>&#128611</big><br>\
+                A grand exposed coral reef, too hot to even dip a toe in for common folk.\
                 Legends speak of a dragon sleeping under the reef.", {offset: [0, -6]})
     zoom2.push(soaring_lagoon);
     ;
-    // GREEN COUNTRY waters END
+
+    // YELLOW COUNTRY
+
+    var vistola = L.tooltip([6, 3], water_options)
+    .setContent("<span class='vistola'>Vistola</span>")
+    zoom2.push(vistola);
+    ;
 
     // ISLANDS
     var island_options = ({direction: 'center', interactive: true, permanent: true, className: "island"});
 
     var fortune_island = L.tooltip([-37, 12], island_options)
     .setContent("Fortune<br>Island")
-    .bindPopup("A volcanic island.", {offset: [0,-12]});
+    .bindPopup("<big>&#x1F661</big> <b>Fortune Island</b> <big>&#128611</big><br>\
+                A volcanic island.", {offset: [0,-12]});
     zoom2.push(fortune_island);
 
     var harolds_boot = L.tooltip([-78.5, -137], island_options)
     .setContent("Harold's Boot")
-    .bindPopup("An island, vaguely the shape of a shoe. Under perfect conditions, Harold's Boot can be seen from Estoria's mainland.", {offset: [0,-6]});
+    .bindPopup("<big>&#x1F661</big> <b>Harold's Boot</b> <big>&#128611</big><br>\
+                An island, vaguely the shape of a shoe. Under perfect conditions, Harold's Boot can be seen from Estoria's mainland.", {offset: [0,-6]});
     zoom1.push(harolds_boot);
 
-    var hawkflight_island = L.tooltip([20, 150], island_options)
-    .setContent("Hawkflight<br>Island")
-    .bindPopup("An island, vaguely the shape of a shoe. Under perfect conditions, Harold's Boot can be seen from Estoria's mainland.", {offset: [0,-6]});
-    zoom1.push(hawkflight_island);
+    var hawk_island = L.tooltip([20, 150], island_options)
+    .setContent("Hawk<br>Island")
+    .bindPopup("<big>&#x1F661</big> <b>Hawk Island</b> <big>&#128611</big><br>\
+                Home of the Land. Brave of the Free.", {offset: [0,-6]});
+    zoom1.push(hawk_island);
 
     // TOOLTIPS END
 
@@ -392,10 +481,9 @@
        LAYER GROUPS
        =========================
     */
-   var countries = [estoria, siberia, storm_isles, tova, green_country, yellow_country, purple_country];
     //countries only appear on zoom level 0
     map.on('zoomend', function () {
-        L.layerGroup(countries).eachLayer(function (layer) {
+        L.layerGroup(zoom0).eachLayer(function (layer) {
             if (map.getZoom() > 1 && map.hasLayer(layer)) {
                 map.removeLayer(layer);
             }
@@ -440,7 +528,7 @@
     var forests = [];
     // forests only appear from zoom level 1
 
-    var lettering = [].concat(countries, zoom1, zoom2, zoom3);
+    var lettering = [].concat(zoom1, zoom2, zoom3);
     // opacity to .5 when opening letters popup
     L.layerGroup(lettering).eachLayer(function(layer){
         layer.on('popupopen', function(){
@@ -527,8 +615,7 @@
             
         ]
     };
-    L.control.layers.tree(null, legend).addTo(map)
-    //.collapseTree(true).expandSelected(true)
+    L.control.layers.tree(null, legend).addTo(map)//.collapseTree(true).expandSelected(true)
     ;
     // LAYER GROUPS END
 
