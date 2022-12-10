@@ -185,9 +185,27 @@
         draggable:true,
         icon: doticon,
         opacity: .5
-    }).bindPopup().addTo(map).
-    on('click', function(e){
+    }).bindPopup()
+    .on('click', function(e){
         latlngmarker.getPopup().setContent(e.latlng.toString())
+    });
+
+    var distance_try_1 = L.marker([81, -166], {
+        draggable:true,
+        icon: doticon,
+        opacity: 1
+    }).bindPopup().addTo(map)
+    .on('click', function(e){
+        distance_try_1.getPopup().setContent(map.distance([0,0], [1,1]).toString())
+    });
+
+    var distance_try_2 = L.marker([100, 0], {
+        draggable:true,
+        icon: doticon,
+        opacity: 1
+    }).bindPopup().addTo(map)
+    .on('click', function(e){
+        distance_try_2.getPopup().setContent('yah')
     });
 
     // BUILDINGS
@@ -595,6 +613,9 @@
         label: "EVERYTHING",
         selectAllCheckbox: true,
         children: [
+            {label: "(helpers)",
+            layer: L.layerGroup([latlngmarker]).addTo(map)},
+
             {label: "Lettering",
             layer: L.layerGroup(lettering)},
 
@@ -666,6 +687,9 @@
     L.control.layers.tree(null, legend).addTo(map)//.collapseTree(true).expandSelected(true)
     ;
     // LAYER GROUPS END
+    
+    removeLayer(zoom0);
+    addLayer(zoom0);
 
 </script>
 
