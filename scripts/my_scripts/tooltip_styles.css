@@ -113,7 +113,8 @@ h1 span, h2 span {
 
 /* YELLOW COUNTRY WATER*/
 .vistola{
-    font-size: 12px;
+    font-size: 13px;
+    transform: rotate(-30deg);
 }
 
 /* ESTORIA WATER */

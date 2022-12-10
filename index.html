@@ -129,7 +129,7 @@
     <!-- icons import-->
     <script src="scripts\my_scripts\icons.js"></script>
     <!-- rotations import -->
-    <link rel="stylesheet" href="scripts\my_scripts\rotations.css">
+    <link rel="stylesheet" href="scripts\my_scripts\tooltip_styles.css">
 
 </head>
 <body style="height: 100%; width:100%;  margin: 0;">
@@ -192,16 +192,33 @@
 
     // BUILDINGS
     var castles = [];
+
+    var marble_palace = (L.marker([-47.5, 58.8], {icon: castle_i})
+    .bindPopup("<big>&#x1F661</big> <b>Marble Palace</b> <big>&#128611</big><br>\
+            A small but beautiful palace made of marble for one Lord Petyre."));
+    castles.push(marble_palace);
+
+
     var cathedrals = [];
+
     var colig = [];
+
     var crypts = [];
+
     var forts = [];
+
     var lighthouses = [];
+
     var stables = [];
+
     var strongholds = [];
+
     var taverns = [];
+
     var temples = [];
+
     var towers = [];
+
     var windmills = [];
     // BUILDINGS end
 
@@ -235,11 +252,13 @@
     // SETTLEMENTS
     var camps = [];
 
+
     var cities = []
+
 
     var silverport = (L.marker([-72, -117], {icon: city_i})
     .bindPopup("<big>&#x1F661</big> <b>Silverport</b> <big>&#128611</big><br>\
-               An orc and an elf, who loved each other. A human who refused to execute a dwarven prisoner.\
+               An orc and an elf, who loved each other. A human and the dwarf whom he refused to execute.\
                They were the founders of the coastal city Silverport, home to the outcasts."));
     cities.push(silverport);
     zoom1.push(silverport);
@@ -251,7 +270,9 @@
     cities.push(the_grand_city_of_blackwater);
     zoom1.push(the_grand_city_of_blackwater);
 
+
     var hut_villages = [];
+    
 
     var bar_akh = (L.marker([76, 6], {icon: hut_village_i})
     .bindPopup("<big>&#x1F661</big> <b>Bar-Akh</b> <big>&#128611</big><br>\
@@ -259,16 +280,32 @@
     zoom1.push(bar_akh);
     hut_villages.push(bar_akh);
 
+
     var huts = [];
+
 
     var legion_camps = [];
 
-    var towns = []
+
+    var towns = [];
+
+    var aen_ethel = (L.marker([54, -9], {icon: castle_i})
+    .bindPopup("<big>&#x1F661</big> <b>Aen Ethél</b> <big>&#128611</big><br>\
+               ..."));
+    towns.push(aen_ethel);
+    zoom1.push(aen_ethel);
+
     towns.push(L.marker([-44, -47], {icon: town_i})
-    .bindPopup("<big>&#x1F661</big> <b>Bar-Akh</b> <big>&#128611</big><br>\
-                ..."));
+    .bindPopup("<big>&#x1F661</big> <b>Khir Burim</b> <big>&#128611</big><br>\
+                A dwarf town."));
+
 
     var villages = [];
+    var yabuonna = (L.marker([-39.5, 56], {icon: village_i})
+    .bindPopup("<big>&#x1F661</big> <b>Yabuonna</b> <big>&#128611</big><br>\
+               A pretty village known for its apple farm. Tytus' home."));
+    villages.push(yabuonna);
+    zoom1.push(yabuonna);
     // SETTLEMENTS end
     // MARKERS and POPUPS END
 
@@ -401,6 +438,11 @@
 
     // GREEN COUNTRY
 
+    var vistola = L.tooltip([-34.451909, 56.601563], water_options_nopopup)
+    .setContent("<div class='vistola'>Vistola</div>")
+    zoom3.push(vistola);
+    ;
+
     var dalmation_gulf = L.tooltip([-30, 32], water_options_nopopup)
     .setContent("<div class='dalmation_gulf'>Dalmatian Gulf</div>");
     zoom1.push(dalmation_gulf);
@@ -430,11 +472,6 @@
     ;
 
     // YELLOW COUNTRY
-
-    var vistola = L.tooltip([6, 3], water_options)
-    .setContent("<span class='vistola'>Vistola</span>")
-    zoom2.push(vistola);
-    ;
 
     // ISLANDS
     var island_options = ({direction: 'center', interactive: true, permanent: true, className: "island"});
@@ -518,6 +555,17 @@
     });
 
     // appear from zoom level 3 on
+    map.on('zoomend', function () {
+        L.layerGroup(zoom3).eachLayer(function (layer) {
+            if (map.getZoom() < 4 && map.hasLayer(layer)) {
+                map.removeLayer(layer);
+            }
+            if (map.getZoom() > 3 && map.hasLayer(layer) == false){
+                map.addLayer(layer);
+            }
+        })
+    });
+
 
     var rivers = [];
     // rivers only appear from zoom level 1
