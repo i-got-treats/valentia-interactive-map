@@ -181,6 +181,16 @@
     var zoom2 = [];
     var zoom3 = [];
 
+    // HELPERS
+
+    function distance_adjust(distance) {
+        return Math.round(distance*0.000041);
+    }
+
+    function distance_to_walkinghours(distance) {
+        return Math.floor((distance_adjust(distance)/3.5)/24) + ' days and ' + Math.round(distance_adjust(distance)/3.5)%24 + ' hours';
+    }
+
     var latlngmarker = L.marker([-76, 94], {
         draggable:true,
         icon: doticon,
@@ -190,23 +200,33 @@
         latlngmarker.getPopup().setContent(e.latlng.toString())
     });
 
-    var distance_try_1 = L.marker([81, -166], {
+    var distance_marker_1 = L.marker([76, 6], {
         draggable:true,
-        icon: doticon,
-        opacity: 1
-    }).bindPopup().addTo(map)
+        icon: x_marker,
+        opacity: .8
+    }).bindPopup()
     .on('click', function(e){
-        distance_try_1.getPopup().setContent(map.distance([0,0], [1,1]).toString())
+        distance_marker_1.getPopup().setContent(
+            '<b>Distance</b>:<br> ' + distance_adjust(map.distance(e.latlng, distance_marker_2.getLatLng())).toString() + 'km<br><br>'+
+            '<b>Walking Time</b>:<br> ' + distance_to_walkinghours(map.distance(e.latlng, distance_marker_2.getLatLng())).toString()
+            )
     });
 
-    var distance_try_2 = L.marker([100, 0], {
+    var distance_marker_2 = L.marker([-72, -117], {
+        riseOnHover: true,
         draggable:true,
-        icon: doticon,
-        opacity: 1
-    }).bindPopup().addTo(map)
+        icon: y_marker,
+        opacity: .8
+    }).bindPopup()
     .on('click', function(e){
-        distance_try_2.getPopup().setContent('yah')
+        distance_marker_2.getPopup().setContent(
+            '<b>Distance</b>:<br> ' + distance_adjust(map.distance(e.latlng, distance_marker_1.getLatLng())).toString() + 'km<br><br>'+
+            '<b>Walking Time</b>:<br> ' + distance_to_walkinghours(map.distance(e.latlng, distance_marker_1.getLatLng())).toString()
+            )
     });
+
+    var helpers = [latlngmarker, distance_marker_1, distance_marker_2]
+
 
     // BUILDINGS
     var castles = [];
@@ -536,6 +556,7 @@
        LAYER GROUPS
        =========================
     */
+    // ZOOMS
     //countries only appear on zoom level 0
     map.on('zoomend', function () {
         L.layerGroup(zoom0).eachLayer(function (layer) {
@@ -594,7 +615,7 @@
     var forests = [];
     // forests only appear from zoom level 1
 
-    var lettering = [].concat(zoom1, zoom2, zoom3);
+    var lettering = [].concat(zoom0, zoom1, zoom2, zoom3);
     // opacity to .5 when opening letters popup
     L.layerGroup(lettering).eachLayer(function(layer){
         layer.on('popupopen', function(){
@@ -614,7 +635,7 @@
         selectAllCheckbox: true,
         children: [
             {label: "(helpers)",
-            layer: L.layerGroup([latlngmarker]).addTo(map)},
+            layer: L.layerGroup(helpers)},
 
             {label: "Lettering",
             layer: L.layerGroup(lettering)},
@@ -687,9 +708,6 @@
     L.control.layers.tree(null, legend).addTo(map)//.collapseTree(true).expandSelected(true)
     ;
     // LAYER GROUPS END
-    
-    closeTooltip(zoom0);
-    openTooltip(zoom0);
 
 </script>
 

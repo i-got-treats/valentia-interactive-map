@@ -4,7 +4,15 @@ var p_anchor = [0, -26];
 
 var doticon = L.icon({
     iconUrl: 'images/icons/unused/dot.png',
-    iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
+    iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor})
+
+var x_marker = L.icon({
+    iconUrl: 'images/icons/unused/x_marker.png',
+    iconSize: [20, 20], iconAnchor: [10, 10], popupAnchor: [0, -16]});
+
+var y_marker = L.icon({
+    iconUrl: 'images/icons/unused/y_marker.png',
+    iconSize: [20, 20], iconAnchor: [10, 10], popupAnchor: [0, -16]});
 
 
 /* BUILDINGS */
