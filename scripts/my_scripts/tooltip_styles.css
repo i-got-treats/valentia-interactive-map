@@ -42,7 +42,7 @@
                 1px 0px 1px rgba(255, 255, 255, 0.4),
                 0px -1px 1px rgba(255, 255, 255, 0.4);
     color:rgba(38, 44, 75, 0.8)!important;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 h1 span, h2 span {
@@ -108,7 +108,7 @@ h1 span, h2 span {
 }
 .the_great_tear{
     transform: rotate(-80deg);
-    font-size: 20px;
+    font-size: 23px;
 }
 
 /* YELLOW COUNTRY WATER*/

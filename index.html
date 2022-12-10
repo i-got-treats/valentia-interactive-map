@@ -196,8 +196,10 @@
         icon: doticon,
         opacity: .5
     }).bindPopup()
+    .addTo(map)
     .on('click', function(e){
-        latlngmarker.getPopup().setContent(e.latlng.toString())
+        latlngmarker.getPopup().setContent(Math.round(e.latlng.lat.toFixed(1)) +
+                                           ", " +  Math.round(e.latlng.lng.toFixed(1)))
     });
 
     var distance_marker_1 = L.marker([76, 6], {
@@ -280,13 +282,57 @@
 
     // LOCATIONS
     var alchemists = [];
+
     var caves = [];
+
     var docs = [];
+
     var dungeons = [];
+
     var forges = [];
+
     var grainfarms = [];
+
     var mines = [];
+
     var ravenskulls = [];
+
+    var yellow_ravenskulls = (L.marker([-3, -60], {icon: ravenskull_i})
+    .bindPopup("<big>&#x1F661</big> <b>Ravenskull Hideout</b> <big>&#128611</big><br>\
+            ..."));
+    ravenskulls.push(yellow_ravenskulls);
+    zoom3.push(yellow_ravenskulls);
+
+    var siberia_ravenskulls = (L.marker([21, -138], {icon: ravenskull_i})
+    .bindPopup("<big>&#x1F661</big> <b>Ravenskull Hideout</b> <big>&#128611</big><br>\
+            ..."));
+    ravenskulls.push(siberia_ravenskulls);
+    zoom3.push(siberia_ravenskulls);
+
+    var green_ravenskulls_1 = (L.marker([-25, 70], {icon: ravenskull_i})
+    .bindPopup("<big>&#x1F661</big> <b>Ravenskull Hideout</b> <big>&#128611</big><br>\
+            ..."));
+    ravenskulls.push(green_ravenskulls_1);
+    zoom3.push(green_ravenskulls_1);
+
+    var green_ravenskulls_2 = (L.marker([-66, 67], {icon: ravenskull_i})
+    .bindPopup("<big>&#x1F661</big> <b>Ravenskull Hideout</b> <big>&#128611</big><br>\
+            ..."));
+    ravenskulls.push(green_ravenskulls_2);
+    zoom3.push(green_ravenskulls_2);
+
+    var storm_isles_ravenskulls = (L.marker([66, 61], {icon: ravenskull_i})
+    .bindPopup("<big>&#x1F661</big> <b>Ravenskull Hideout</b> <big>&#128611</big><br>\
+            ..."));
+    ravenskulls.push(storm_isles_ravenskulls);
+    zoom3.push(storm_isles_ravenskulls);
+
+    var tova_ravenskulls = (L.marker([20, 117], {icon: ravenskull_i})
+    .bindPopup("<big>&#x1F661</big> <b>Ravenskull Hideout</b> <big>&#128611</big><br>\
+            ..."));
+    ravenskulls.push(tova_ravenskulls);
+    zoom3.push(tova_ravenskulls);
+
     var vineyards = [];
     // LOCATIONS end
 
@@ -304,7 +350,7 @@
     cities.push(silverport);
     zoom1.push(silverport);
 
-    var the_grand_city_of_blackwater = (L.marker([71.928101, 41.484375], {icon: city_i})
+    var the_grand_city_of_blackwater = (L.marker([72, 45], {icon: city_i})
     .bindPopup("The Grand City of<br>\
                 <big>&#x1F661</big> <b>Blackwater</b> <big>&#128611</big><br>\
                ..."));
@@ -491,6 +537,11 @@
     .setContent("<div class='silver_bay'>Silver Bay</div>");
     waters.push(silver_bay);
     zoom1.push(silver_bay);
+
+    var the_little_tear = L.tooltip([-70.844304, -85.517578], water_options)
+    .setContent("The<br>Little<br>Tear");
+    waters.push(the_little_tear);
+    zoom1.push(the_little_tear);
 
     // GREEN COUNTRY
 
@@ -718,7 +769,9 @@
             selectAllCheckbox: true,
             children:[
                 { label: "<img class='ico' src='images/icons/locations/alchemist.png'/>\
-                Alchemists", layer: L.layerGroup(alchemists) }
+                Alchemists", layer: L.layerGroup(alchemists) },
+                { label: "<img class='ico' src='images/icons/locations/ravenskull.png'/>\
+                Ravenskulls", layer: L.layerGroup(ravenskulls) }
             ]},
 
             {label: "SETTLEMENTS",

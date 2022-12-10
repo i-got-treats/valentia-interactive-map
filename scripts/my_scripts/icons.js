@@ -1,6 +1,6 @@
-var i_size = [46, 40];
-var i_anchor = [23, 20];
-var p_anchor = [0, -26];
+var i_size = [36, 32];
+var i_anchor = [18, 16];
+var p_anchor = [0, -22];
 
 var doticon = L.icon({
     iconUrl: 'images/icons/unused/dot.png',
@@ -183,9 +183,9 @@ var camp_i = L.icon({
 
 var city_i = L.icon({
     iconUrl: 'images/icons/settlements/city.png',
-    iconSize: [85, 60],
-    iconAnchor: [42, 30],
-    popupAnchor: [0, -36]});
+    iconSize: [70, 50],
+    iconAnchor: [35, 25],
+    popupAnchor: [0, -31]});
 
 var hut_village_i = L.icon({
     iconUrl: 'images/icons/settlements/hut_village.png',
