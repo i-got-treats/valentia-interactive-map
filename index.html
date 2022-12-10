@@ -22,11 +22,6 @@
             height: 0px!important;
         }
         .leaflet-control-layers {
-            /*overflow-y: auto;
-            max-height: 95%;
-            max-height: 95vh;
-            position: sticky!important;
-            width: auto;*/
             color:rgba(0, 0, 0, 0.4)!important;
             opacity: 0.5;
             background-color: rgba(197, 212, 221, 0.8)!important;
@@ -50,7 +45,7 @@
             color:rgba(0, 0, 0, 0.7) !important;
             font-weight: bold;
         }
-        /* hoping to get the icon over the checkbox */
+        /* layericon */
         .ico{
             vertical-align: middle;
             height: 17px;
@@ -119,9 +114,6 @@
     <!-- leflet import -->
     <link rel="stylesheet" href="scripts\leaflet\leaflet.css">
     <script src="scripts\leaflet\leaflet.js"></script>
-    <!-- grouped layer import
-    <link rel="stylesheet" href="scripts\dist\leaflet.groupedlayercontrol.min.css">
-    <script src="scripts\dist\leaflet.groupedlayercontrol.min.js"></script>-->
     <!-- tree import-->
     <link rel="stylesheet" href="scripts\tree\L.Control.Layers.Tree.css">
     <script src="scripts\tree\L.Control.Layers.Tree.js"></script>
@@ -419,54 +411,39 @@
     // COUNTRIES
     var countries_options= ({direction: 'center', interactive: true, className: "countries"});
 
-    var countries = []
     var estoria = L.tooltip([-58, -68], countries_options)
     .setContent('Estoria')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
-    countries.push(estoria);
     zoom0.push(estoria);
 
     var siberia = L.tooltip([35, -94], countries_options)
     .setContent('Siberia')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
-    countries.push(siberia);
     zoom0.push(siberia);
 
     var tova = L.tooltip([26, 80], countries_options)
     .setContent('Tova')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
-    countries.push(tova);
     zoom0.push(tova);
 
     var storm_isles = L.tooltip([72, 63], countries_options)
     .setContent('Storm<br>Isles')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
-    countries.push(storm_isles);
     zoom0.push(storm_isles);
 
     var yellow_country = L.tooltip([-10, -18], countries_options)
     .setContent('Yellow<br>Country')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
-    countries.push(yellow_country);
     zoom0.push(yellow_country);
 
     var green_country = L.tooltip([-50, 61], countries_options)
     .setContent('Green<br>Country')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
-    countries.push(green_country);
     zoom0.push(green_country);
 
     var purple_country = L.tooltip([59, -14], countries_options)
     .setContent('Purple<br>Country')
-    .addTo(map)
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
-    countries.push(purple_country);
     zoom0.push(purple_country);
 
     // WATERS
@@ -494,8 +471,6 @@
     "<span class='sw_15'>E</span>"+
     "<span class='sw_16'>S</span>"+
     "</h1>")
-    .addTo(map);
-    waters.push(se_ocean);
     zoom0.push(se_ocean);
 
     var nw_ocean = L.tooltip([4, -20], {direction: 'center', className: "water"})
@@ -518,8 +493,6 @@
     "<span class='ne_16'>R</span>"+
     "<span class='ne_17'>S</span>"+
     "</h1>")
-    .addTo(map);
-    waters.push(nw_ocean);
     zoom0.push(nw_ocean);
 
     var winged_lions_sea = L.tooltip([-35, 132], water_options_nopopup)
@@ -577,7 +550,7 @@
     .setContent("Soaring<br>Lagoon")
     .bindPopup("<big>&#x1F661</big> <b>Soaring Lagoon</b> <big>&#128611</big><br>\
                 A grand exposed coral reef, too hot to even dip a toe in for common folk.\
-                Legends speak of a dragon sleeping under the reef.", {offset: [0, -6]});
+                ddddddd speak of a dragon sleeping under the reef.", {offset: [0, -6]});
     waters.push(soaring_lagoon);
     zoom2.push(soaring_lagoon);
 
@@ -636,6 +609,7 @@
     */
     // ZOOMS
     //countries only appear on zoom level 0
+    /*
     map.on('zoomend', function () {
         L.layerGroup(zoom0).eachLayer(function (layer) {
             if (map.getZoom() > 1 && map.hasLayer(layer)) {
@@ -682,6 +656,7 @@
             }
         })
     });
+    */
 
 
     var rivers = [];
@@ -693,7 +668,7 @@
     var forests = [];
     // forests only appear from zoom level 1
 
-    var lettering = [].concat(countries, waters, islands);
+    var lettering = [].concat(waters, islands);
     // opacity to .5 when opening letters popup
     L.layerGroup(lettering).eachLayer(function(layer){
         layer.on('popupopen', function(){
@@ -708,6 +683,62 @@
         LEGEND
         ===================
     */
+
+    function change() {
+        var decider = document.getElementById('switch');
+        // ZOOMS
+        //countries only appear on zoom level 0
+        map.on('zoomend', function () {
+            L.layerGroup(zoom0).eachLayer(function (layer) {
+                if (map.getZoom() > 1 && map.hasLayer(layer) && decider.checked) {
+                    map.removeLayer(layer);
+                }
+                if (map.getZoom() < 2 && map.hasLayer(layer) == false && decider.checked){
+                    map.addLayer(layer);
+                }
+            })
+        });
+
+        // appear from zoom level 1 on
+        map.on('zoomend', function () {
+            L.layerGroup(zoom1).eachLayer(function (layer) {
+                if (map.getZoom() == 1 && map.hasLayer(layer) && decider.checked) {
+                    map.removeLayer(layer);
+                }
+                if (map.getZoom() > 1 && map.hasLayer(layer) == false && decider.checked){
+                    map.addLayer(layer);
+                }
+            })
+        });
+
+        // appear from zoom level 2 on
+        map.on('zoomend', function () {
+            L.layerGroup(zoom2).eachLayer(function (layer) {
+                if (map.getZoom() < 3 && map.hasLayer(layer) && decider.checked) {
+                    map.removeLayer(layer);
+                }
+                if (map.getZoom() > 2 && map.hasLayer(layer) == false && decider.checked){
+                    map.addLayer(layer);
+                }
+            })
+        });
+
+        // appear from zoom level 3 on
+        map.on('zoomend', function () {
+            L.layerGroup(zoom3).eachLayer(function (layer) {
+                if (map.getZoom() < 4 && map.hasLayer(layer) && decider.checked) {
+                    map.removeLayer(layer);
+                }
+                if (map.getZoom() > 3 && map.hasLayer(layer) == false && decider.checked){
+                    map.addLayer(layer);
+                }
+            })
+        });
+    };
+    
+   var bruh={
+        label: '<input type="checkbox" id="switch" onclick="change()"/> zoom-activated visibility',
+   }
     var legend = {
         label: "EVERYTHING",
         selectAllCheckbox: true,
@@ -715,8 +746,7 @@
             {label: "(helpers)",
             layer: L.layerGroup(helpers)},
 
-            {label: "Lettering",
-            layer: L.layerGroup(lettering)},
+            {label: "Lettering", layer: L.layerGroup(lettering)},
 
             {label: "BUILDINGS",
             selectAllCheckbox: true,
@@ -785,8 +815,9 @@
             
         ]
     };
-    L.control.layers.tree(null, legend).addTo(map)//.collapseTree(true).expandSelected(true)
+    L.control.layers.tree(bruh, legend).addTo(map)//.collapseTree(true).expandSelected(true)
     ;
+    document.getElementById('switch').click()
     // LAYER GROUPS END
 
 </script>
