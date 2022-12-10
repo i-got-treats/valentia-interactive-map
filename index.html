@@ -417,7 +417,7 @@
        =========================*/
 
     // COUNTRIES
-    var countries_options= ({direction: 'center', interactive: true, permanent: true, className: "countries"});
+    var countries_options= ({direction: 'center', interactive: true, className: "countries"});
 
     var countries = []
     var estoria = L.tooltip([-58, -68], countries_options)
@@ -475,7 +475,7 @@
 
     var waters = [];
 
-    var se_ocean = L.tooltip([4, -20], {direction: 'center', permanent: true, className: "water"}) //curving text, must remove pointer cursor, instead grabby mouse like everywhere else
+    var se_ocean = L.tooltip([4, -20], {direction: 'center', className: "water"}) //curving text, must remove pointer cursor, instead grabby mouse like everywhere else
     .setContent("<h1>"+
     "<span class='sw_1'>T</span>"+
     "<span class='sw_2'>H</span>"+
@@ -498,7 +498,7 @@
     waters.push(se_ocean);
     zoom0.push(se_ocean);
 
-    var nw_ocean = L.tooltip([4, -20], {direction: 'center', permanent: true, className: "water"})
+    var nw_ocean = L.tooltip([4, -20], {direction: 'center', className: "water"})
     .setContent("<h1>"+
     "<span class='ne_1'>T</span>"+
     "<span class='ne_2'>H</span>"+
