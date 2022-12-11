@@ -670,13 +670,13 @@
     // forests only appear from zoom level 1
 
     var lettering = [].concat(waters, islands, canyons);
-    // opacity to .5 when opening letters popup
+    /*opacity to .5 when opening letters popup
     L.layerGroup(lettering).eachLayer(function(layer){
-        layer.on('popupopen', function(){
+        layer.on('mouseover', function(){
             layer.setOpacity(.3)}),
-        layer.on('popupclose', function(){
+        layer.on('mouseout', function(){
             layer.setOpacity(1)})
-    });
+    });*/
 
 
 
