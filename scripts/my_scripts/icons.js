@@ -162,6 +162,10 @@ var graveyard_i = L.icon({
     iconUrl: 'images/icons/locations/graveyard.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
+var hut_i = L.icon({
+    iconUrl: 'images/icons/locations/hut.png',
+    iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
+
 var mine_i = L.icon({
     iconUrl: 'images/icons/locations/mine.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
@@ -189,10 +193,6 @@ var city_i = L.icon({
 
 var hut_village_i = L.icon({
     iconUrl: 'images/icons/settlements/hut_village.png',
-    iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
-
-var hut_i = L.icon({
-    iconUrl: 'images/icons/buildings/hut.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
 var legion_camp_i = L.icon({
