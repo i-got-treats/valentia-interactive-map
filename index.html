@@ -2,8 +2,14 @@
 <html style="height: 100%; width:100%; margin: 0;">
 <head>
     <style>
-        /* zoom button style*/
-        
+        /*markers lower opacity on hover*/
+        .leaflet-marker-icon{
+            transition: 1s ease-in-out;
+        }
+        .leaflet-marker-icon:hover{
+            opacity: .3;
+        }
+        /* zoom button style (? is it? have no memory of making this) */
         .leaflet-bar a {
             background-color: rgba(255, 255, 255, 0.4)!important;
         }
@@ -450,34 +456,41 @@
        =========================*/
 
     // COUNTRIES
-    var countries_options= ({direction: 'center', interactive: false, className: "countries"});
+    var countries_options= ({direction: 'center', permanent: true, interactive: true, className: "countries"});
 
     var estoria = L.tooltip([-58, -68], countries_options)
-    .setContent('Estoria');
+    .setContent('Estoria')
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
     zoom0.push(estoria);
 
     var siberia = L.tooltip([35, -94], countries_options)
-    .setContent('Siberia');
+    .setContent('Siberia')
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
     zoom0.push(siberia);
 
     var tova = L.tooltip([26, 80], countries_options)
-    .setContent('Tova');
+    .setContent('Tova')
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
     zoom0.push(tova);
 
     var storm_isles = L.tooltip([72, 63], countries_options)
-    .setContent('Storm<br>Isles');
+    .setContent('Storm<br>Isles')
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
     zoom0.push(storm_isles);
 
     var yellow_country = L.tooltip([-10, -18], countries_options)
-    .setContent('Yellow<br>Country');
+    .setContent('Yellow<br>Country')
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
     zoom0.push(yellow_country);
 
     var green_country = L.tooltip([-50, 61], countries_options)
-    .setContent('Green<br>Country');
+    .setContent('Green<br>Country')
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
     zoom0.push(green_country);
 
     var purple_country = L.tooltip([59, -14], countries_options)
-    .setContent('Purple<br>Country');
+    .setContent('Purple<br>Country')
+    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
     zoom0.push(purple_country);
 
     // WATERS
@@ -486,7 +499,7 @@
 
     var waters = [];
 
-    var se_ocean = L.tooltip([4, -20], {direction: 'center', className: "water"}) //curving text, must remove pointer cursor, instead grabby mouse like everywhere else
+    var se_ocean = L.tooltip([4, -20], {direction: 'center', className: "water", permanent: true}) //curving text, must remove pointer cursor, instead grabby mouse like everywhere else
     .setContent("<h1>"+
     "<span class='sw_1'>T</span>"+
     "<span class='sw_2'>H</span>"+
@@ -507,58 +520,98 @@
     "</h1>")
     zoom0.push(se_ocean);
 
-    var nw_ocean = L.tooltip([4, -20], {direction: 'center', className: "water"})
+    var nw_ocean = L.tooltip([4, -20], {direction: 'center', className: "water", permanent: true})
     .setContent("<h1>"+
-    "<span class='ne_1'>T</span>"+
-    "<span class='ne_2'>H</span>"+
-    "<span class='ne_3'>E</span>"+
-    "<span class='ne_4'> </span>"+
-    "<span class='ne_5'>S</span>"+
-    "<span class='ne_6'>A</span>"+
-    "<span class='ne_7'>V</span>"+
-    "<span class='ne_8'>A</span>"+
-    "<span class='ne_9'>G</span>"+
-    "<span class='ne_10'>E</span>"+
-    "<span class='ne_11'> </span>"+
-    "<span class='ne_12'>W</span>"+
-    "<span class='ne_13'>A</span>"+
-    "<span class='ne_14'>T</span>"+
-    "<span class='ne_15'>E</span>"+
-    "<span class='ne_16'>R</span>"+
-    "<span class='ne_17'>S</span>"+
+    "<span class='ne_1'> </span>"+
+    "<span class='ne_2'>T</span>"+
+    "<span class='ne_3'>H</span>"+
+    "<span class='ne_4'>E</span>"+
+    "<span class='ne_5'> </span>"+
+    "<span class='ne_6'>S</span>"+
+    "<span class='ne_7'>A</span>"+
+    "<span class='ne_8'>V</span>"+
+    "<span class='ne_9'>A</span>"+
+    "<span class='ne_10'>G</span>"+
+    "<span class='ne_11'>E</span>"+
+    "<span class='ne_12'> </span>"+
+    "<span class='ne_13'>S</span>"+
+    "<span class='ne_14'>E</span>"+
+    "<span class='ne_15'>A</span>"+
+    "<span class='ne_16'>S</span>"+
+    "<span class='ne_17'> </span>"+
     "</h1>")
     zoom0.push(nw_ocean);
 
     var winged_lions_sea = L.tooltip([-35, 132], water_options_nopopup)
-    .setContent("<div class='winged_lions_sea'>Winged Lion's<br>Sea</div>");
+    .setContent("<div style='transform: rotate(-55deg); font-size: 28px;'>Winged Lion's<br>Sea</div>");
     waters.push(winged_lions_sea);
     zoom1.push(winged_lions_sea);
 
     var the_great_tear = L.tooltip([-60, 2], water_options_nopopup)
-    .setContent("<div class='the_great_tear'>The Great Tear</div>");
+    .setContent("<div style='transform: rotate(-80deg); font-size: 23px;'>The Great Tear</div>");
     waters.push(the_great_tear);
     zoom1.push(the_great_tear);
 
     // ESTORIA
-    var silver_bay = L.tooltip([-74.140276, -121.025391], water_options_nopopup)
-    .setContent("<div class='silver_bay'>Silver Bay</div>");
+    var rivera = L.tooltip([-52.9, -75], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(-10deg);'>Rivera</div>");
+    waters.push(rivera);
+    zoom3.push(rivera);
+
+    var scava = L.tooltip([-49.4, -95.5], water_options_nopopup)
+    .setContent("<div style='font-size: 13px'>Scava</div>");
+    waters.push(scava);
+    zoom3.push(scava);
+
+    var scavetta = L.tooltip([-46.7, -102.7], water_options_nopopup)
+    .setContent("<div style='font-size: 11px; transform: rotate(65deg);'>Scavetta</div>");
+    waters.push(scavetta);
+    zoom3.push(scavetta);
+
+    var tovera = L.tooltip([-65.4, -96], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(25deg);'>Tovera</div>");
+    waters.push(tovera);
+    zoom3.push(tovera);
+
+    var silver_bay = L.tooltip([-74, -121], water_options_nopopup)
+    .setContent("<div style='transform: rotate(24deg);'>Silver Bay</div>");
     waters.push(silver_bay);
     zoom1.push(silver_bay);
 
-    var the_little_tear = L.tooltip([-70.844304, -85.517578], water_options_nopopup)
+    var the_little_tear = L.tooltip([-71, -85.5], water_options_nopopup)
     .setContent("The<br>Little<br>Tear");
     waters.push(the_little_tear);
     zoom1.push(the_little_tear);
 
     // GREEN COUNTRY
 
-    var vistola = L.tooltip([-34.451909, 56.601563], water_options_nopopup)
-    .setContent("<div class='vistola'>Vistola</div>");
+    var noche = L.tooltip([-15.5, 83.5], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(-10deg);'>Noche</div>");
+    waters.push(noche);
+    zoom3.push(noche);
+
+    var passio = L.tooltip([-21.5, 85.5], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(34deg);'>Passio</div>");
+    waters.push(passio);
+    zoom3.push(passio);
+
+    var sacrato = L.tooltip([-16.4, 69], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(-34deg);'>Sacrato</div>");
+    waters.push(sacrato);
+    zoom3.push(sacrato);
+
+    var consacrato = L.tooltip([-34.4, 70.8], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(30deg);'>Consacrato</div>");
+    waters.push(consacrato);
+    zoom3.push(consacrato);
+
+    var vistola = L.tooltip([-44, 54.2], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(70deg);'>Vistola</div>");
     waters.push(vistola);
     zoom3.push(vistola);
 
     var dalmation_gulf = L.tooltip([-30, 32], water_options_nopopup)
-    .setContent("<div class='dalmation_gulf'>Dalmatian Gulf</div>");
+    .setContent("<div style='transform: rotate(-5deg);'>Dalmatian Gulf</div>");
     waters.push(dalmation_gulf);
     zoom1.push(dalmation_gulf);
 
@@ -589,6 +642,23 @@
     zoom2.push(soaring_lagoon);
 
     // YELLOW COUNTRY
+
+    var nokte = L.tooltip([8.2, 110.5], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(-20deg);'>Nokte</div>");
+    waters.push(nokte);
+    zoom3.push(nokte);
+
+    var patto = L.tooltip([1, 108.4], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(94deg);'>Patto</div>");
+    waters.push(patto);
+    zoom3.push(patto);
+
+    // PURPLE COUNTRY
+
+    var the_dancing_creek = L.tooltip([73.5, 10], water_options_nopopup)
+    .setContent("<div style='font-size: 11px; transform: rotate(0deg);'>The<br>Dancing<br>Creek</div>");
+    waters.push(the_dancing_creek);
+    zoom3.push(the_dancing_creek);
 
     // ISLANDS
     var island_options = ({direction: 'center', interactive: true, permanent: true, className: "inland"});

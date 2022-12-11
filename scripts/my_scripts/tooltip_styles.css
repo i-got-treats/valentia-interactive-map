@@ -102,27 +102,3 @@ h1 span, h2 span {
 .sw_14 { transform: rotate(288deg); }
 .sw_15 { transform: rotate(294deg); }
 .sw_16 { transform: rotate(300deg); }
-
-/* GREEN COUNTRY WATER*/
-.winged_lions_sea{
-    transform: rotate(-55deg);
-    font-size: 28px;
-}
-.dalmation_gulf{
-    transform: rotate(-5deg);
-}
-.the_great_tear{
-    transform: rotate(-80deg);
-    font-size: 23px;
-}
-
-/* YELLOW COUNTRY WATER*/
-.vistola{
-    font-size: 13px;
-    transform: rotate(-30deg);
-}
-
-/* ESTORIA WATER */
-.silver_bay{
-    transform: rotate(24deg);
-}
