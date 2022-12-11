@@ -450,41 +450,34 @@
        =========================*/
 
     // COUNTRIES
-    var countries_options= ({direction: 'center', interactive: true, className: "countries"});
+    var countries_options= ({direction: 'center', interactive: false, className: "countries"});
 
     var estoria = L.tooltip([-58, -68], countries_options)
-    .setContent('Estoria')
-    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
+    .setContent('Estoria');
     zoom0.push(estoria);
 
     var siberia = L.tooltip([35, -94], countries_options)
-    .setContent('Siberia')
-    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
+    .setContent('Siberia');
     zoom0.push(siberia);
 
     var tova = L.tooltip([26, 80], countries_options)
-    .setContent('Tova')
-    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
+    .setContent('Tova');
     zoom0.push(tova);
 
     var storm_isles = L.tooltip([72, 63], countries_options)
-    .setContent('Storm<br>Isles')
-    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
+    .setContent('Storm<br>Isles');
     zoom0.push(storm_isles);
 
     var yellow_country = L.tooltip([-10, -18], countries_options)
-    .setContent('Yellow<br>Country')
-    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
+    .setContent('Yellow<br>Country');
     zoom0.push(yellow_country);
 
     var green_country = L.tooltip([-50, 61], countries_options)
-    .setContent('Green<br>Country')
-    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
+    .setContent('Green<br>Country');
     zoom0.push(green_country);
 
     var purple_country = L.tooltip([59, -14], countries_options)
-    .setContent('Purple<br>Country')
-    .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
+    .setContent('Purple<br>Country');
     zoom0.push(purple_country);
 
     // WATERS
