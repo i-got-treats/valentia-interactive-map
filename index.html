@@ -232,11 +232,15 @@
     .bindPopup("<big>&#x1F661</big> <b>Marble Palace</b> <big>&#128611</big><br>\
             A small but beautiful palace made of marble for one Lord Petyre."));
     castles.push(marble_palace);
+    zoom3.push(marble_palace);
 
 
     var cathedrals = [];
 
-    var colig = [];
+    var colig = (L.marker([-26, 18], {icon: colig_i})
+    .bindPopup("<big>&#x1F661</big> <b>Colig</b> <big>&#128611</big><br>\
+               Widely known as the biggest magic-teaching school in Valentia."));
+    zoom1.push(colig);
 
     var crypts = [];
 
@@ -357,7 +361,7 @@
 
     var bar_akh = (L.marker([76, 6], {icon: hut_village_i})
     .bindPopup("<big>&#x1F661</big> <b>Bar-Akh</b> <big>&#128611</big><br>\
-               An Orc Village. Thronn's former home."));
+               An orc village. Thronn's former home."));
     zoom1.push(bar_akh);
     hut_villages.push(bar_akh);
 
@@ -370,23 +374,52 @@
 
     var towns = [];
 
+    // ESTORIA
+
+    var unnamed_orcish_town = (L.marker([-39, -122], {icon: town_i})
+    .bindPopup("<big>&#x1F661</big> <b>Unnamed Orcish Town</b> <big>&#128611</big><br>\
+                ..."));
+    towns.push(unnamed_orcish_town);
+    zoom2.push(unnamed_orcish_town);
+
+    var khir_burim = (L.marker([-44, -47], {icon: town_i})
+    .bindPopup("<big>&#x1F661</big> <b>Khir Burim</b> <big>&#128611</big><br>\
+                A dwarf town, allied with the dwarves on Mount Thul."));
+    towns.push(khir_burim);
+    zoom2.push(khir_burim);
+
+    var ebonhall = (L.marker([-52, -83], {icon: castle_i})
+    .bindPopup("<big>&#x1F661</big> <b>Ebonhall</b> <big>&#128611</big><br>\
+               A town named after its black stone castle. Extremely hostile towards non-humans."));
+    towns.push(ebonhall);
+    zoom1.push(ebonhall);
+
+    var thuls_fortress = (L.marker([-43, -34], {icon: stronghold_i})
+    .bindPopup("<big>&#x1F661</big> <b>Thul's Fortress</b> <big>&#128611</big><br>\
+               A stronghold built directly into Mount Thul, Eastorias highest peak.\
+               The dwarves that reside in it know it was built to protect the land,\
+               but they forgot who it was supposed to protect them from."));
+    towns.push(thuls_fortress);
+    zoom1.push(thuls_fortress);
+
+
+    // PURPLE COUNTRY
+
     var aen_ethel = (L.marker([54, -9], {icon: castle_i})
     .bindPopup("<big>&#x1F661</big> <b>Aen Ethél</b> <big>&#128611</big><br>\
-               ..."));
+               An ancient elvish castle town with a recent history of power-crazed monarchs. Rules over a central terriroty of [purple country]. Nerry's birthplace."));
     towns.push(aen_ethel);
     zoom1.push(aen_ethel);
 
-    towns.push(L.marker([-44, -47], {icon: town_i})
-    .bindPopup("<big>&#x1F661</big> <b>Khir Burim</b> <big>&#128611</big><br>\
-                A dwarf town."));
 
-
+    // GREEN COUNTRY
     var villages = [];
     var yabuonna = (L.marker([-39.5, 56], {icon: village_i})
     .bindPopup("<big>&#x1F661</big> <b>Yabuonna</b> <big>&#128611</big><br>\
                A pretty village known for its apple farm. Tytus' home."));
     villages.push(yabuonna);
     zoom1.push(yabuonna);
+
     // SETTLEMENTS end
     // MARKERS and POPUPS END
 
@@ -513,7 +546,7 @@
     waters.push(silver_bay);
     zoom1.push(silver_bay);
 
-    var the_little_tear = L.tooltip([-70.844304, -85.517578], water_options)
+    var the_little_tear = L.tooltip([-70.844304, -85.517578], water_options_nopopup)
     .setContent("The<br>Little<br>Tear");
     waters.push(the_little_tear);
     zoom1.push(the_little_tear);
@@ -559,7 +592,7 @@
     // YELLOW COUNTRY
 
     // ISLANDS
-    var island_options = ({direction: 'center', interactive: true, permanent: true, className: "island"});
+    var island_options = ({direction: 'center', interactive: true, permanent: true, className: "inland"});
 
     var islands = [];
 
@@ -585,6 +618,18 @@
     islands.push(hawk_island);
     zoom1.push(hawk_island);
 
+    // CANYONS
+    var canyon_options = ({direction: 'center', interactive: true, permanent: true, className: "inland"});
+
+    var canyons = [];
+
+    var the_scars = L.tooltip([-45, -124], island_options)
+    .setContent("The Scars")
+    .bindPopup("<big>&#x1F661</big> <b>The Scars</b> <big>&#128611</big><br>\
+                The Scars of Estoria or simply 'The Scars' are a group of five canyons to the northeast of Estoria.", {offset: [0,-12]});
+    canyons.push(the_scars);
+    zoom1.push(the_scars);
+
     // TOOLTIPS END
 
 
@@ -609,58 +654,6 @@
        LAYER GROUPS
        =========================
     */
-    // ZOOMS
-    //countries only appear on zoom level 0
-    /*
-    map.on('zoomend', function () {
-        L.layerGroup(zoom0).eachLayer(function (layer) {
-            if (map.getZoom() > 1 && map.hasLayer(layer)) {
-                map.removeLayer(layer);
-            }
-            if (map.getZoom() < 2 && map.hasLayer(layer) == false){
-                map.addLayer(layer);
-            }
-        })
-    });
-
-    // appear from zoom level 1 on
-    map.on('zoomend', function () {
-        L.layerGroup(zoom1).eachLayer(function (layer) {
-            if (map.getZoom() == 1 && map.hasLayer(layer)) {
-                map.removeLayer(layer);
-            }
-            if (map.getZoom() > 1 && map.hasLayer(layer) == false){
-                map.addLayer(layer);
-            }
-        })
-    });
-
-    // appear from zoom level 2 on
-    map.on('zoomend', function () {
-        L.layerGroup(zoom2).eachLayer(function (layer) {
-            if (map.getZoom() < 3 && map.hasLayer(layer)) {
-                map.removeLayer(layer);
-            }
-            if (map.getZoom() > 2 && map.hasLayer(layer) == false){
-                map.addLayer(layer);
-            }
-        })
-    });
-
-    // appear from zoom level 3 on
-    map.on('zoomend', function () {
-        L.layerGroup(zoom3).eachLayer(function (layer) {
-            if (map.getZoom() < 4 && map.hasLayer(layer)) {
-                map.removeLayer(layer);
-            }
-            if (map.getZoom() > 3 && map.hasLayer(layer) == false){
-                map.addLayer(layer);
-            }
-        })
-    });
-    */
-
-
     var rivers = [];
     // rivers only appear from zoom level 1
 
@@ -670,7 +663,7 @@
     var forests = [];
     // forests only appear from zoom level 1
 
-    var lettering = [].concat(waters, islands);
+    var lettering = [].concat(waters, islands, canyons);
     // opacity to .5 when opening letters popup
     L.layerGroup(lettering).eachLayer(function(layer){
         layer.on('popupopen', function(){
@@ -738,11 +731,11 @@
         });
     };
     
-   var bruh={
+   var zoom_activation={
         label: '<input type="checkbox" id="switch" onclick="change()"/> zoom-activated visibility',
    }
     var legend = {
-        label: "EVERYTHING",
+        label: "SHOW EVERYTHING",
         selectAllCheckbox: true,
         children: [
             {label: "(helpers)",
@@ -761,7 +754,7 @@
                 Cathedrals", layer: L.layerGroup(cathedrals) },
 
                 { label: "<img class='ico' src='images/icons/buildings/colig.png'/>\
-                Colig", layer: L.layerGroup(colig) },
+                Colig", layer: L.layerGroup([colig]) },
 
                 { label: "<img class='ico' src='images/icons/buildings/crypts.png'/>\
                 Crypts", layer: L.layerGroup(crypts) },
@@ -895,8 +888,7 @@
             
         ]
     };
-    L.control.layers.tree(bruh, legend).addTo(map)//.collapseTree(true).expandSelected(true)
-    ;
+    L.control.layers.tree(zoom_activation, legend).addTo(map);
     document.getElementById('switch').click()
     // LAYER GROUPS END
 

@@ -13,7 +13,7 @@
     font-family: Copperplate Gothic Light;
 }
 
-.island {
+.inland {
     text-align: center;
     line-height: 1;
     background: rgba(0, 0, 0, 0)!important;
@@ -42,7 +42,7 @@
                 1px 0px 1px rgba(255, 255, 255, 0.4),
                 0px -1px 1px rgba(255, 255, 255, 0.4);
     color:rgba(38, 44, 75, 0.8)!important;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 h1 span, h2 span {
