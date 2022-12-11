@@ -625,11 +625,11 @@
     zoom1.push(hawk_island);
 
     // CANYONS
-    var canyon_options = ({direction: 'center', interactive: true, permanent: true, className: "inland"});
+    var canyon_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .5});
 
     var canyons = [];
 
-    var the_scars = L.tooltip([-45, -124], island_options)
+    var the_scars = L.tooltip([-45, -124], canyon_options)
     .setContent("The Scars")
     .bindPopup("<big>&#x1F661</big> <b>The Scars</b> <big>&#128611</big><br>\
                 The Scars of Estoria or simply 'The Scars' are a group of five canyons to the northeast of Estoria.", {offset: [0,-12]});

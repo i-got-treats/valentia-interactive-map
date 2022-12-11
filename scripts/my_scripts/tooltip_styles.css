@@ -37,12 +37,13 @@
     background: rgba(0, 0, 0, 0)!important;
     border: none!important;
     box-shadow: none!important;
-    text-shadow:-1px 0px 1px rgba(255, 255, 255, 0.4),
-                0px 1px 1px rgba(255, 255, 255, 0.4),
-                1px 0px 1px rgba(255, 255, 255, 0.4),
-                0px -1px 1px rgba(255, 255, 255, 0.4);
-    color:rgba(38, 44, 75, 0.8)!important;
-    font-size: 13px;
+    text-shadow:-1px 0px 0px rgba(255, 255, 255, 0.3),
+                0px 1px 0px rgba(255, 255, 255, 0.3),
+                1px 0px 0px rgba(255, 255, 255, 0.3),
+                0px -1px 0px rgba(255, 255, 255, 0.3);
+    color:rgba(24, 33, 77, 0.8)!important;
+    font-size: 14px;
+    opacity: .9;
 }
 
 h1 span, h2 span {
@@ -60,7 +61,6 @@ h1 span, h2 span {
                 1px 0px 3px rgba(255, 255, 255, 0.2),
                 0px -1px 3px rgba(255, 255, 255, 0.2);
     opacity: .9;
-    /*border: 1px solid rgba(255, 0, 0, 0.5);*/
 }
 /* ocean rotation */
 .ne_1 { transform: rotate(6deg); }
