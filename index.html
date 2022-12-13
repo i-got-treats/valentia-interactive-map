@@ -148,11 +148,17 @@
     var map = L.map('map').setView([0, 0], customMinZoom);
 
     // Reference the tiles
-    L.tileLayer('images/tiles/{z}/{x}/{y}.png',{
-    minZoom: customMinZoom, maxZoom: customMaxZoom,
-    noWrap: true,
-    crs: L.CRS.Simple,}
-    ).addTo(map);
+    var default_layer = L.tileLayer('images/tiles/{z}/{x}/{y}.png',{
+                        minZoom: customMinZoom, maxZoom: customMaxZoom,
+                        noWrap: true,
+                        crs: L.CRS.Simple,}
+                        ).addTo(map);
+                            // Reference the tiles
+    var bw_layer = L.tileLayer('images/bw_tiles/{z}/{x}/{y}.png',{
+                        minZoom: customMinZoom, maxZoom: customMaxZoom,
+                        noWrap: true,
+                        crs: L.CRS.Simple,}
+                        );
 
     // map bounces back when you try to leave
     map.setMaxBounds(new L.LatLngBounds(
@@ -423,6 +429,12 @@
     towns.push(aen_ethel);
     zoom1.push(aen_ethel);
 
+    var leoquen = (L.marker([43, -8], {icon: town_i})
+    .bindPopup("<big>&#x1F661</big> <b>Leoquen</b> <big>&#128611</big><br>\
+               (Morgans birthplace) (once sovereign, now under aen ethel leadership)"));
+    towns.push(leoquen);
+    zoom2.push(leoquen);
+
 
     // GREEN COUNTRY
     var villages = [];
@@ -553,6 +565,12 @@
     zoom1.push(the_great_tear);
 
     // ESTORIA
+
+    var bogtrus_lake = L.tooltip([-39, -108], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Bogtru's Lake</div>");
+    waters.push(bogtrus_lake);
+    zoom2.push(bogtrus_lake);
+
     var rivera = L.tooltip([-52.9, -75], water_options_nopopup)
     .setContent("<div style='font-size: 13px; transform: rotate(-10deg);'>Rivera</div>");
     waters.push(rivera);
@@ -623,7 +641,12 @@
     var pp_lake = L.tooltip([-65.5, 77], water_options_nopopup)
     .setContent("PP Lake");
     waters.push(pp_lake);
-    zoom1.push(pp_lake);
+    zoom2.push(pp_lake);
+
+    var moon_tear = L.tooltip([-53.1, 35.5], water_options_nopopup)
+    .setContent("<div style='transform: rotate(-25deg);'>Moon-Tear</div>");
+    waters.push(moon_tear);
+    zoom2.push(moon_tear);
 
     var lovelets_crater = L.tooltip([-76.2, 58], water_options)
     .setContent("Lovelet's<br>Crater")
@@ -733,23 +756,8 @@
        LAYER GROUPS
        =========================
     */
-    var rivers = [];
-    // rivers only appear from zoom level 1
-
-    var mountain_ranges = [];
-    // mountain ranges only appear from zoom level 1
-
-    var forests = [];
-    // forests only appear from zoom level 1
 
     var lettering = [].concat(waters, islands, canyons);
-    /*opacity to .5 when opening letters popup
-    L.layerGroup(lettering).eachLayer(function(layer){
-        layer.on('mouseover', function(){
-            layer.setOpacity(.3)}),
-        layer.on('mouseout', function(){
-            layer.setOpacity(1)})
-    });*/
 
 
 
@@ -810,13 +818,19 @@
         });
     };
     
-   var zoom_activation={
-        label: '<input type="checkbox" id="switch" onclick="change()"/> zoom-activated visibility',
+   var base={
+        label: 'MAP STYLE',
+        children: [
+            {label: 'color by country', layer: default_layer},
+            {label: 'black and white', layer: bw_layer}
+        ]
    }
     var legend = {
-        label: "SHOW EVERYTHING",
+        label: "MAP INFO",
         selectAllCheckbox: true,
         children: [
+            {label: '<input type="checkbox" id="switch" onclick="change()"/> zoom-activated visibility'},
+
             {label: "(helpers)",
             layer: L.layerGroup(helpers)},
 
@@ -967,7 +981,7 @@
             
         ]
     };
-    L.control.layers.tree(zoom_activation, legend).addTo(map);
+    L.control.layers.tree(base, legend).addTo(map);
     document.getElementById('switch').click()
     // LAYER GROUPS END
 
