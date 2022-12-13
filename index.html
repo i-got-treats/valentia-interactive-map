@@ -4,7 +4,7 @@
     <style>
         /*markers lower opacity on hover*/
         .leaflet-marker-icon{
-            transition: 1s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
         .leaflet-marker-icon:hover{
             opacity: .3;
@@ -600,7 +600,7 @@
     waters.push(sacrato);
     zoom3.push(sacrato);
 
-    var consacrato = L.tooltip([-34.4, 70.8], water_options_nopopup)
+    var consacrato = L.tooltip([-34.3, 70.8], water_options_nopopup)
     .setContent("<div style='font-size: 13px; transform: rotate(30deg);'>Consacrato</div>");
     waters.push(consacrato);
     zoom3.push(consacrato);
@@ -659,6 +659,16 @@
     .setContent("<div style='font-size: 11px; transform: rotate(0deg);'>The<br>Dancing<br>Creek</div>");
     waters.push(the_dancing_creek);
     zoom3.push(the_dancing_creek);
+
+    var ithen = L.tooltip([62, -11], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(14deg);'>Ithen</div>");
+    waters.push(ithen);
+    zoom3.push(ithen);
+
+    var ith = L.tooltip([48, -5], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(16deg);'>Ith</div>");
+    waters.push(ith);
+    zoom3.push(ith);
 
     // ISLANDS
     var island_options = ({direction: 'center', interactive: true, permanent: true, className: "inland"});
