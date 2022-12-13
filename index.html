@@ -425,13 +425,18 @@
 
     var aen_ethel = (L.marker([54, -9], {icon: castle_i})
     .bindPopup("<big>&#x1F661</big> <b>Aen Ethél</b> <big>&#128611</big><br>\
-               An ancient elvish castle town with a recent history of power-crazed monarchs. Rules over a central terriroty of [purple country]. Nerry's birthplace."));
+               An ancient elvish castle town with a recent history of power-crazed monarchs.\
+               Rules over a central terriroty of [purple country]. Nerry's birthplace.<br><br>\
+               <b>Coat of Arms</b><br>\
+               <a target='_blank' href='images/coat_of_arms/aen_ethel_coa.png'><img height='90px' src='images/coat_of_arms/aen_ethel_coa.png'/></a>"));
     towns.push(aen_ethel);
     zoom1.push(aen_ethel);
 
-    var leoquen = (L.marker([43, -8], {icon: town_i})
+    var leoquen = (L.marker([49, -2], {icon: town_i})
     .bindPopup("<big>&#x1F661</big> <b>Leoquen</b> <big>&#128611</big><br>\
-               (Morgans birthplace) (once sovereign, now under aen ethel leadership)"));
+               A town of elves and elf sympathizers. Conquered in 320 by Aen Ethél.\
+               Though there were two rebellions, neither one could free Leoquen.\
+               Their coat of arms is a field of green "));
     towns.push(leoquen);
     zoom2.push(leoquen);
 
@@ -566,10 +571,10 @@
 
     // ESTORIA
 
-    var bogtrus_lake = L.tooltip([-39, -108], water_options_nopopup)
-    .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Bogtru's Lake</div>");
-    waters.push(bogtrus_lake);
-    zoom2.push(bogtrus_lake);
+    var bogtrus_shallows = L.tooltip([-39, -108], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Bogtru's Shallows</div>");
+    waters.push(bogtrus_shallows);
+    zoom2.push(bogtrus_shallows);
 
     var rivera = L.tooltip([-52.9, -75], water_options_nopopup)
     .setContent("<div style='font-size: 13px; transform: rotate(-10deg);'>Rivera</div>");
