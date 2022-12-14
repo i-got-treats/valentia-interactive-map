@@ -11,7 +11,7 @@
     color:rgba(255, 255, 255, 0.8)!important;
     font-size: 35px;
     font-family: Copperplate Gothic Light;
-    transition: .5s;
+    transition: opacity .5s ease-in-out;
 }
 
 .inland {
@@ -30,7 +30,7 @@
                 0px -1px 1px rgba(255, 255, 255, 0.4);
     color:rgba(0, 0, 0, 0.7)!important;
     font-size: 15px;
-    transition: .5s;
+    transition: opacity .5s ease-in-out;
 }
 
 .water {
@@ -46,7 +46,7 @@
     color:rgba(24, 33, 77, 0.8)!important;
     font-size: 14px;
     opacity: .9;
-    transition: .5s;
+    transition: opacity .5s ease-in-out;
 }
 .water:hover, .inland:hover, .countries:hover{
     opacity: .2!important;

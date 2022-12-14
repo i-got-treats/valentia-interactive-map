@@ -4,10 +4,10 @@
     <style>
         /*markers lower opacity on hover*/
         .leaflet-marker-icon{
-            transition: opacity 1s ease-in-out;
+            transition: opacity 1.5s ease-in-out;
         }
         .leaflet-marker-icon:hover{
-            opacity: .3;
+            opacity: .1;
         }
         /* zoom button style (? is it? have no memory of making this) */
         .leaflet-bar a {
@@ -270,6 +270,24 @@
 
     var towers = [];
 
+    var tower_of_trust = (L.marker([1, -24], {icon: tower_i})
+    .bindPopup("<big>&#x1F661</big> <b>Tower of Trust</b> <big>&#128611</big><br>\
+               ..."));
+    towers.push(tower_of_trust);
+    zoom3.push(tower_of_trust);
+
+    var tower_of_felicity = (L.marker([2, -13], {icon: tower_i})
+    .bindPopup("<big>&#x1F661</big> <b>Tower of Felicity</b> <big>&#128611</big><br>\
+               ..."));
+    towers.push(tower_of_felicity);
+    zoom3.push(tower_of_felicity);
+
+    var tower_of_woe = (L.marker([-7, -19], {icon: tower_i})
+    .bindPopup("<big>&#x1F661</big> <b>Tower of Woe</b> <big>&#128611</big><br>\
+               ..."));
+    towers.push(tower_of_woe);
+    zoom3.push(tower_of_woe);
+
     var windmills = [];
     // BUILDINGS end
 
@@ -352,6 +370,11 @@
 
     var cities = []
 
+    var unnamed_big_city = (L.marker([-2.7, -19], {icon: city_i})
+    .bindPopup("<big>&#x1F661</big> <b>Unnamed Big City</b> <big>&#128611</big><br>\
+               ..."));
+    cities.push(unnamed_big_city);
+    zoom1.push(unnamed_big_city);
 
     var silverport = (L.marker([-72, -117], {icon: city_i})
     .bindPopup("<big>&#x1F661</big> <b>Silverport</b> <big>&#128611</big><br>\
@@ -373,7 +396,7 @@
 
     var bar_akh = (L.marker([76, 6], {icon: hut_village_i})
     .bindPopup("<big>&#x1F661</big> <b>Bar-Akh</b> <big>&#128611</big><br>\
-               An orc village. Thronn's former home."));
+               ..."));
     zoom1.push(bar_akh);
     hut_villages.push(bar_akh);
 
@@ -426,17 +449,19 @@
     var aen_ethel = (L.marker([54, -9], {icon: castle_i})
     .bindPopup("<big>&#x1F661</big> <b>Aen Ethél</b> <big>&#128611</big><br>\
                An ancient elvish castle town with a recent history of power-crazed monarchs.\
-               Rules over a central terriroty of [purple country]. Nerry's birthplace.<br><br>\
+               Rules over central territories of [purple country]. Nerry's birthplace.<br><br>\
                <b>Coat of Arms</b><br>\
-               <a target='_blank' href='images/coat_of_arms/aen_ethel_coa.png'><img height='90px' src='images/coat_of_arms/aen_ethel_coa.png'/></a>"));
+               <a target='_blank' href='images/coat_of_arms/aen_ethel_coa.png'>\
+               <img height='105px' src='images/coat_of_arms/aen_ethel_coa.png'/></a>"));
     towns.push(aen_ethel);
     zoom1.push(aen_ethel);
 
     var leoquen = (L.marker([49, -2], {icon: town_i})
     .bindPopup("<big>&#x1F661</big> <b>Leoquen</b> <big>&#128611</big><br>\
-               A town of elves and elf sympathizers. Conquered in 320 by Aen Ethél.\
-               Though there were two rebellions, neither one could free Leoquen.\
-               Their coat of arms is a field of green "));
+               A town of elves and elf sympathizers. Under Aen Ethél rule since 320.<br><br>\
+               <b>Coat of Arms</b><br>\
+               <a target='_blank' href='images/coat_of_arms/leoquen_coa.png'>\
+               <img height='105px' src='images/coat_of_arms/leoquen_coa.png'/></a>")); //vert  in fess point a rabbit salient  copper  in dexter flank a rabbit  copper  in sinister flank a rabbit reversed copper  a chief embattled brettessy argent    drawn with an emoji palette
     towns.push(leoquen);
     zoom2.push(leoquen);
 
@@ -570,9 +595,13 @@
     zoom1.push(the_great_tear);
 
     // ESTORIA
+    var great_lake_of_raveling = L.tooltip([-47, -55], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Great<br>Lake of<br>Raveling</div>");
+    waters.push(great_lake_of_raveling);
+    zoom1.push(great_lake_of_raveling);
 
-    var bogtrus_shallows = L.tooltip([-39, -108], water_options_nopopup)
-    .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Bogtru's Shallows</div>");
+    var bogtrus_shallows = L.tooltip([-38.7, -108], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Bogtru's<br>Shallows</div>");
     waters.push(bogtrus_shallows);
     zoom2.push(bogtrus_shallows);
 
@@ -697,6 +726,22 @@
     .setContent("<div style='font-size: 13px; transform: rotate(16deg);'>Ith</div>");
     waters.push(ith);
     zoom3.push(ith);
+
+    // YELLOW COUNTRY
+    var felicity = L.tooltip([4, -18], water_options_nopopup)
+    .setContent("<div style='font-size: 13px;'>Felicity</div>");
+    waters.push(felicity);
+    zoom2.push(felicity);
+
+    var trust = L.tooltip([-1, -25.5], water_options_nopopup)
+    .setContent("<div style='font-size: 12px;'>Trust</div>");
+    waters.push(trust);
+    zoom3.push(trust);
+
+    var woe = L.tooltip([-3, -13.7], water_options_nopopup)
+    .setContent("<div style='font-size: 13px;'>Woe</div>");
+    waters.push(woe);
+    zoom3.push(woe);
 
     // ISLANDS
     var island_options = ({direction: 'center', interactive: true, permanent: true, className: "inland"});
