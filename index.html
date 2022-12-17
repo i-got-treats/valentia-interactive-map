@@ -154,7 +154,7 @@
                         crs: L.CRS.Simple,}
                         ).addTo(map);
                             // Reference the tiles
-    var bw_layer = L.tileLayer('images/bw_tiles/{z}/{x}/{y}.png',{
+    var biomes_layer = L.tileLayer('images/biomes/{z}/{x}/{y}.png',{
                         minZoom: customMinZoom, maxZoom: customMaxZoom,
                         noWrap: true,
                         crs: L.CRS.Simple,}
@@ -260,6 +260,16 @@
 
     var lighthouses = [];
 
+    var silverport_western_lighthouse = (L.marker([-74, -132], {icon: lighthouse_i})
+    .bindPopup("<b>Silverport Western Lighthouse</b>"));
+    lighthouses.push(silverport_western_lighthouse);
+    zoom2.push(silverport_western_lighthouse);
+
+    var silverport_eastern_lighthouse = (L.marker([-76.1, -109], {icon: lighthouse_i})
+    .bindPopup("<b>Silverport Eastern Lighthouse</b>"));
+    lighthouses.push(silverport_eastern_lighthouse);
+    zoom2.push(silverport_eastern_lighthouse);
+
     var stables = [];
 
     var strongholds = [];
@@ -267,6 +277,13 @@
     var taverns = [];
 
     var temples = [];
+
+    var atheas_sanctuary = (L.marker([-62, -85], {icon: temple_i})
+    .bindPopup("<big>&#x1F661</big> <b>Athea's Sanctuary</b> <big>&#128611</big><br>\
+               Untouched by wars, this temple still looks like it did the day it was built -\
+               though that day has been forgotten even by the history books."));
+    temples.push(atheas_sanctuary);
+    zoom2.push(atheas_sanctuary);
 
     var towers = [];
 
@@ -293,16 +310,27 @@
 
     // LANDMARKS
     var altars = [];
+
     var bridges = [];
+
     var dangerzones = [];
+
     var monoliths = [];
+
     var obelisks = [];
+
     var ruins = [];
+
     var shipwrecks = [];
+
     var shrines = [];
+
     var standing_stones = [];
+
     var thorns = [];
+
     var waterfalls = [];
+
     var whirlpools = [];
     // LANDMARKS end
 
@@ -310,6 +338,12 @@
     var alchemists = [];
 
     var caves = [];
+
+    var albibabas_hideout = (L.marker([-61, -113], {icon: cave_i})
+    .bindPopup("<big>&#x1F661</big> <b>Alibaba's Hideout</b> <big>&#128611</big><br>\
+                Where our Party was completed."));
+    caves.push(albibabas_hideout);
+    zoom2.push(albibabas_hideout);
 
     var docs = [];
 
@@ -700,15 +734,10 @@
 
     // YELLOW COUNTRY
 
-    var nokte = L.tooltip([8.2, 110.5], water_options_nopopup)
-    .setContent("<div style='font-size: 13px; transform: rotate(-20deg);'>Nokte</div>");
-    waters.push(nokte);
-    zoom3.push(nokte);
-
-    var patto = L.tooltip([1, 108.4], water_options_nopopup)
-    .setContent("<div style='font-size: 13px; transform: rotate(94deg);'>Patto</div>");
-    waters.push(patto);
-    zoom3.push(patto);
+    var ry = L.tooltip([8.2, 110.5], water_options_nopopup)
+    .setContent("<div style='font-size: 13px; transform: rotate(-20deg);'>Ry</div>");
+    waters.push(ry);
+    zoom3.push(ry);
 
     // PURPLE COUNTRY
 
@@ -734,7 +763,7 @@
     zoom2.push(felicity);
 
     var trust = L.tooltip([-1, -25.5], water_options_nopopup)
-    .setContent("<div style='font-size: 12px;'>Trust</div>");
+    .setContent("<div style='font-size: 13px;'>Trust</div>");
     waters.push(trust);
     zoom3.push(trust);
 
@@ -775,12 +804,31 @@
 
     var canyons = [];
 
-    var the_scars = L.tooltip([-45, -124], canyon_options)
+    var the_scars = L.tooltip([-44, -124], canyon_options)
     .setContent("The Scars")
     .bindPopup("<big>&#x1F661</big> <b>The Scars</b> <big>&#128611</big><br>\
                 The Scars of Estoria or simply 'The Scars' are a group of five canyons to the northeast of Estoria.", {offset: [0,-12]});
     canyons.push(the_scars);
     zoom1.push(the_scars);
+
+    var the_great_hollow = L.tooltip([49, -37], canyon_options)
+    .setContent("The<br>Great<br>Hollow")
+    .bindPopup("<big>&#x1F661</big> <b>The Great Hollow</b> <big>&#128611</big><br>\
+                ...", {offset: [0,-12]});
+    canyons.push(the_great_hollow);
+    zoom1.push(the_great_hollow);
+
+    // MOUNTAINS
+    var mountain_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .5});
+
+    var mountains = [];
+
+    var frozen_peaks = L.tooltip([70, -70], mountain_options)
+    .setContent("Frozen Peaks")
+    .bindPopup("<big>&#x1F661</big> <b>Frozen Peaks</b> <big>&#128611</big><br>\
+                ...", {offset: [0,-12]});
+    mountains.push(frozen_peaks);
+    zoom2.push(frozen_peaks);
 
     // TOOLTIPS END
 
@@ -872,7 +920,7 @@
         label: 'MAP STYLE',
         children: [
             {label: 'color by country', layer: default_layer},
-            {label: 'black and white', layer: bw_layer}
+            {label: 'color by biome', layer: biomes_layer}
         ]
    }
     var legend = {
