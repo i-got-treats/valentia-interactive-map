@@ -739,6 +739,13 @@
     waters.push(ry);
     zoom3.push(ry);
 
+    // SIBERIA
+
+    var frozen_lakes = L.tooltip([57.5, -119], water_options_nopopup)
+    .setContent("<div style='font-size: 13px;'>Frozen<br>Lakes</div>");
+    waters.push(frozen_lakes);
+    zoom3.push(frozen_lakes);
+
     // PURPLE COUNTRY
 
     var the_dancing_creek = L.tooltip([73.5, 10], water_options_nopopup)
@@ -823,12 +830,12 @@
 
     var mountains = [];
 
-    var frozen_peaks = L.tooltip([70, -70], mountain_options)
-    .setContent("Frozen Peaks")
-    .bindPopup("<big>&#x1F661</big> <b>Frozen Peaks</b> <big>&#128611</big><br>\
-                ...", {offset: [0,-12]});
-    mountains.push(frozen_peaks);
-    zoom2.push(frozen_peaks);
+    var snowy_peaks = L.tooltip([70, -70], mountain_options)
+    .setContent("Snowy Peaks")
+    .bindPopup("<big>&#x1F661</big> <b>Snowy Peaks</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    mountains.push(snowy_peaks);
+    zoom2.push(snowy_peaks);
 
     // TOOLTIPS END
 
