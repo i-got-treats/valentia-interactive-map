@@ -2,6 +2,7 @@
 <html style="height: 100%; width:100%; margin: 0;">
 <head>
     <style>
+        *{font-family: 'Noto Sans';}
         /*markers lower opacity on hover*/
         .leaflet-marker-icon{
             transition: opacity 1.5s ease-in-out;
@@ -126,8 +127,11 @@
 
     <!-- icons import-->
     <script src="scripts\my_scripts\icons.js"></script>
-    <!-- rotations import -->
+    <!-- tooltip_styles import -->
     <link rel="stylesheet" href="scripts\my_scripts\tooltip_styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
 </head>
 <body style="height: 100%; width:100%;  margin: 0;">
@@ -202,8 +206,8 @@
     }).bindPopup()
     .addTo(map)
     .on('click', function(e){
-        latlngmarker.getPopup().setContent(Math.round(e.latlng.lat.toFixed(1)) +
-                                           ", " +  Math.round(e.latlng.lng.toFixed(1)))
+        latlngmarker.getPopup().setContent((e.latlng.lat.toFixed(1)) +
+                                           ", " +  (e.latlng.lng.toFixed(1)))
     });
 
     var distance_marker_1 = L.marker([76, 6], {
@@ -570,153 +574,155 @@
     zoom0.push(purple_country);
 
     // WATERS
-    var water_options= ({direction: 'center', interactive: true, permanent: true, className: "water"});
-    var water_options_nopopup = ({direction: 'center', permanent: true, className: "water"});
+    var dark_water_options_popup = ({direction: 'center', interactive: true, permanent: true, className: "dark_water"});
+    var dark_water_options = ({direction: 'center', permanent: true, className: "dark_water"});
+    var light_water_options_popup = ({direction: 'center', interactive: true, permanent: true, className: "light_water"});
+    var light_water_options = ({direction: 'center', permanent: true, className: "light_water"});
 
     var waters = [];
 
-    var se_ocean = L.tooltip([4, -20], {direction: 'center', className: "water", permanent: true}) //curving text, must remove pointer cursor, instead grabby mouse like everywhere else
+    var se_ocean = L.tooltip([4, -20], {direction: 'center', className: "light_water", permanent: true})
     .setContent("<h1>"+
     "<span class='sw_1'>T</span>"+
-    "<span class='sw_2'>H</span>"+
-    "<span class='sw_3'>E</span>"+
+    "<span class='sw_2'>h</span>"+
+    "<span class='sw_3'>e</span>"+
     "<span class='sw_4'> </span>"+
     "<span class='sw_5'>T</span>"+
-    "<span class='sw_6'>I</span>"+
-    "<span class='sw_7'>N</span>"+
-    "<span class='sw_8'>T</span>"+
-    "<span class='sw_9'>E</span>"+
-    "<span class='sw_10'>D</span>"+
+    "<span class='sw_6'>i</span>"+
+    "<span class='sw_7'>n</span>"+
+    "<span class='sw_8'>t</span>"+
+    "<span class='sw_9'>e</span>"+
+    "<span class='sw_10'>d</span>"+
     "<span class='sw_11'> </span>"+
     "<span class='sw_12'>T</span>"+
-    "<span class='sw_13'>I</span>"+
-    "<span class='sw_14'>D</span>"+
-    "<span class='sw_15'>E</span>"+
-    "<span class='sw_16'>S</span>"+
+    "<span class='sw_13'>i</span>"+
+    "<span class='sw_14'>d</span>"+
+    "<span class='sw_15'>e</span>"+
+    "<span class='sw_16'>s</span>"+
     "</h1>")
     zoom0.push(se_ocean);
 
-    var nw_ocean = L.tooltip([4, -20], {direction: 'center', className: "water", permanent: true})
+    var nw_ocean = L.tooltip([4, -20], {direction: 'center', className: "light_water", permanent: true})
     .setContent("<h1>"+
     "<span class='ne_1'> </span>"+
     "<span class='ne_2'>T</span>"+
-    "<span class='ne_3'>H</span>"+
-    "<span class='ne_4'>E</span>"+
+    "<span class='ne_3'>h</span>"+
+    "<span class='ne_4'>e</span>"+
     "<span class='ne_5'> </span>"+
     "<span class='ne_6'>S</span>"+
-    "<span class='ne_7'>A</span>"+
-    "<span class='ne_8'>V</span>"+
-    "<span class='ne_9'>A</span>"+
-    "<span class='ne_10'>G</span>"+
-    "<span class='ne_11'>E</span>"+
+    "<span class='ne_7'>a</span>"+
+    "<span class='ne_8'>v</span>"+
+    "<span class='ne_9'>a</span>"+
+    "<span class='ne_10'>g</span>"+
+    "<span class='ne_11'>e</span>"+
     "<span class='ne_12'> </span>"+
     "<span class='ne_13'>S</span>"+
-    "<span class='ne_14'>E</span>"+
-    "<span class='ne_15'>A</span>"+
-    "<span class='ne_16'>S</span>"+
+    "<span class='ne_14'>e</span>"+
+    "<span class='ne_15'>a</span>"+
+    "<span class='ne_16'>s</span>"+
     "<span class='ne_17'> </span>"+
     "</h1>")
     zoom0.push(nw_ocean);
 
-    var winged_lions_sea = L.tooltip([-35, 132], water_options_nopopup)
+    var winged_lions_sea = L.tooltip([-35, 132], light_water_options)
     .setContent("<div style='transform: rotate(-55deg); font-size: 28px;'>Winged Lion's<br>Sea</div>");
     waters.push(winged_lions_sea);
     zoom1.push(winged_lions_sea);
 
-    var the_great_tear = L.tooltip([-60, 2], water_options_nopopup)
+    var the_great_tear = L.tooltip([-60, 2], light_water_options)
     .setContent("<div style='transform: rotate(-80deg); font-size: 23px;'>The Great Tear</div>");
     waters.push(the_great_tear);
     zoom1.push(the_great_tear);
 
     // ESTORIA
-    var great_lake_of_raveling = L.tooltip([-47, -55], water_options_nopopup)
+    var great_lake_of_raveling = L.tooltip([-47, -55], light_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Great<br>Lake of<br>Raveling</div>");
     waters.push(great_lake_of_raveling);
-    zoom1.push(great_lake_of_raveling);
+    zoom2.push(great_lake_of_raveling);
 
-    var bogtrus_shallows = L.tooltip([-38.7, -108], water_options_nopopup)
+    var bogtrus_shallows = L.tooltip([-38.7, -108], light_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Bogtru's<br>Shallows</div>");
     waters.push(bogtrus_shallows);
     zoom2.push(bogtrus_shallows);
 
-    var rivera = L.tooltip([-52.9, -75], water_options_nopopup)
+    var rivera = L.tooltip([-52.9, -75], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(-10deg);'>Rivera</div>");
     waters.push(rivera);
     zoom3.push(rivera);
 
-    var scava = L.tooltip([-49.4, -95.5], water_options_nopopup)
+    var scava = L.tooltip([-49.4, -95.5], dark_water_options)
     .setContent("<div style='font-size: 13px'>Scava</div>");
     waters.push(scava);
     zoom3.push(scava);
 
-    var scavetta = L.tooltip([-46.7, -102.7], water_options_nopopup)
+    var scavetta = L.tooltip([-46.7, -102.7], dark_water_options)
     .setContent("<div style='font-size: 11px; transform: rotate(65deg);'>Scavetta</div>");
     waters.push(scavetta);
     zoom3.push(scavetta);
 
-    var tovera = L.tooltip([-65.4, -96], water_options_nopopup)
+    var tovera = L.tooltip([-65.4, -96], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(25deg);'>Tovera</div>");
     waters.push(tovera);
     zoom3.push(tovera);
 
-    var silver_bay = L.tooltip([-74, -121], water_options_nopopup)
+    var silver_bay = L.tooltip([-74, -121], light_water_options)
     .setContent("<div style='transform: rotate(24deg);'>Silver Bay</div>");
     waters.push(silver_bay);
     zoom1.push(silver_bay);
 
-    var the_little_tear = L.tooltip([-71, -85.5], water_options_nopopup)
-    .setContent("The<br>Little<br>Tear");
+    var the_little_tear = L.tooltip([-71, -85.5], light_water_options)
+    .setContent("<div style='font-size: 13px;'>The<br>Little<br>Tear</div>");
     waters.push(the_little_tear);
     zoom1.push(the_little_tear);
 
     // GREEN COUNTRY
 
-    var noche = L.tooltip([-15.5, 83.5], water_options_nopopup)
+    var noche = L.tooltip([-15.5, 83.5], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(-10deg);'>Noche</div>");
     waters.push(noche);
     zoom3.push(noche);
 
-    var passio = L.tooltip([-21.5, 85.5], water_options_nopopup)
+    var passio = L.tooltip([-21.5, 85.5], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(34deg);'>Passio</div>");
     waters.push(passio);
     zoom3.push(passio);
 
-    var sacrato = L.tooltip([-16.4, 69], water_options_nopopup)
+    var sacrato = L.tooltip([-16.4, 69], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(-34deg);'>Sacrato</div>");
     waters.push(sacrato);
     zoom3.push(sacrato);
 
-    var consacrato = L.tooltip([-34.3, 70.8], water_options_nopopup)
+    var consacrato = L.tooltip([-34.3, 70.8], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(30deg);'>Consacrato</div>");
     waters.push(consacrato);
     zoom3.push(consacrato);
 
-    var vistola = L.tooltip([-44, 54.2], water_options_nopopup)
+    var vistola = L.tooltip([-44, 54.2], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(70deg);'>Vistola</div>");
     waters.push(vistola);
     zoom3.push(vistola);
 
-    var dalmation_gulf = L.tooltip([-30, 32], water_options_nopopup)
+    var dalmation_gulf = L.tooltip([-30, 32], light_water_options)
     .setContent("<div style='transform: rotate(-5deg);'>Dalmatian Gulf</div>");
     waters.push(dalmation_gulf);
-    zoom1.push(dalmation_gulf);
+    zoom2.push(dalmation_gulf);
 
-    var satyr_bay = L.tooltip([-45.8, 23], water_options_nopopup)
+    var satyr_bay = L.tooltip([-45.8, 23], light_water_options)
     .setContent("Satyr<br>Bay");
     waters.push(satyr_bay);
     zoom2.push(satyr_bay);
 
-    var pp_lake = L.tooltip([-65.5, 77], water_options_nopopup)
+    var pp_lake = L.tooltip([-65.5, 77], light_water_options)
     .setContent("PP Lake");
     waters.push(pp_lake);
     zoom2.push(pp_lake);
 
-    var moon_tear = L.tooltip([-53.1, 35.5], water_options_nopopup)
+    var moon_tear = L.tooltip([-53.1, 35.5], light_water_options)
     .setContent("<div style='transform: rotate(-25deg);'>Moon-Tear</div>");
     waters.push(moon_tear);
     zoom2.push(moon_tear);
 
-    var lovelets_crater = L.tooltip([-76.2, 58], water_options)
+    var lovelets_crater = L.tooltip([-76.2, 58], dark_water_options_popup)
     .setContent("Lovelet's<br>Crater")
     .bindPopup("<big>&#x1F661</big> <b>Lovelet's Crater</b> <big>&#128611</big><br>\
                 A rounded body of freshwater, said to be created by the powerful mage 'Lovelet',\
@@ -724,7 +730,7 @@
     waters.push(lovelets_crater);
     zoom2.push(lovelets_crater);
 
-    var soaring_lagoon = L.tooltip([-74.7, 71], water_options)
+    var soaring_lagoon = L.tooltip([-74.7, 71], dark_water_options_popup)
     .setContent("Soaring<br>Lagoon")
     .bindPopup("<big>&#x1F661</big> <b>Soaring Lagoon</b> <big>&#128611</big><br>\
                 A grand exposed coral reef, too hot to even dip a toe in for common folk.\
@@ -734,47 +740,47 @@
 
     // YELLOW COUNTRY
 
-    var ry = L.tooltip([8.2, 110.5], water_options_nopopup)
+    var ry = L.tooltip([8.2, 110.5], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(-20deg);'>Ry</div>");
     waters.push(ry);
     zoom3.push(ry);
 
     // SIBERIA
 
-    var frozen_lakes = L.tooltip([57.5, -119], water_options_nopopup)
+    var frozen_lakes = L.tooltip([57.5, -119], light_water_options)
     .setContent("<div style='font-size: 13px;'>Frozen<br>Lakes</div>");
     waters.push(frozen_lakes);
     zoom3.push(frozen_lakes);
 
     // PURPLE COUNTRY
 
-    var the_dancing_creek = L.tooltip([73.5, 10], water_options_nopopup)
+    var the_dancing_creek = L.tooltip([73.5, 10], dark_water_options)
     .setContent("<div style='font-size: 11px; transform: rotate(0deg);'>The<br>Dancing<br>Creek</div>");
     waters.push(the_dancing_creek);
     zoom3.push(the_dancing_creek);
 
-    var ithen = L.tooltip([62, -11], water_options_nopopup)
+    var ithen = L.tooltip([62, -11], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(14deg);'>Ithen</div>");
     waters.push(ithen);
     zoom3.push(ithen);
 
-    var ith = L.tooltip([48, -5], water_options_nopopup)
+    var ith = L.tooltip([48, -5], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(16deg);'>Ith</div>");
     waters.push(ith);
     zoom3.push(ith);
 
     // YELLOW COUNTRY
-    var felicity = L.tooltip([4, -18], water_options_nopopup)
+    var felicity = L.tooltip([4, -18], light_water_options)
     .setContent("<div style='font-size: 13px;'>Felicity</div>");
     waters.push(felicity);
     zoom2.push(felicity);
 
-    var trust = L.tooltip([-1, -25.5], water_options_nopopup)
+    var trust = L.tooltip([-1, -25.5], light_water_options)
     .setContent("<div style='font-size: 13px;'>Trust</div>");
     waters.push(trust);
     zoom3.push(trust);
 
-    var woe = L.tooltip([-3, -13.7], water_options_nopopup)
+    var woe = L.tooltip([-3, -13.7], light_water_options)
     .setContent("<div style='font-size: 13px;'>Woe</div>");
     waters.push(woe);
     zoom3.push(woe);
@@ -812,14 +818,14 @@
     var canyons = [];
 
     var the_scars = L.tooltip([-44, -124], canyon_options)
-    .setContent("The Scars")
+    .setContent("<div style='font-size: 13px;'>The Scars</div>")
     .bindPopup("<big>&#x1F661</big> <b>The Scars</b> <big>&#128611</big><br>\
                 The Scars of Estoria or simply 'The Scars' are a group of five canyons to the northeast of Estoria.", {offset: [0,-12]});
     canyons.push(the_scars);
     zoom1.push(the_scars);
 
     var the_great_hollow = L.tooltip([49, -37], canyon_options)
-    .setContent("The<br>Great<br>Hollow")
+    .setContent("<div style='font-size: 13px;'>The<br>Great<br>Hollow</div>")
     .bindPopup("<big>&#x1F661</big> <b>The Great Hollow</b> <big>&#128611</big><br>\
                 ...", {offset: [0,-12]});
     canyons.push(the_great_hollow);
@@ -850,26 +856,12 @@
 
 
 
-
-
-
-
-
-
-
     /* =========================
        LAYER GROUPS
        =========================
     */
 
     var lettering = [].concat(waters, islands, canyons);
-
-
-
-    /*  ===================
-        LEGEND
-        ===================
-    */
 
     function change() {
         var decider = document.getElementById('switch');

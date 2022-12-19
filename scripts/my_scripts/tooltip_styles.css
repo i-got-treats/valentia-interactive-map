@@ -33,7 +33,7 @@
     transition: opacity .5s ease-in-out;
 }
 
-.water {
+.dark_water {
     text-align: center;
     line-height: 1;
     background: rgba(0, 0, 0, 0)!important;
@@ -48,9 +48,26 @@
     opacity: 1;
     transition: opacity .5s ease-in-out;
 }
-.water:hover, .inland:hover, .countries:hover{
+.light_water {
+    text-align: center;
+    line-height: 1;
+    background: rgba(0, 0, 0, 0)!important;
+    border: none!important;
+    box-shadow: none!important;
+    text-shadow:-1px 0px 2px rgba(0, 0, 0, 0.3),
+                0px 1px 2px rgba(0, 0, 0, 0.3),
+                1px 0px 2px rgba(0, 0, 0, 0.3),
+                0px -1px 2px rgba(0, 0, 0, 0.3);
+    color:#A7BDD5!important;
+    font-size: 14px;
+    opacity: .8!important;
+    transition: opacity .5s ease-in-out;
+}
+
+.light_water:hover, .inland:hover{
     opacity: .2!important;
 }
+
 h1 span, h2 span {
     display:inline-block;
     position: absolute;
@@ -58,15 +75,16 @@ h1 span, h2 span {
     height: 350px;
     text-align: center;
     transform-origin: bottom center;
-    font-family: Xahn Mono;
-    font-weight: 400;
+    font: 36px Xahn Mono;
     line-height: 70px;
-    text-shadow:-1px 0px 3px rgba(255, 255, 255, 0.2),
-                0px 1px 3px rgba(255, 255, 255, 0.2),
-                1px 0px 3px rgba(255, 255, 255, 0.2),
-                0px -1px 3px rgba(255, 255, 255, 0.2);
-    opacity: .9;
+    text-shadow:-1px 0px 3px rgba(0, 0, 0, 0.2),
+                0px 1px 3px rgba(0, 0, 0, 0.2),
+                1px 0px 3px rgba(0, 0, 0, 0.2),
+                0px -1px 3px rgba(0, 0, 0, 0.2);
+    opacity: .7;
+    font-variant: small-caps;
 }
+
 /* ocean rotation */
 .ne_1 { transform: rotate(6deg); }
 .ne_2 { transform: rotate(12deg); }
