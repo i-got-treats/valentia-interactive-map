@@ -99,8 +99,8 @@ var monolith_i = L.icon({
     iconUrl: 'images/icons/landmarks/monolith.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
-var obelist_i = L.icon({
-    iconUrl: 'images/icons/landmarks/obelist.png',
+var obelisk_i = L.icon({
+    iconUrl: 'images/icons/landmarks/obelisk.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
 var ruin_i = L.icon({

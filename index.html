@@ -323,7 +323,19 @@
 
     var obelisks = [];
 
+    var crows_point = (L.marker([80.1, -10.8], {icon: obelisk_i})
+    .bindPopup("<big>&#x1F661</big> <b>Crow's Point</b> <big>&#128611</big><br>\
+                An ancient, 25m tall obelisk of onyx. Most likely of magical nature."));
+    obelisks.push(crows_point);
+    zoom3.push(crows_point);
+
     var ruins = [];
+
+    var fallen_city_of_ardour = (L.marker([3.9, 6.7], {icon: ruin_i})
+    .bindPopup("<big>&#x1F661</big> <b>Fallen City of Ardour</b> <big>&#128611</big><br>\
+                ..."));
+    obelisks.push(fallen_city_of_ardour);
+    zoom2.push(fallen_city_of_ardour);
 
     var shipwrecks = [];
 
@@ -438,6 +450,12 @@
     zoom1.push(bar_akh);
     hut_villages.push(bar_akh);
 
+    var arrog = (L.marker([-42.9, -127.8], {icon: hut_village_i})
+    .bindPopup("<big>&#x1F661</big> <b>Arrog</b> <big>&#128611</big><br>\
+                An orcish village."));
+    hut_villages.push(arrog);
+    zoom3.push(arrog);
+
 
     var huts = [];
 
@@ -449,17 +467,17 @@
 
     // ESTORIA
 
-    var unnamed_orcish_town = (L.marker([-39, -122], {icon: town_i})
-    .bindPopup("<big>&#x1F661</big> <b>Unnamed Orcish Town</b> <big>&#128611</big><br>\
-                ..."));
-    towns.push(unnamed_orcish_town);
-    zoom2.push(unnamed_orcish_town);
+    var morrog = (L.marker([-39, -122], {icon: town_i})
+    .bindPopup("<big>&#x1F661</big> <b>Morrog</b> <big>&#128611</big><br>\
+                An orcish town."));
+    towns.push(morrog);
+    zoom2.push(morrog);
 
-    var unnamed_elvish_town = (L.marker([-66.5, -56], {icon: town_i})
-    .bindPopup("<big>&#x1F661</big> <b>Unnamed Elvish Town</b> <big>&#128611</big><br>\
-                ..."));
-    towns.push(unnamed_elvish_town);
-    zoom2.push(unnamed_elvish_town);
+    var ascenathea = (L.marker([-66.5, -56], {icon: town_i})
+    .bindPopup("<big>&#x1F661</big> <b>Ascenathea</b> <big>&#128611</big><br>\
+                An elvish town."));
+    towns.push(ascenathea);
+    zoom2.push(ascenathea);
 
     var khir_burim = (L.marker([-44, -47], {icon: town_i})
     .bindPopup("<big>&#x1F661</big> <b>Khir Burim</b> <big>&#128611</big><br>\
@@ -489,8 +507,7 @@
                An ancient elvish castle town with a recent history of power-crazed monarchs.\
                Rules over central territories of [purple country]. Nerry's birthplace.<br><br>\
                <b>Coat of Arms</b><br>\
-               <a target='_blank' href='images/coat_of_arms/aen_ethel_coa.png'>\
-               <img height='105px' src='images/coat_of_arms/aen_ethel_coa.png'/></a>"));
+               ..."));
     towns.push(aen_ethel);
     zoom1.push(aen_ethel);
 
@@ -502,6 +519,13 @@
                <img height='105px' src='images/coat_of_arms/leoquen_coa.png'/></a>")); //vert  in fess point a rabbit salient  copper  in dexter flank a rabbit  copper  in sinister flank a rabbit reversed copper  a chief embattled brettessy argent    drawn with an emoji palette
     towns.push(leoquen);
     zoom2.push(leoquen);
+
+    // TOVA
+    var imverius = (L.marker([13.7, 82.7], {icon: town_i})
+    .bindPopup("<big>&#x1F661</big> <b>Imverius</b> <big>&#128611</big><br>\
+               A town born out of an age-old allience of hill-dwarves and humans native to Tova."));
+    cities.push(imverius);
+    zoom2.push(imverius);
 
 
     // GREEN COUNTRY
@@ -548,8 +572,8 @@
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
     zoom0.push(siberia);
 
-    var tova = L.tooltip([26, 80], countries_options)
-    .setContent('Tova')
+    var tova = L.tooltip([26, 85], countries_options)
+    .setContent('<div style="font:28px Copperplate Gothic Light;line-height: 0.7;">Flooded<br>Lands<br>of Tova</div>')
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
     zoom0.push(tova);
 
@@ -625,25 +649,32 @@
     zoom0.push(nw_ocean);
 
     var winged_lions_sea = L.tooltip([-35, 132], light_water_options)
-    .setContent("<div style='transform: rotate(-55deg); font-size: 28px;'>Winged Lion's<br>Sea</div>");
+    .setContent("<div style='transform: rotate(-55deg); font-size: 28px; opacity:.8;'>Winged Lion's<br>Sea</div>");
     waters.push(winged_lions_sea);
     zoom1.push(winged_lions_sea);
 
     var the_great_tear = L.tooltip([-60, 2], light_water_options)
-    .setContent("<div style='transform: rotate(-80deg); font-size: 23px;'>The Great Tear</div>");
+    .setContent("<div style='transform: rotate(-80deg); font-size: 23px; opacity:.8;'>The Great Tear</div>");
     waters.push(the_great_tear);
     zoom1.push(the_great_tear);
 
     // ESTORIA
     var great_lake_of_raveling = L.tooltip([-47, -55], light_water_options)
-    .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Great<br>Lake of<br>Raveling</div>");
+    .setContent("<div style='font-size: 14px;'>Great<br>Lake of<br>Raveling</div>");
     waters.push(great_lake_of_raveling);
     zoom2.push(great_lake_of_raveling);
 
-    var bogtrus_shallows = L.tooltip([-38.7, -108], light_water_options)
-    .setContent("<div style='font-size: 13px; transform: rotate(0deg);'>Bogtru's<br>Shallows</div>");
+    var bogtrus_shallows = L.tooltip([-38.7, -108], light_water_options_popup)
+    .setContent("<div style='font-size: 12px;'>Bogtru's<br>Shallows</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Bogtru's Shallows</b> <big>&#128611</big><br>\
+                Named after the great warrior Bogtru, fabled and beloved by Estoria's orc population.", {offset: [0, -6]});
     waters.push(bogtrus_shallows);
     zoom2.push(bogtrus_shallows);
+
+    var sunset_pond = L.tooltip([-38.9, -82], light_water_options)
+    .setContent("<div style='font-size: 10px;'>Sunset<br>Pond</div>");
+    waters.push(sunset_pond);
+    zoom3.push(sunset_pond);
 
     var rivera = L.tooltip([-52.9, -75], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(-10deg);'>Rivera</div>");
@@ -661,7 +692,7 @@
     zoom3.push(scavetta);
 
     var tovera = L.tooltip([-65.4, -96], dark_water_options)
-    .setContent("<div style='font-size: 13px; transform: rotate(25deg);'>Tovera</div>");
+    .setContent("<div style='font-size: 12px; transform: rotate(25deg);'>Tovera</div>");
     waters.push(tovera);
     zoom3.push(tovera);
 
@@ -677,13 +708,13 @@
 
     // GREEN COUNTRY
 
-    var noche = L.tooltip([-15.5, 83.5], dark_water_options)
-    .setContent("<div style='font-size: 13px; transform: rotate(-10deg);'>Noche</div>");
+    var noche = L.tooltip([-15.9, 83.5], dark_water_options)
+    .setContent("<div style='font-size: 11px; transform: rotate(-10deg);'>Noche</div>");
     waters.push(noche);
     zoom3.push(noche);
 
-    var passio = L.tooltip([-21.5, 85.5], dark_water_options)
-    .setContent("<div style='font-size: 13px; transform: rotate(34deg);'>Passio</div>");
+    var passio = L.tooltip([-21.9, 85.5], dark_water_options)
+    .setContent("<div style='font-size: 11px; transform: rotate(34deg);'>Passio</div>");
     waters.push(passio);
     zoom3.push(passio);
 
@@ -693,12 +724,12 @@
     zoom3.push(sacrato);
 
     var consacrato = L.tooltip([-34.3, 70.8], dark_water_options)
-    .setContent("<div style='font-size: 13px; transform: rotate(30deg);'>Consacrato</div>");
+    .setContent("<div style='font-size: 10px; transform: rotate(30deg);'>Consacrato</div>");
     waters.push(consacrato);
     zoom3.push(consacrato);
 
     var vistola = L.tooltip([-44, 54.2], dark_water_options)
-    .setContent("<div style='font-size: 13px; transform: rotate(70deg);'>Vistola</div>");
+    .setContent("<div style='font-size: 12px; transform: rotate(70deg);'>Vistola</div>");
     waters.push(vistola);
     zoom3.push(vistola);
 
@@ -730,13 +761,13 @@
     waters.push(lovelets_crater);
     zoom2.push(lovelets_crater);
 
-    var soaring_lagoon = L.tooltip([-74.7, 71], dark_water_options_popup)
-    .setContent("Soaring<br>Lagoon")
+    var soaring_lagoon = L.tooltip([-74.7, 70.5], dark_water_options_popup)
+    .setContent("<div style='font-size:10px;'>Soaring<br>Lagoon</div>")
     .bindPopup("<big>&#x1F661</big> <b>Soaring Lagoon</b> <big>&#128611</big><br>\
                 A grand exposed coral reef, too hot to even dip a toe in for common folk.\
-                ddddddd speak of a dragon sleeping under the reef.", {offset: [0, -6]});
+                locals speak of a dragon sleeping under the reef.", {offset: [0, -6]});
     waters.push(soaring_lagoon);
-    zoom2.push(soaring_lagoon);
+    zoom3.push(soaring_lagoon);
 
     // YELLOW COUNTRY
 
@@ -775,10 +806,35 @@
     waters.push(felicity);
     zoom2.push(felicity);
 
+    var solace = L.tooltip([6, -6.8], dark_water_options)
+    .setContent("<div style='font-size: 12px; transform: rotate(26deg);'>Solace</div>");
+    waters.push(solace);
+    zoom3.push(solace);
+
+    var ardour = L.tooltip([6.6, 2.6], dark_water_options)
+    .setContent("<div style='font-size: 12px;'>Ardour</div>");
+    waters.push(ardour);
+    zoom3.push(ardour);
+
+    var charm = L.tooltip([13.8, 8.2], dark_water_options)
+    .setContent("<div style='font-size: 11px; transform: rotate(-55deg);'>Charm</div>");
+    waters.push(charm);
+    zoom3.push(charm);
+
     var trust = L.tooltip([-1, -25.5], light_water_options)
     .setContent("<div style='font-size: 13px;'>Trust</div>");
     waters.push(trust);
     zoom3.push(trust);
+
+    var gloom = L.tooltip([-4.8, -33.8], dark_water_options)
+    .setContent("<div style='font-size: 12px; transform: rotate(-26deg);'>Gloom</div>");
+    waters.push(gloom);
+    zoom3.push(gloom);
+
+    var mercy = L.tooltip([-8.6, -41.5], dark_water_options)
+    .setContent("<div style='font-size: 11px; transform: rotate(0deg);'>Mercy</div>");
+    waters.push(mercy);
+    zoom3.push(mercy);
 
     var woe = L.tooltip([-3, -13.7], light_water_options)
     .setContent("<div style='font-size: 13px;'>Woe</div>");
