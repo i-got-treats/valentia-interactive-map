@@ -153,13 +153,17 @@
 
     // Reference the tiles
     var default_layer = L.tileLayer('images/tiles/{z}/{x}/{y}.png',{
-                        minZoom: customMinZoom, maxZoom: customMaxZoom,
+                        minZoom: customMinZoom,
+                        maxNativeZoom: customMaxZoom,
+                        maxZoom: customMaxZoom+1,
                         noWrap: true,
                         crs: L.CRS.Simple,}
                         ).addTo(map);
                             // Reference the tiles
     var biomes_layer = L.tileLayer('images/biomes/{z}/{x}/{y}.png',{
-                        minZoom: customMinZoom, maxZoom: customMaxZoom,
+                        minZoom: customMinZoom,
+                        maxNativeZoom: customMaxZoom,
+                        maxZoom: customMaxZoom+1,
                         noWrap: true,
                         crs: L.CRS.Simple,}
                         );
@@ -557,6 +561,12 @@
     villages.push(yabuonna);
     zoom1.push(yabuonna);
 
+    var chanter = (L.marker([-31.6, 51.3], {icon: village_i})
+    .bindPopup("<big>&#x1F661</big> <b>Chanter</b> <big>&#128611</big><br>\
+               A small halfling village."));
+    villages.push(chanter);
+    zoom3.push(chanter);
+
     // SETTLEMENTS end
     // MARKERS and POPUPS END
 
@@ -930,6 +940,7 @@
 
     // MOUNTAINS
     var mountain_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .5});
+    var mountain_options_hi_opacity = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .7});
 
     var mountains = [];
 
@@ -940,12 +951,22 @@
     mountains.push(snowy_peaks);
     zoom2.push(snowy_peaks);
 
-    var evenfall_heights = L.tooltip([-52, 26], {direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .7})
+    var evenfall_heights = L.tooltip([-52, 26], mountain_options_hi_opacity)
     .setContent("<div style='font-size: 20px; transform: rotate(-65deg);'>Evenfall Heights</div>")
     .bindPopup("<big>&#x1F661</big> <b>Evenfall Heights</b> <big>&#128611</big><br>\
                 A mountain range.", {offset: [0,-12]});
     mountains.push(evenfall_heights);
     zoom1.push(evenfall_heights);
+
+    var fearsome_mountain = L.tooltip([-29.8, 54.1], mountain_options_hi_opacity)
+    .setContent("<div style='font-size: 10px;'>Fearsome<br>Mountain</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Fearsome Mountain</b> <big>&#128611</big><br>\
+                In order to be left alone, Hobbits in a nearby village\
+                spread rumours about a monster living on this mountain.\
+                Hence the misleading name, fearsome mountain.\
+                The mountain in itself is quite peacful and pretty.", {offset: [0,-12]});
+    mountains.push(fearsome_mountain);
+    zoom3.push(fearsome_mountain);
 
     // TOOLTIPS END
 
