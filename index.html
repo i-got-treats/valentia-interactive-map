@@ -337,6 +337,13 @@
     obelisks.push(fallen_city_of_ardour);
     zoom2.push(fallen_city_of_ardour);
 
+    var the_grave = (L.marker([22.7, 64.3], {icon: dungeon_i})
+    .bindPopup("<big>&#x1F661</big> <b>The Grave</b> <big>&#128611</big><br>\
+                The dungeon which once held archdevil Jaqon,\
+                imprisoned there for disobedience by the ruler of all devils."));
+    obelisks.push(the_grave);
+    zoom2.push(the_grave);
+
     var shipwrecks = [];
 
     var shrines = [];
@@ -420,11 +427,17 @@
 
     var cities = []
 
-    var unnamed_big_city = (L.marker([-2.7, -19], {icon: city_i})
-    .bindPopup("<big>&#x1F661</big> <b>Unnamed Big City</b> <big>&#128611</big><br>\
+    var antopolia = (L.marker([-2.7, -19], {icon: city_i})
+    .bindPopup("<big>&#x1F661</big> <b>Antopolia</b> <big>&#128611</big><br>\
                ..."));
-    cities.push(unnamed_big_city);
-    zoom1.push(unnamed_big_city);
+    cities.push(antopolia);
+    zoom2.push(antopolia);
+
+    var unnamed_big_city2 = (L.marker([27.1, 40.1], {icon: city_i})
+    .bindPopup("<big>&#x1F661</big> <b>unnamed_big_city2</b> <big>&#128611</big><br>\
+               ..."));
+    cities.push(unnamed_big_city2);
+    zoom2.push(unnamed_big_city2);
 
     var silverport = (L.marker([-72, -117], {icon: city_i})
     .bindPopup("<big>&#x1F661</big> <b>Silverport</b> <big>&#128611</big><br>\
@@ -439,6 +452,14 @@
                ..."));
     cities.push(the_grand_city_of_blackwater);
     zoom1.push(the_grand_city_of_blackwater);
+
+    var kiya = (L.marker([-56.9, 37.8], {icon: city_i})
+    .bindPopup("<big>&#x1F661</big> <b>Kiya</b> <big>&#128611</big><br>\
+               A city of animal-humanoids such as minotaurs, dragonborn, leonin and others.\
+               Though the common races are not forbidden from entering or staying in Kiya,\
+               they are not well liked."));
+    cities.push(kiya);
+    zoom2.push(kiya);
 
 
     var hut_villages = [];
@@ -497,7 +518,7 @@
                The dwarves that reside in it know it was built to protect the land,\
                but they forgot who it was supposed to protect them from."));
     towns.push(thuls_fortress);
-    zoom1.push(thuls_fortress);
+    zoom2.push(thuls_fortress);
 
 
     // PURPLE COUNTRY
@@ -521,11 +542,11 @@
     zoom2.push(leoquen);
 
     // TOVA
-    var imverius = (L.marker([13.7, 82.7], {icon: town_i})
-    .bindPopup("<big>&#x1F661</big> <b>Imverius</b> <big>&#128611</big><br>\
+    var impervious = (L.marker([13.7, 82.7], {icon: town_i})
+    .bindPopup("<big>&#x1F661</big> <b>Impervious</b> <big>&#128611</big><br>\
                A town born out of an age-old allience of hill-dwarves and humans native to Tova."));
-    cities.push(imverius);
-    zoom2.push(imverius);
+    cities.push(impervious);
+    zoom2.push(impervious);
 
 
     // GREEN COUNTRY
@@ -568,27 +589,27 @@
     zoom0.push(estoria);
 
     var siberia = L.tooltip([35, -94], countries_options)
-    .setContent('Siberia')
+    .setContent('<div style="font:20px Copperplate Gothic Light;line-height: 0.7;">Turquoise<br>Country</div>')
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
     zoom0.push(siberia);
 
     var tova = L.tooltip([26, 85], countries_options)
-    .setContent('<div style="font:28px Copperplate Gothic Light;line-height: 0.7;">Flooded<br>Lands<br>of Tova</div>')
+    .setContent('<div style="font:30px Copperplate Gothic Light;line-height: 0.7;">Flooded<br>Lands<br>of Tova</div>')
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
     zoom0.push(tova);
 
-    var storm_isles = L.tooltip([72, 63], countries_options)
-    .setContent('Storm<br>Isles')
+    var storm_isles = L.tooltip([72, 55], countries_options)
+    .setContent('<div style="font:30px Copperplate Gothic Light;line-height: 0.7;">Storm<br>Isles</div>')
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
     zoom0.push(storm_isles);
 
     var yellow_country = L.tooltip([-10, -18], countries_options)
-    .setContent('Yellow<br>Country')
+    .setContent('<div style="font:32px Copperplate Gothic Light;line-height: 0.7;">Korisanty</div>')
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
     zoom0.push(yellow_country);
 
     var green_country = L.tooltip([-50, 61], countries_options)
-    .setContent('Green<br>Country')
+    .setContent('Ictus<br>Etelios')
     .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
     zoom0.push(green_country);
 
@@ -653,8 +674,8 @@
     waters.push(winged_lions_sea);
     zoom1.push(winged_lions_sea);
 
-    var the_great_tear = L.tooltip([-60, 2], light_water_options)
-    .setContent("<div style='transform: rotate(-80deg); font-size: 23px; opacity:.8;'>The Great Tear</div>");
+    var the_great_tear = L.tooltip([-60, -0.5], light_water_options)
+    .setContent("<div style='transform: rotate(0deg); font-size: 23px; opacity:.8;'>The<br>Great<br>Tear</div>");
     waters.push(the_great_tear);
     zoom1.push(the_great_tear);
 
@@ -671,7 +692,7 @@
     waters.push(bogtrus_shallows);
     zoom2.push(bogtrus_shallows);
 
-    var sunset_pond = L.tooltip([-38.9, -82], light_water_options)
+    var sunset_pond = L.tooltip([-47.4, -130.8], light_water_options)
     .setContent("<div style='font-size: 10px;'>Sunset<br>Pond</div>");
     waters.push(sunset_pond);
     zoom3.push(sunset_pond);
@@ -769,12 +790,17 @@
     waters.push(soaring_lagoon);
     zoom3.push(soaring_lagoon);
 
-    // YELLOW COUNTRY
+    // TOVA
 
     var ry = L.tooltip([8.2, 110.5], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(-20deg);'>Ry</div>");
     waters.push(ry);
     zoom3.push(ry);
+
+    var the_mirrored_expanse = L.tooltip([21.4, 84], light_water_options)
+    .setContent("<div style='font-size: 14px;'>The Guiltless Expanse</div>");
+    waters.push(the_mirrored_expanse);
+    zoom2.push(the_mirrored_expanse);
 
     // SIBERIA
 
@@ -843,6 +869,7 @@
 
     // ISLANDS
     var island_options = ({direction: 'center', interactive: true, permanent: true, className: "inland"});
+    var island_options_no_popup = ({direction: 'center', interactive: false, permanent: true, className: "inland"});
 
     var islands = [];
 
@@ -852,6 +879,20 @@
                 A volcanic island.", {offset: [0,-12]});
     islands.push(fortune_island);
     zoom2.push(fortune_island);
+
+    var infernal_isle = L.tooltip([20.6, 64], island_options)
+    .setContent("<div style='font-size: 11px;'>Infernal Isle<div>")
+    .bindPopup("<big>&#x1F661</big> <b>Infernal Isle</b> <big>&#128611</big><br>\
+                A once beautiful and furtile land now lays in ashes.<br><br>\
+                The sad tale is well known. In an attempt to bring her love back from the dead,\
+                Erica forged a pact with Jaqon, a devil, who was held prisoner in a dungeon.\
+                He ordered for her to perform thirteen tasks, and promised to return her lover as payment.\
+                Each task consisted of devil's work - to kill the innocents, to torture and reap their souls -\
+                and with each task, a bit of her humanity was lost.\
+                With her thirteenth task, she had forgotten who she had been\
+                and joined Jaqon in burning the island.");
+    islands.push(infernal_isle);
+    zoom3.push(infernal_isle);
 
     var harolds_boot = L.tooltip([-78.5, -137], island_options)
     .setContent("Harold's Boot")
@@ -895,9 +936,16 @@
     var snowy_peaks = L.tooltip([70, -70], mountain_options)
     .setContent("Snowy Peaks")
     .bindPopup("<big>&#x1F661</big> <b>Snowy Peaks</b> <big>&#128611</big><br>\
-                ", {offset: [0,-12]});
+                A mountain range.", {offset: [0,-12]});
     mountains.push(snowy_peaks);
     zoom2.push(snowy_peaks);
+
+    var evenfall_heights = L.tooltip([-52, 26], {direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .7})
+    .setContent("<div style='font-size: 20px; transform: rotate(-65deg);'>Evenfall Heights</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Evenfall Heights</b> <big>&#128611</big><br>\
+                A mountain range.", {offset: [0,-12]});
+    mountains.push(evenfall_heights);
+    zoom1.push(evenfall_heights);
 
     // TOOLTIPS END
 
