@@ -1,5 +1,5 @@
-var i_size = [36, 32];
-var i_anchor = [18, 16];
+var i_size = [34, 30];
+var i_anchor = [17, 15];
 var p_anchor = [0, -22];
 
 var doticon = L.icon({
