@@ -952,11 +952,25 @@
     zoom2.push(snowy_peaks);
 
     var evenfall_heights = L.tooltip([-52, 26], mountain_options_hi_opacity)
-    .setContent("<div style='font-size: 20px; transform: rotate(-65deg);'>Evenfall Heights</div>")
+    .setContent("<div style='font-size: 18px; transform: rotate(-65deg);'>Evenfall Heights</div>")
     .bindPopup("<big>&#x1F661</big> <b>Evenfall Heights</b> <big>&#128611</big><br>\
                 A mountain range.", {offset: [0,-12]});
     mountains.push(evenfall_heights);
     zoom1.push(evenfall_heights);
+
+    var bronze_peaks = L.tooltip([-19.4, 49.6], mountain_options_hi_opacity)
+    .setContent("<div style=''>Bronze Peaks</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Bronze Peaks</b> <big>&#128611</big><br>\
+                A mountain range.", {offset: [0,-12]});
+    mountains.push(bronze_peaks);
+    zoom2.push(bronze_peaks);
+
+    var cursed_rise = L.tooltip([-69.2, 27.1], mountain_options_hi_opacity)
+    .setContent("<div style='font-size: 14px;'>Cursed Rise</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Cursed Rise</b> <big>&#128611</big><br>\
+                A mountain range.", {offset: [0,-12]});
+    mountains.push(cursed_rise);
+    zoom2.push(cursed_rise);
 
     var fearsome_mountain = L.tooltip([-29.8, 54.1], mountain_options_hi_opacity)
     .setContent("<div style='font-size: 10px;'>Fearsome<br>Mountain</div>")
