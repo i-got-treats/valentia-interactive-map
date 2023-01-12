@@ -514,7 +514,7 @@
     .bindPopup("<big>&#x1F661</big> <b>Ebonhall</b> <big>&#128611</big><br>\
                A town named after its black stone castle. Extremely hostile towards non-humans."));
     towns.push(ebonhall);
-    zoom1.push(ebonhall);
+    zoom2.push(ebonhall);
 
     var thuls_fortress = (L.marker([-43, -34], {icon: stronghold_i})
     .bindPopup("<big>&#x1F661</big> <b>Thul's Fortress</b> <big>&#128611</big><br>\
@@ -937,6 +937,92 @@
                 ...", {offset: [0,-12]});
     canyons.push(the_great_hollow);
     zoom1.push(the_great_hollow);
+
+    // FORESTS
+    var forest_options = ({direction: 'center', interactive: true, permanent: true, className: "forest", opacity: .8});
+    var forests = [];
+
+    // ESTORIA
+    var wolfs_wood = L.tooltip([-44.5, -69.8], forest_options)
+    .setContent("Wolf's<br>Wood")
+    .bindPopup("<big>&#x1F661</big> <b>Wolf's Wood</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(wolfs_wood);
+    zoom2.push(wolfs_wood);
+
+    var oak_grove = L.tooltip([-67.8, -120.6], forest_options)
+    .setContent("Oak<br>Grove")
+    .bindPopup("<big>&#x1F661</big> <b>Oak Grove</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(oak_grove);
+    zoom3.push(oak_grove);
+
+    var quiet_forest = L.tooltip([-61, -93.6], forest_options)
+    .setContent("Quiet<br>Forest")
+    .bindPopup("<big>&#x1F661</big> <b>Quiet Forest</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(quiet_forest);
+    zoom2.push(quiet_forest);
+
+    var old_woods = L.tooltip([-63.5, -52], forest_options)
+    .setContent("Old Woods")
+    .bindPopup("<big>&#x1F661</big> <b>Old Woods</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(old_woods);
+    zoom2.push(old_woods);
+
+    // PURPLE
+    var rabbits_forest = L.tooltip([42.6, -4.2], forest_options)
+    .setContent("Rabbit's Forest")
+    .bindPopup("<big>&#x1F661</big> <b>Rabbit's Forest</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(rabbits_forest);
+    zoom3.push(rabbits_forest);
+
+    // ICTUS ETELIOS
+    var willow_trees = L.tooltip([-36.5, 62], forest_options)
+    .setContent("<div style='font-size:12px;'>Willow<br>Trees</div>")
+    .bindPopup("<big>&#x1F661</big> <b>The Willow Trees</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(willow_trees);
+    zoom3.push(willow_trees);
+
+    var vagabond_woods = L.tooltip([-37.4, 82.3], forest_options)
+    .setContent("Vagabond<br>Woods")
+    .bindPopup("<big>&#x1F661</big> <b>Vagabond Woods</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(vagabond_woods);
+    zoom3.push(vagabond_woods);
+
+    var dreamers_forest = L.tooltip([-64.5, 62.6], forest_options)
+    .setContent("The<br>Dreamer's<br>Forest")
+    .bindPopup("<big>&#x1F661</big> <b>The Dreamer's Forest</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(dreamers_forest);
+    zoom1.push(dreamers_forest);
+
+    // KORISANTY
+    var vagabond_woods = L.tooltip([7.6, -3.3], forest_options)
+    .setContent("<div style='font-size: 12px;'>Perfumer's<br>Grove</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Perfumer's Grove</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(vagabond_woods);
+    zoom3.push(vagabond_woods);
+
+    // TURQUOISE/SIBERIA
+    var giants_woods = L.tooltip([70.1, -53.2], forest_options)
+    .setContent("Giant's<br>Woods")
+    .bindPopup("<big>&#x1F661</big> <b>Giant's Woods</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(giants_woods);
+    zoom3.push(giants_woods);
+
+    var pale_woods = L.tooltip([45.5, -87.2], forest_options)
+    .setContent("Pale<br>Woods")
+    .bindPopup("<big>&#x1F661</big> <b>Pale Woods</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(pale_woods);
+    zoom1.push(pale_woods);
 
     // MOUNTAINS
     var mountain_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .5});
