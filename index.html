@@ -203,15 +203,25 @@
         return Math.floor((distance_adjust(distance)/3.5)/24) + ' days and ' + ((distance_adjust(distance)/3.5)%24).toFixed(1) + ' hours';
     }
 
-    var latlngmarker = L.marker([-76, 94], {
+    function copyDivToClipboard() {
+                    var range = document.createRange();
+                    range.selectNode(document.getElementById("b"));
+                    window.getSelection().removeAllRanges(); // clear current selection
+                    window.getSelection().addRange(range); // to select text
+                    document.execCommand("copy");
+                    window.getSelection().removeAllRanges();// to deselect
+    }
+
+    var latlngmarker = L.marker([-3.6, -76.3], {
         draggable:true,
         icon: doticon,
         opacity: .5
     }).bindPopup()
     .addTo(map)
     .on('click', function(e){
-        latlngmarker.getPopup().setContent((e.latlng.lat.toFixed(1)) +
-                                           ", " +  (e.latlng.lng.toFixed(1)))
+        latlngmarker.getPopup().setContent('<div id="b" style="cursor: pointer;" onclick="copyDivToClipboard()">'
+                                           + (e.latlng.lat.toFixed(1)) +
+                                           ", " + (e.latlng.lng.toFixed(1)) + '</div>')
     });
 
     var distance_marker_1 = L.marker([76, 6], {
@@ -260,7 +270,7 @@
     var colig = (L.marker([-26, 18], {icon: colig_i})
     .bindPopup("<big>&#x1F661</big> <b>Colig</b> <big>&#128611</big><br>\
                Widely known as the biggest magic-teaching school in Valentia."));
-    zoom1.push(colig);
+    zoom2.push(colig);
 
     var crypts = [];
 
@@ -297,19 +307,19 @@
 
     var tower_of_trust = (L.marker([1, -24], {icon: tower_i})
     .bindPopup("<big>&#x1F661</big> <b>Tower of Trust</b> <big>&#128611</big><br>\
-               ..."));
+               A blue tower."));
     towers.push(tower_of_trust);
     zoom3.push(tower_of_trust);
 
     var tower_of_felicity = (L.marker([2, -13], {icon: tower_i})
     .bindPopup("<big>&#x1F661</big> <b>Tower of Felicity</b> <big>&#128611</big><br>\
-               ..."));
+               A yellow tower."));
     towers.push(tower_of_felicity);
     zoom3.push(tower_of_felicity);
 
     var tower_of_woe = (L.marker([-7, -19], {icon: tower_i})
     .bindPopup("<big>&#x1F661</big> <b>Tower of Woe</b> <big>&#128611</big><br>\
-               ..."));
+               A black tower."));
     towers.push(tower_of_woe);
     zoom3.push(tower_of_woe);
 
@@ -448,14 +458,14 @@
                An orc and an elf, who loved each other. A human and the dwarf whom he refused to execute.\
                They were the founders of the coastal city Silverport, home to the outcasts."));
     cities.push(silverport);
-    zoom1.push(silverport);
+    zoom2.push(silverport);
 
     var the_grand_city_of_blackwater = (L.marker([72, 45], {icon: city_i})
     .bindPopup("The Grand City of<br>\
                 <big>&#x1F661</big> <b>Blackwater</b> <big>&#128611</big><br>\
                ..."));
     cities.push(the_grand_city_of_blackwater);
-    zoom1.push(the_grand_city_of_blackwater);
+    zoom2.push(the_grand_city_of_blackwater);
 
     var kiya = (L.marker([-56.9, 37.8], {icon: city_i})
     .bindPopup("<big>&#x1F661</big> <b>Kiya</b> <big>&#128611</big><br>\
@@ -472,7 +482,7 @@
     var bar_akh = (L.marker([76, 6], {icon: hut_village_i})
     .bindPopup("<big>&#x1F661</big> <b>Bar-Akh</b> <big>&#128611</big><br>\
                ..."));
-    zoom1.push(bar_akh);
+    zoom2.push(bar_akh);
     hut_villages.push(bar_akh);
 
     var arrog = (L.marker([-42.9, -127.8], {icon: hut_village_i})
@@ -527,14 +537,14 @@
 
     // PURPLE COUNTRY
 
-    var aen_ethel = (L.marker([54, -9], {icon: castle_i})
+    var aen_ethel = (L.marker([54.8, -7.6], {icon: castle_i})
     .bindPopup("<big>&#x1F661</big> <b>Aen Ethél</b> <big>&#128611</big><br>\
                An ancient elvish castle town with a recent history of power-crazed monarchs.\
                Rules over central territories of [purple country]. Nerry's birthplace.<br><br>\
                <b>Coat of Arms</b><br>\
                ..."));
     towns.push(aen_ethel);
-    zoom1.push(aen_ethel);
+    zoom2.push(aen_ethel);
 
     var leoquen = (L.marker([49, -2], {icon: town_i})
     .bindPopup("<big>&#x1F661</big> <b>Leoquen</b> <big>&#128611</big><br>\
@@ -559,7 +569,7 @@
     .bindPopup("<big>&#x1F661</big> <b>Yabuonna</b> <big>&#128611</big><br>\
                A pretty village known for its apple farm. Tytus' home."));
     villages.push(yabuonna);
-    zoom1.push(yabuonna);
+    zoom2.push(yabuonna);
 
     var chanter = (L.marker([-31.6, 51.3], {icon: village_i})
     .bindPopup("<big>&#x1F661</big> <b>Chanter</b> <big>&#128611</big><br>\
@@ -812,6 +822,11 @@
     waters.push(the_mirrored_expanse);
     zoom2.push(the_mirrored_expanse);
 
+    var living_waters = L.tooltip([33.4, 33.2], light_water_options)
+    .setContent("<div style='font-size: 14px;'>Living<br>Waters</div>");
+    waters.push(living_waters);
+    zoom2.push(living_waters);
+
     // SIBERIA
 
     var frozen_lakes = L.tooltip([57.5, -119], light_water_options)
@@ -971,6 +986,20 @@
     forests.push(old_woods);
     zoom2.push(old_woods);
 
+    var dancing_magpies_woodlands = L.tooltip([-58, -107], forest_options)
+    .setContent("tbc<br>Woodlands")
+    .bindPopup("<big>&#x1F661</big> <b>Ascenathea Forest</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(dancing_magpies_woodlands);
+    zoom1.push(dancing_magpies_woodlands);
+
+    var ascenathea_forest = L.tooltip([-66.8, -65.8], forest_options)
+    .setContent("tbc")
+    .bindPopup("<big>&#x1F661</big> <b>Ascenathea Forest</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(ascenathea_forest);
+    zoom1.push(ascenathea_forest);
+
     // PURPLE
     var rabbits_forest = L.tooltip([42.6, -4.2], forest_options)
     .setContent("Rabbit's Forest")
@@ -978,6 +1007,13 @@
                 ", {offset: [0,-12]});
     forests.push(rabbits_forest);
     zoom3.push(rabbits_forest);
+
+    var luminous_forest = L.tooltip([52, -14.4], forest_options)
+    .setContent("Luminous<br>Forest")
+    .bindPopup("<big>&#x1F661</big> <b>Luminous Forest</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(luminous_forest);
+    zoom1.push(luminous_forest);
 
     // ICTUS ETELIOS
     var willow_trees = L.tooltip([-36.5, 62], forest_options)
@@ -994,20 +1030,34 @@
     forests.push(vagabond_woods);
     zoom3.push(vagabond_woods);
 
-    var dreamers_forest = L.tooltip([-64.5, 62.6], forest_options)
-    .setContent("The<br>Dreamer's<br>Forest")
-    .bindPopup("<big>&#x1F661</big> <b>The Dreamer's Forest</b> <big>&#128611</big><br>\
+    var dreamers_jungle = L.tooltip([-64.5, 62.6], forest_options)
+    .setContent("The<br>Dreamer's<br>Jungle")
+    .bindPopup("<big>&#x1F661</big> <b>The Dreamer's Jungle</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
-    forests.push(dreamers_forest);
-    zoom1.push(dreamers_forest);
+    forests.push(dreamers_jungle);
+    zoom1.push(dreamers_jungle);
 
     // KORISANTY
-    var vagabond_woods = L.tooltip([7.6, -3.3], forest_options)
+    var sweet_forest = L.tooltip([-1.9, -3.2], forest_options)
+    .setContent("<div style='font-size: 12px;'>Sweet<br>Forest</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Sweet Forest</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(sweet_forest);
+    zoom2.push(sweet_forest);
+
+    var champions_forest = L.tooltip([0.6, 6.6], forest_options)
+    .setContent("<div style='font-size: 12px;'>Champion's<br>Forest</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Champion's Forest</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(champions_forest);
+    zoom2.push(champions_forest);
+
+    var perfumers_grove = L.tooltip([7.6, -3.3], forest_options)
     .setContent("<div style='font-size: 12px;'>Perfumer's<br>Grove</div>")
     .bindPopup("<big>&#x1F661</big> <b>Perfumer's Grove</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
-    forests.push(vagabond_woods);
-    zoom3.push(vagabond_woods);
+    forests.push(perfumers_grove);
+    zoom3.push(perfumers_grove);
 
     // TURQUOISE/SIBERIA
     var giants_woods = L.tooltip([70.1, -53.2], forest_options)
@@ -1025,40 +1075,46 @@
     zoom1.push(pale_woods);
 
     // MOUNTAINS
-    var mountain_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .5});
-    var mountain_options_hi_opacity = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .7});
+    var mountain_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .7});
 
     var mountains = [];
 
     var snowy_peaks = L.tooltip([70, -70], mountain_options)
     .setContent("Snowy Peaks")
     .bindPopup("<big>&#x1F661</big> <b>Snowy Peaks</b> <big>&#128611</big><br>\
-                A mountain range.", {offset: [0,-12]});
+                ", {offset: [0,-12]});
     mountains.push(snowy_peaks);
-    zoom2.push(snowy_peaks);
+    zoom1.push(snowy_peaks);
 
-    var evenfall_heights = L.tooltip([-52, 26], mountain_options_hi_opacity)
-    .setContent("<div style='font-size: 18px; transform: rotate(-65deg);'>Evenfall Heights</div>")
+    var the_first_rise = L.tooltip([-56.6, -34.8], mountain_options)
+    .setContent("<div style='font-size: 16px;'>The First<br>Rise</div>")
+    .bindPopup("<big>&#x1F661</big> <b>The First Rise</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    mountains.push(the_first_rise);
+    zoom1.push(the_first_rise);
+
+    var evenfall_heights = L.tooltip([-39.9, 37.3], mountain_options)
+    .setContent("<div style='font-size: 16px;'>Evenfall<br>Heights</div>")
     .bindPopup("<big>&#x1F661</big> <b>Evenfall Heights</b> <big>&#128611</big><br>\
-                A mountain range.", {offset: [0,-12]});
+                ", {offset: [0,-12]});
     mountains.push(evenfall_heights);
     zoom1.push(evenfall_heights);
 
-    var bronze_peaks = L.tooltip([-19.4, 49.6], mountain_options_hi_opacity)
+    var bronze_peaks = L.tooltip([-19.4, 49.6], mountain_options)
     .setContent("<div style=''>Bronze Peaks</div>")
     .bindPopup("<big>&#x1F661</big> <b>Bronze Peaks</b> <big>&#128611</big><br>\
-                A mountain range.", {offset: [0,-12]});
+                ", {offset: [0,-12]});
     mountains.push(bronze_peaks);
-    zoom2.push(bronze_peaks);
+    zoom1.push(bronze_peaks);
 
-    var cursed_rise = L.tooltip([-69.2, 27.1], mountain_options_hi_opacity)
-    .setContent("<div style='font-size: 14px;'>Cursed Rise</div>")
-    .bindPopup("<big>&#x1F661</big> <b>Cursed Rise</b> <big>&#128611</big><br>\
-                A mountain range.", {offset: [0,-12]});
-    mountains.push(cursed_rise);
-    zoom2.push(cursed_rise);
+    var forgotten_mountains = L.tooltip([-69.2, 27.1], mountain_options)
+    .setContent("<div style='font-size: 14px;'>Forgotten<br>Mountains</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Forgotten Mountains</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    mountains.push(forgotten_mountains);
+    zoom1.push(forgotten_mountains);
 
-    var fearsome_mountain = L.tooltip([-29.8, 54.1], mountain_options_hi_opacity)
+    var fearsome_mountain = L.tooltip([-29.8, 54.1], mountain_options)
     .setContent("<div style='font-size: 10px;'>Fearsome<br>Mountain</div>")
     .bindPopup("<big>&#x1F661</big> <b>Fearsome Mountain</b> <big>&#128611</big><br>\
                 In order to be left alone, Hobbits in a nearby village\
