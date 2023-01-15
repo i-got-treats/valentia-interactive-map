@@ -471,7 +471,7 @@
     .bindPopup("<big>&#x1F661</big> <b>Kiya</b> <big>&#128611</big><br>\
                A city of animal-humanoids such as minotaurs, dragonborn, leonin and others.\
                Though the common races are not forbidden from entering or staying in Kiya,\
-               they are not well liked."));
+               they usually avoid the city."));
     cities.push(kiya);
     zoom2.push(kiya);
 
@@ -539,16 +539,18 @@
 
     var aen_ethel = (L.marker([54.8, -7.6], {icon: castle_i})
     .bindPopup("<big>&#x1F661</big> <b>Aen Ethél</b> <big>&#128611</big><br>\
-               An ancient elvish castle town with a recent history of power-crazed monarchs.\
-               Rules over central territories of [purple country]. Nerry's birthplace.<br><br>\
+               An ancient elvish castle town, ruled by the Arie family.\
+               Nerry's birthplace.<br><br>\
                <b>Coat of Arms</b><br>\
-               ..."));
+               a black lioness on a purple field i think"));
     towns.push(aen_ethel);
     zoom2.push(aen_ethel);
 
     var leoquen = (L.marker([49, -2], {icon: town_i})
     .bindPopup("<big>&#x1F661</big> <b>Leoquen</b> <big>&#128611</big><br>\
-               A town of elves and elf sympathizers. Under Aen Ethél rule since 320.<br><br>\
+               A town of humans, half-elves and elves.\
+               Originally a human town named 'Rabbitsfoot'.\
+               Under Aen Ethél rule since 320.<br><br>\
                <b>Coat of Arms</b><br>\
                <a target='_blank' href='images/coat_of_arms/leoquen_coa.png'>\
                <img height='105px' src='images/coat_of_arms/leoquen_coa.png'/></a>")); //vert  in fess point a rabbit salient  copper  in dexter flank a rabbit  copper  in sinister flank a rabbit reversed copper  a chief embattled brettessy argent    drawn with an emoji palette
@@ -811,6 +813,10 @@
     zoom3.push(soaring_lagoon);
 
     // TOVA
+    var cresters_basin = L.tooltip([35.3, -44], light_water_options)
+    .setContent("<div style='font-size: 13px;'>Crester's<br>Basin</div>");
+    waters.push(cresters_basin);
+    zoom2.push(cresters_basin);
 
     var ry = L.tooltip([8.2, 110.5], dark_water_options)
     .setContent("<div style='font-size: 13px; transform: rotate(-20deg);'>Ry</div>");
@@ -953,6 +959,35 @@
     canyons.push(the_great_hollow);
     zoom1.push(the_great_hollow);
 
+    var farewell_shrublands = L.tooltip([-31.6, -59.8], canyon_options)
+    .setContent("<div style='font-size: 14px'>Farewell<br>Shrublands</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Farewell Shrublands</b> <big>&#128611</big><br>\
+                ...", {offset: [0,-12]});
+    canyons.push(farewell_shrublands);
+    zoom1.push(farewell_shrublands);
+
+    var ashes_of_korisanty = L.tooltip([12.6, -43.4], canyon_options)
+    .setContent("<div style='font-size: 14px'>Ashes of<br>Korisanty</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Ashes of Korisanty</b> <big>&#128611</big><br>\
+                ...", {offset: [0,-12]});
+    canyons.push(ashes_of_korisanty);
+    zoom1.push(ashes_of_korisanty);
+
+    var lonely_tundra = L.tooltip([60.4, -108], canyon_options)
+    .setContent("<div style='font-size: 14px'>Far Tundra</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Lonely Tundra</b> <big>&#128611</big><br>\
+                ...", {offset: [0,-12]});
+    canyons.push(lonely_tundra);
+    zoom1.push(lonely_tundra);
+
+    var decaying_march = L.tooltip([51, -52.1], canyon_options)
+    .setContent("<div style='font-size: 12px'>Decaying<br>March</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Decaying March</b> <big>&#128611</big><br>\
+                ...", {offset: [0,-12]});
+    canyons.push(decaying_march);
+    zoom2.push(decaying_march);
+
+
     // FORESTS
     var forest_options = ({direction: 'center', interactive: true, permanent: true, className: "forest", opacity: .8});
     var forests = [];
@@ -986,19 +1021,19 @@
     forests.push(old_woods);
     zoom2.push(old_woods);
 
-    var dancing_magpies_woodlands = L.tooltip([-58, -107], forest_options)
-    .setContent("tbc<br>Woodlands")
-    .bindPopup("<big>&#x1F661</big> <b>Ascenathea Forest</b> <big>&#128611</big><br>\
+    var sighing_woodland = L.tooltip([-58, -106], forest_options)
+    .setContent("Sighing<br>Woodland")
+    .bindPopup("<big>&#x1F661</big> <b>Sighing Woodland</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
-    forests.push(dancing_magpies_woodlands);
-    zoom1.push(dancing_magpies_woodlands);
+    forests.push(sighing_woodland);
+    zoom1.push(sighing_woodland);
 
-    var ascenathea_forest = L.tooltip([-66.8, -65.8], forest_options)
-    .setContent("tbc")
-    .bindPopup("<big>&#x1F661</big> <b>Ascenathea Forest</b> <big>&#128611</big><br>\
+    var theas_forest = L.tooltip([-66.8, -65.8], forest_options)
+    .setContent("Thea's<br>Forest")
+    .bindPopup("<big>&#x1F661</big> <b>Thea's Forest</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
-    forests.push(ascenathea_forest);
-    zoom1.push(ascenathea_forest);
+    forests.push(theas_forest);
+    zoom1.push(theas_forest);
 
     // PURPLE
     var rabbits_forest = L.tooltip([42.6, -4.2], forest_options)
@@ -1008,12 +1043,12 @@
     forests.push(rabbits_forest);
     zoom3.push(rabbits_forest);
 
-    var luminous_forest = L.tooltip([52, -14.4], forest_options)
-    .setContent("Luminous<br>Forest")
-    .bindPopup("<big>&#x1F661</big> <b>Luminous Forest</b> <big>&#128611</big><br>\
+    var voiceless_wilds = L.tooltip([51, -14.4], forest_options)
+    .setContent("Voiceless<br>Wilds")
+    .bindPopup("<big>&#x1F661</big> <b>Voiceless Wilds</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
-    forests.push(luminous_forest);
-    zoom1.push(luminous_forest);
+    forests.push(voiceless_wilds);
+    zoom1.push(voiceless_wilds);
 
     // ICTUS ETELIOS
     var willow_trees = L.tooltip([-36.5, 62], forest_options)
@@ -1030,12 +1065,26 @@
     forests.push(vagabond_woods);
     zoom3.push(vagabond_woods);
 
+    var laughing_covert = L.tooltip([-11.0, 93.9], forest_options)
+    .setContent("Laughing<br>Covert")
+    .bindPopup("<big>&#x1F661</big> <b>Laughing Covert</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(laughing_covert);
+    zoom1.push(laughing_covert);
+
     var dreamers_jungle = L.tooltip([-64.5, 62.6], forest_options)
     .setContent("The<br>Dreamer's<br>Jungle")
     .bindPopup("<big>&#x1F661</big> <b>The Dreamer's Jungle</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(dreamers_jungle);
     zoom1.push(dreamers_jungle);
+
+    var rains_whisper = L.tooltip([-66.4, 46.0], forest_options)
+    .setContent("Rain's<br>Whisper")
+    .bindPopup("<big>&#x1F661</big> <b>Rain's Whisper</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(rains_whisper);
+    zoom2.push(rains_whisper);
 
     // KORISANTY
     var sweet_forest = L.tooltip([-1.9, -3.2], forest_options)
@@ -1044,6 +1093,13 @@
                 ", {offset: [0,-12]});
     forests.push(sweet_forest);
     zoom2.push(sweet_forest);
+
+    var veiled_woods = L.tooltip([-18.6, -52.4], forest_options)
+    .setContent("Veiled<br>Woods")
+    .bindPopup("<big>&#x1F661</big> <b>Veiled Woods</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(veiled_woods);
+    zoom1.push(veiled_woods);
 
     var champions_forest = L.tooltip([0.6, 6.6], forest_options)
     .setContent("<div style='font-size: 12px;'>Champion's<br>Forest</div>")
@@ -1114,6 +1170,20 @@
     mountains.push(forgotten_mountains);
     zoom1.push(forgotten_mountains);
 
+    var slumbering_mountains = L.tooltip([-20.3, 10.5], mountain_options)
+    .setContent("<div style='font-size: 14px;'>Slumbering<br>Mountains</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Slumbering Mountains</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    mountains.push(slumbering_mountains);
+    zoom1.push(slumbering_mountains);
+
+    var northern_heights = L.tooltip([72.5, -24.4], mountain_options)
+    .setContent("<div style='font-size: 14px;'>Northern Heights</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Northern Heights</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    mountains.push(northern_heights);
+    zoom1.push(northern_heights);
+
     var fearsome_mountain = L.tooltip([-29.8, 54.1], mountain_options)
     .setContent("<div style='font-size: 10px;'>Fearsome<br>Mountain</div>")
     .bindPopup("<big>&#x1F661</big> <b>Fearsome Mountain</b> <big>&#128611</big><br>\
@@ -1142,7 +1212,7 @@
        =========================
     */
 
-    var lettering = [].concat(waters, islands, canyons);
+    var lettering = [].concat(waters, islands, canyons, mountains, forests);
 
     function change() {
         var decider = document.getElementById('switch');
