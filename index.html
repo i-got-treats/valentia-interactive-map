@@ -190,6 +190,7 @@
        =========================*/
     var zoom0 = [];
     var zoom1 = [];
+    var zoomex1 = [];
     var zoom2 = [];
     var zoom3 = [];
 
@@ -313,7 +314,7 @@
 
     var tower_of_felicity = (L.marker([2, -13], {icon: tower_i})
     .bindPopup("<big>&#x1F661</big> <b>Tower of Felicity</b> <big>&#128611</big><br>\
-               A yellow tower."));
+               An orange tower."));
     towers.push(tower_of_felicity);
     zoom3.push(tower_of_felicity);
 
@@ -341,7 +342,7 @@
     .bindPopup("<big>&#x1F661</big> <b>Crow's Point</b> <big>&#128611</big><br>\
                 An ancient, 25m tall obelisk of onyx. Most likely of magical nature."));
     obelisks.push(crows_point);
-    zoom3.push(crows_point);
+    zoom2.push(crows_point);
 
     var ruins = [];
 
@@ -447,11 +448,11 @@
     cities.push(antopolia);
     zoom2.push(antopolia);
 
-    var unnamed_big_city2 = (L.marker([27.1, 40.1], {icon: city_i})
-    .bindPopup("<big>&#x1F661</big> <b>unnamed_big_city2</b> <big>&#128611</big><br>\
+    var kalamoor = (L.marker([27.1, 40.1], {icon: city_i})
+    .bindPopup("<big>&#x1F661</big> <b>Kalamoor</b> <big>&#128611</big><br>\
                ..."));
-    cities.push(unnamed_big_city2);
-    zoom2.push(unnamed_big_city2);
+    cities.push(kalamoor);
+    zoom2.push(kalamoor);
 
     var silverport = (L.marker([-72, -117], {icon: city_i})
     .bindPopup("<big>&#x1F661</big> <b>Silverport</b> <big>&#128611</big><br>\
@@ -542,7 +543,7 @@
                An ancient elvish castle town, ruled by the Arie family.\
                Nerry's birthplace.<br><br>\
                <b>Coat of Arms</b><br>\
-               a black lioness on a purple field i think"));
+               a white lioness on a purple field, i think"));
     towns.push(aen_ethel);
     zoom2.push(aen_ethel);
 
@@ -710,7 +711,7 @@
     var bogtrus_shallows = L.tooltip([-38.7, -108], light_water_options_popup)
     .setContent("<div style='font-size: 12px;'>Bogtru's<br>Shallows</div>")
     .bindPopup("<big>&#x1F661</big> <b>Bogtru's Shallows</b> <big>&#128611</big><br>\
-                Named after the great warrior Bogtru, fabled and beloved by Estoria's orc population.", {offset: [0, -6]});
+                Named after the great warrior Bogtru, fabled and beloved by Estoria's orcs.", {offset: [0, -6]});
     waters.push(bogtrus_shallows);
     zoom2.push(bogtrus_shallows);
 
@@ -944,41 +945,42 @@
     var canyon_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .5});
 
     var canyons = [];
+    var sand_options = ({direction: 'center', interactive: true, permanent: true, className: "sand", opacity: .7});
 
-    var the_scars = L.tooltip([-44, -124], canyon_options)
-    .setContent("<div style='font-size: 13px;'>The Scars</div>")
+    var the_scars = L.tooltip([-41, -124], canyon_options)
+    .setContent("<div style='font-size: 15px;'>The Scars</div>")
     .bindPopup("<big>&#x1F661</big> <b>The Scars</b> <big>&#128611</big><br>\
                 The Scars of Estoria or simply 'The Scars' are a group of five canyons to the northeast of Estoria.", {offset: [0,-12]});
     canyons.push(the_scars);
-    zoom1.push(the_scars);
+    zoomex1.push(the_scars);
 
     var the_great_hollow = L.tooltip([49, -37], canyon_options)
     .setContent("<div style='font-size: 13px;'>The<br>Great<br>Hollow</div>")
     .bindPopup("<big>&#x1F661</big> <b>The Great Hollow</b> <big>&#128611</big><br>\
                 ...", {offset: [0,-12]});
     canyons.push(the_great_hollow);
-    zoom1.push(the_great_hollow);
+    zoomex1.push(the_great_hollow);
 
     var farewell_shrublands = L.tooltip([-31.6, -59.8], canyon_options)
     .setContent("<div style='font-size: 14px'>Farewell<br>Shrublands</div>")
     .bindPopup("<big>&#x1F661</big> <b>Farewell Shrublands</b> <big>&#128611</big><br>\
                 ...", {offset: [0,-12]});
     canyons.push(farewell_shrublands);
-    zoom1.push(farewell_shrublands);
+    zoomex1.push(farewell_shrublands);
 
     var ashes_of_korisanty = L.tooltip([12.6, -43.4], canyon_options)
     .setContent("<div style='font-size: 14px'>Ashes of<br>Korisanty</div>")
     .bindPopup("<big>&#x1F661</big> <b>Ashes of Korisanty</b> <big>&#128611</big><br>\
                 ...", {offset: [0,-12]});
     canyons.push(ashes_of_korisanty);
-    zoom1.push(ashes_of_korisanty);
+    zoomex1.push(ashes_of_korisanty);
 
     var lonely_tundra = L.tooltip([60.4, -108], canyon_options)
     .setContent("<div style='font-size: 14px'>Far Tundra</div>")
     .bindPopup("<big>&#x1F661</big> <b>Lonely Tundra</b> <big>&#128611</big><br>\
                 ...", {offset: [0,-12]});
     canyons.push(lonely_tundra);
-    zoom1.push(lonely_tundra);
+    zoomex1.push(lonely_tundra);
 
     var decaying_march = L.tooltip([51, -52.1], canyon_options)
     .setContent("<div style='font-size: 12px'>Decaying<br>March</div>")
@@ -986,6 +988,39 @@
                 ...", {offset: [0,-12]});
     canyons.push(decaying_march);
     zoom2.push(decaying_march);
+
+    var dried_sea = L.tooltip([-63, 98], sand_options)
+    .setContent("Dried Sea")
+    .bindPopup("<big>&#x1F661</big> <b>Dried Sea</b> <big>&#128611</big><br>\
+                Ages ago, this desert used to be part of the sea, or so it is said.", {offset: [0,-12]});
+    canyons.push(dried_sea);
+    zoomex1.push(dried_sea);
+
+    var dunes_of_dawn = L.tooltip([-69.4, 87.5], sand_options)
+    .setContent("<div style='font-size:13px;'>Dunes of<br>Dawn</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Dunes of Dawn</b> <big>&#128611</big><br>\
+                ...", {offset: [0,-12]});
+    canyons.push(dunes_of_dawn);
+    zoomex1.push(dunes_of_dawn);
+
+    var worlds_end = L.tooltip([-75.7, 62.9], sand_options)
+    .setContent("<div style='font-size:15px;'>World's<br>End</div>")
+    .bindPopup("<big>&#x1F661</big> <b>World's End</b> <big>&#128611</big><br>\
+                ...", {offset: [0,-12]});
+    canyons.push(worlds_end);
+    zoomex1.push(worlds_end);
+
+    var the_everdark = L.tooltip([-20, 107.2], sand_options)
+    .setContent("<div style='font-size:13px;'>The<br>Everdark</div>")
+    .bindPopup("<big>&#x1F661</big> <b>The Everdark</b> <big>&#128611</big><br>\
+                A place of magical, never-ending darkness.\
+                Nothing can grow there, nothing can be felt but sand and bones.\
+                The loudest scream turns to quiet whisper.\
+                Within hours, the mind starts playing tricks\
+                on the unfortunate souls that venture into the Everdark.\
+                Few ever return.", {offset: [0,-12]});
+    canyons.push(the_everdark);
+    zoomex1.push(the_everdark);
 
 
     // FORESTS
@@ -1026,14 +1061,14 @@
     .bindPopup("<big>&#x1F661</big> <b>Sighing Woodland</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(sighing_woodland);
-    zoom1.push(sighing_woodland);
+    zoom2.push(sighing_woodland);
 
     var theas_forest = L.tooltip([-66.8, -65.8], forest_options)
     .setContent("Thea's<br>Forest")
     .bindPopup("<big>&#x1F661</big> <b>Thea's Forest</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(theas_forest);
-    zoom1.push(theas_forest);
+    zoom2.push(theas_forest);
 
     // PURPLE
     var rabbits_forest = L.tooltip([42.6, -4.2], forest_options)
@@ -1043,12 +1078,19 @@
     forests.push(rabbits_forest);
     zoom3.push(rabbits_forest);
 
+    var enchanted_jungle = L.tooltip([57.5, 4.2], forest_options)
+    .setContent("Enchanted<br>Jungle")
+    .bindPopup("<big>&#x1F661</big> <b>Enchanted Jungle</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(enchanted_jungle);
+    zoom3.push(enchanted_jungle);
+
     var voiceless_wilds = L.tooltip([51, -14.4], forest_options)
     .setContent("Voiceless<br>Wilds")
     .bindPopup("<big>&#x1F661</big> <b>Voiceless Wilds</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(voiceless_wilds);
-    zoom1.push(voiceless_wilds);
+    zoom2.push(voiceless_wilds);
 
     // ICTUS ETELIOS
     var willow_trees = L.tooltip([-36.5, 62], forest_options)
@@ -1070,14 +1112,14 @@
     .bindPopup("<big>&#x1F661</big> <b>Laughing Covert</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(laughing_covert);
-    zoom1.push(laughing_covert);
+    zoom2.push(laughing_covert);
 
     var dreamers_jungle = L.tooltip([-64.5, 62.6], forest_options)
     .setContent("The<br>Dreamer's<br>Jungle")
     .bindPopup("<big>&#x1F661</big> <b>The Dreamer's Jungle</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(dreamers_jungle);
-    zoom1.push(dreamers_jungle);
+    zoom2.push(dreamers_jungle);
 
     var rains_whisper = L.tooltip([-66.4, 46.0], forest_options)
     .setContent("Rain's<br>Whisper")
@@ -1099,14 +1141,14 @@
     .bindPopup("<big>&#x1F661</big> <b>Veiled Woods</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(veiled_woods);
-    zoom1.push(veiled_woods);
+    zoom2.push(veiled_woods);
 
     var champions_forest = L.tooltip([0.6, 6.6], forest_options)
     .setContent("<div style='font-size: 12px;'>Champion's<br>Forest</div>")
     .bindPopup("<big>&#x1F661</big> <b>Champion's Forest</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(champions_forest);
-    zoom2.push(champions_forest);
+    zoom3.push(champions_forest);
 
     var perfumers_grove = L.tooltip([7.6, -3.3], forest_options)
     .setContent("<div style='font-size: 12px;'>Perfumer's<br>Grove</div>")
@@ -1114,6 +1156,13 @@
                 ", {offset: [0,-12]});
     forests.push(perfumers_grove);
     zoom3.push(perfumers_grove);
+
+    var miserys_garden = L.tooltip([22, -55.9], forest_options)
+    .setContent("<div style='font-size: 12px;'>Misery's<br>Garden</div>")
+    .bindPopup("<big>&#x1F661</big> <b>Misery's Garden</b> <big>&#128611</big><br>\
+                ", {offset: [0,-12]});
+    forests.push(miserys_garden);
+    zoom2.push(miserys_garden);
 
     // TURQUOISE/SIBERIA
     var giants_woods = L.tooltip([70.1, -53.2], forest_options)
@@ -1128,7 +1177,7 @@
     .bindPopup("<big>&#x1F661</big> <b>Pale Woods</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     forests.push(pale_woods);
-    zoom1.push(pale_woods);
+    zoom2.push(pale_woods);
 
     // MOUNTAINS
     var mountain_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .7});
@@ -1136,53 +1185,53 @@
     var mountains = [];
 
     var snowy_peaks = L.tooltip([70, -70], mountain_options)
-    .setContent("Snowy Peaks")
+    .setContent("<div style='font-size: 14px;'>Snowy Peaks</div>")
     .bindPopup("<big>&#x1F661</big> <b>Snowy Peaks</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     mountains.push(snowy_peaks);
-    zoom1.push(snowy_peaks);
+    zoomex1.push(snowy_peaks);
 
-    var the_first_rise = L.tooltip([-56.6, -34.8], mountain_options)
-    .setContent("<div style='font-size: 16px;'>The First<br>Rise</div>")
+    var the_first_rise = L.tooltip([-51.6, -30.8], mountain_options)
+    .setContent("<div style='font-size: 18px;'>The<br>First<br>Rise</div>")
     .bindPopup("<big>&#x1F661</big> <b>The First Rise</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     mountains.push(the_first_rise);
-    zoom1.push(the_first_rise);
+    zoomex1.push(the_first_rise);
 
     var evenfall_heights = L.tooltip([-39.9, 37.3], mountain_options)
     .setContent("<div style='font-size: 16px;'>Evenfall<br>Heights</div>")
     .bindPopup("<big>&#x1F661</big> <b>Evenfall Heights</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     mountains.push(evenfall_heights);
-    zoom1.push(evenfall_heights);
+    zoomex1.push(evenfall_heights);
 
     var bronze_peaks = L.tooltip([-19.4, 49.6], mountain_options)
-    .setContent("<div style=''>Bronze Peaks</div>")
+    .setContent("<div style='font-size: 13px'>Bronze Peaks</div>")
     .bindPopup("<big>&#x1F661</big> <b>Bronze Peaks</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     mountains.push(bronze_peaks);
-    zoom1.push(bronze_peaks);
+    zoomex1.push(bronze_peaks);
 
     var forgotten_mountains = L.tooltip([-69.2, 27.1], mountain_options)
-    .setContent("<div style='font-size: 14px;'>Forgotten<br>Mountains</div>")
+    .setContent("<div style='font-size: 13px;'>Forgotten<br>Mountains</div>")
     .bindPopup("<big>&#x1F661</big> <b>Forgotten Mountains</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     mountains.push(forgotten_mountains);
-    zoom1.push(forgotten_mountains);
+    zoomex1.push(forgotten_mountains);
 
     var slumbering_mountains = L.tooltip([-20.3, 10.5], mountain_options)
     .setContent("<div style='font-size: 14px;'>Slumbering<br>Mountains</div>")
     .bindPopup("<big>&#x1F661</big> <b>Slumbering Mountains</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     mountains.push(slumbering_mountains);
-    zoom1.push(slumbering_mountains);
+    zoomex1.push(slumbering_mountains);
 
     var northern_heights = L.tooltip([72.5, -24.4], mountain_options)
     .setContent("<div style='font-size: 14px;'>Northern Heights</div>")
     .bindPopup("<big>&#x1F661</big> <b>Northern Heights</b> <big>&#128611</big><br>\
                 ", {offset: [0,-12]});
     mountains.push(northern_heights);
-    zoom1.push(northern_heights);
+    zoomex1.push(northern_heights);
 
     var fearsome_mountain = L.tooltip([-29.8, 54.1], mountain_options)
     .setContent("<div style='font-size: 10px;'>Fearsome<br>Mountain</div>")
@@ -1241,6 +1290,18 @@
             })
         });
 
+        // appear only on zoom level 1
+        map.on('zoomend', function () {
+            L.layerGroup(zoomex1).eachLayer(function (layer) {
+                if (map.getZoom() != 2 && map.hasLayer(layer) && decider.checked) {
+                    map.removeLayer(layer);
+                }
+                if (map.getZoom() == 2 && map.hasLayer(layer) == false && decider.checked){
+                    map.addLayer(layer);
+                }
+            })
+        });
+
         // appear from zoom level 2 on
         map.on('zoomend', function () {
             L.layerGroup(zoom2).eachLayer(function (layer) {
@@ -1277,7 +1338,7 @@
         label: "MAP INFO",
         selectAllCheckbox: true,
         children: [
-            {label: '<input type="checkbox" id="switch" onclick="change()"/> zoom-activated visibility'},
+            {label: '<input type="checkbox" id="switch" onclick="change()"/> zoom-regulation'},
 
             {label: "(helpers)",
             layer: L.layerGroup(helpers)},
