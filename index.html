@@ -352,6 +352,14 @@
     obelisks.push(fallen_city_of_ardour);
     zoom2.push(fallen_city_of_ardour);
 
+    var the_coral_citadel = (L.marker([-62.7, 99.5], {icon: ruin_i})
+    .bindPopup("<big>&#x1F661</big> <b>The Coral Citadel</b> <big>&#128611</big><br>\
+               Over centuries, the Tritons carved and molded this towering structure.\
+               A symbol of their civilization and architecture. A place where long ago, their court was held.\
+               Now, the colorful seashells adorning the halls have brittled and the Tritons have disappeared."));
+    ruins.push(the_coral_citadel);
+    zoom2.push(the_coral_citadel);
+
     var the_grave = (L.marker([22.7, 64.3], {icon: dungeon_i})
     .bindPopup("<big>&#x1F661</big> <b>The Grave</b> <big>&#128611</big><br>\
                 The dungeon which once held archdevil Jaqon,\
@@ -446,27 +454,27 @@
     .bindPopup("<big>&#x1F661</big> <b>Antopolia</b> <big>&#128611</big><br>\
                ..."));
     cities.push(antopolia);
-    zoom2.push(antopolia);
+    zoom1.push(antopolia);
 
     var kalamoor = (L.marker([27.1, 40.1], {icon: city_i})
     .bindPopup("<big>&#x1F661</big> <b>Kalamoor</b> <big>&#128611</big><br>\
                ..."));
     cities.push(kalamoor);
-    zoom2.push(kalamoor);
+    zoom1.push(kalamoor);
 
     var silverport = (L.marker([-72, -117], {icon: city_i})
     .bindPopup("<big>&#x1F661</big> <b>Silverport</b> <big>&#128611</big><br>\
                An orc and an elf, who loved each other. A human and the dwarf whom he refused to execute.\
                They were the founders of the coastal city Silverport, home to the outcasts."));
     cities.push(silverport);
-    zoom2.push(silverport);
+    zoom1.push(silverport);
 
     var the_grand_city_of_blackwater = (L.marker([72, 45], {icon: city_i})
     .bindPopup("The Grand City of<br>\
                 <big>&#x1F661</big> <b>Blackwater</b> <big>&#128611</big><br>\
                ..."));
     cities.push(the_grand_city_of_blackwater);
-    zoom2.push(the_grand_city_of_blackwater);
+    zoom1.push(the_grand_city_of_blackwater);
 
     var kiya = (L.marker([-56.9, 37.8], {icon: city_i})
     .bindPopup("<big>&#x1F661</big> <b>Kiya</b> <big>&#128611</big><br>\
@@ -474,7 +482,7 @@
                Though the common races are not forbidden from entering or staying in Kiya,\
                they usually avoid the city."));
     cities.push(kiya);
-    zoom2.push(kiya);
+    zoom1.push(kiya);
 
 
     var hut_villages = [];
@@ -957,7 +965,10 @@
     var the_great_hollow = L.tooltip([49, -37], canyon_options)
     .setContent("<div style='font-size: 13px;'>The<br>Great<br>Hollow</div>")
     .bindPopup("<big>&#x1F661</big> <b>The Great Hollow</b> <big>&#128611</big><br>\
-                ...", {offset: [0,-12]});
+                Massive cliffs of black stone rise up to block out the sun and cast this canyon\
+                into eternal shadow. The accursed darkness corrupts the minds of those who venture too deep,\
+                driving them mad with fear and desparation. There is no treasure, no ancient knowledge, no escape.\
+                There is only hollow.", {offset: [0,-12]});
     canyons.push(the_great_hollow);
     zoomex1.push(the_great_hollow);
 
@@ -971,42 +982,52 @@
     var ashes_of_korisanty = L.tooltip([12.6, -43.4], canyon_options)
     .setContent("<div style='font-size: 14px'>Ashes of<br>Korisanty</div>")
     .bindPopup("<big>&#x1F661</big> <b>Ashes of Korisanty</b> <big>&#128611</big><br>\
-                ...", {offset: [0,-12]});
+                Hardy shrubs shrubs and twisted trees\
+                that adapted to this ashen earth offer a unique and rugged beauty.\
+                Water is sparse, but the land is home to some nomadic tribes.", {offset: [0,-12]});
     canyons.push(ashes_of_korisanty);
     zoomex1.push(ashes_of_korisanty);
 
     var lonely_tundra = L.tooltip([60.4, -108], canyon_options)
     .setContent("<div style='font-size: 14px'>Far Tundra</div>")
     .bindPopup("<big>&#x1F661</big> <b>Lonely Tundra</b> <big>&#128611</big><br>\
-                ...", {offset: [0,-12]});
+                Blanketed in ice and snow, this land is too harsh and unforgiving for many creatures.", {offset: [0,-12]});
     canyons.push(lonely_tundra);
     zoomex1.push(lonely_tundra);
 
     var decaying_march = L.tooltip([51, -52.1], canyon_options)
     .setContent("<div style='font-size: 12px'>Decaying<br>March</div>")
     .bindPopup("<big>&#x1F661</big> <b>Decaying March</b> <big>&#128611</big><br>\
-                ...", {offset: [0,-12]});
+                Once-lush fields that are now nothing but cracked and brittle earth,\
+                darkened by the ash and dust of long-forgotten wars.", {offset: [0,-12]});
     canyons.push(decaying_march);
     zoom2.push(decaying_march);
 
     var dried_sea = L.tooltip([-63, 98], sand_options)
     .setContent("Dried Sea")
     .bindPopup("<big>&#x1F661</big> <b>Dried Sea</b> <big>&#128611</big><br>\
-                Ages ago, this desert used to be part of the sea, or so it is said.", {offset: [0,-12]});
+                Long-dead sea creatures lay in the sand and the smell of salt hangs in the air.\
+                During a great conflict under this ancient-sea, it inexplicably dried up.\
+                Most believe it has something to do with the Tritons and the Coral Citadel.", {offset: [0,-12]});
     canyons.push(dried_sea);
     zoomex1.push(dried_sea);
 
     var dunes_of_dawn = L.tooltip([-69.4, 87.5], sand_options)
     .setContent("<div style='font-size:13px;'>Dunes of<br>Dawn</div>")
     .bindPopup("<big>&#x1F661</big> <b>Dunes of Dawn</b> <big>&#128611</big><br>\
-                ...", {offset: [0,-12]});
+                As the first light of dawn breaks over the horizon, the dunes come alive.\
+                They rise and fall like waves, creating a constantly shifting landscape.\
+                Many believe the dunes have minds of their own\
+                and guide adventurers to secret treasures - or certain death.", {offset: [0,-12]});
     canyons.push(dunes_of_dawn);
     zoomex1.push(dunes_of_dawn);
 
     var worlds_end = L.tooltip([-75.7, 62.9], sand_options)
     .setContent("<div style='font-size:15px;'>World's<br>End</div>")
     .bindPopup("<big>&#x1F661</big> <b>World's End</b> <big>&#128611</big><br>\
-                ...", {offset: [0,-12]});
+                Many consider this desert to be the end of the world - but its name originated\
+                from a catastrophic event in which an entire civilization was wiped out.\
+                Some sources blame a cursed dragon, others a powerful wizard.", {offset: [0,-12]});
     canyons.push(worlds_end);
     zoomex1.push(worlds_end);
 
@@ -1045,7 +1066,7 @@
     var quiet_forest = L.tooltip([-61, -93.6], forest_options)
     .setContent("Quiet<br>Forest")
     .bindPopup("<big>&#x1F661</big> <b>Quiet Forest</b> <big>&#128611</big><br>\
-                ", {offset: [0,-12]});
+                Many people believe that an elusive creature watches over these tranquil woods.", {offset: [0,-12]});
     forests.push(quiet_forest);
     zoom2.push(quiet_forest);
 
@@ -1059,14 +1080,19 @@
     var sighing_woodland = L.tooltip([-58, -106], forest_options)
     .setContent("Sighing<br>Woodland")
     .bindPopup("<big>&#x1F661</big> <b>Sighing Woodland</b> <big>&#128611</big><br>\
-                ", {offset: [0,-12]});
+                The sound of the sea's gentle sighs and whispers can be heard from deep within the forest,\
+                giving it its name.", {offset: [0,-12]});
     forests.push(sighing_woodland);
     zoom2.push(sighing_woodland);
 
     var theas_forest = L.tooltip([-66.8, -65.8], forest_options)
     .setContent("Thea's<br>Forest")
     .bindPopup("<big>&#x1F661</big> <b>Thea's Forest</b> <big>&#128611</big><br>\
-                ", {offset: [0,-12]});
+                For long, elves of this forest spent their time fighting and killing one another.\
+                Until Thea, an elvish princess, finally brought an end to this war.\
+                She became beloved by all elven clans. When she was poisoned by an assassin,\
+                her people were overcome by grief - but not by hate - and peace prevailed.\
+                In her honor, they renamed this forest.", {offset: [0,-12]});
     forests.push(theas_forest);
     zoom2.push(theas_forest);
 
