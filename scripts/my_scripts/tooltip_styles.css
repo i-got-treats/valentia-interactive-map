@@ -32,6 +32,7 @@
     font-size: 15px;
     transition: opacity .5s ease-in-out;
 }
+
 .forest {
     text-align: center;
     line-height: 1;
@@ -50,6 +51,7 @@
     font-size: 13px;
     transition: opacity .5s ease-in-out;
 }
+
 .sand {
     text-align: center;
     line-height: 1;
@@ -100,7 +102,8 @@
     transition: opacity .5s ease-in-out;
 }
 
-.light_water:hover, .inland:hover, .forest:hover{
+.dark_water:hover, .light_water:hover,
+.inland:hover, .forest:hover, .sand:hover{
     opacity: .2!important;
 }
 
