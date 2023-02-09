@@ -374,7 +374,7 @@ zoomex1.push(farewell_shrublands);
 var ashes_of_korisanty = L.tooltip([12.6, -43.4], canyon_options)
 .setContent("<div style='font-size: 14px'>Ashes of<br>Korisanty</div>")
 .bindPopup("<big>&#x1F661</big> <b>Ashes of Korisanty</b> <big>&#128611</big><br>\
-            Hardy shrubs shrubs and twisted trees\
+            Hardy shrubs and twisted trees\
             that adapted to this ashen earth offer a unique and rugged beauty.\
             Water is sparse, but the land is home to some nomadic tribes.", {offset: [0,-12]});
 canyons.push(ashes_of_korisanty);
@@ -394,7 +394,7 @@ var decaying_march = L.tooltip([51, -52.1], canyon_options)
             darkened by the ash and dust of long-forgotten wars.", {offset: [0,-12]});
 canyons.push(decaying_march);
 zoom2.push(decaying_march);
-// CANYONY and SHRUBS end
+// CANYONS and SHRUBS end
 
 // SANDS
 var sand_options = ({direction: 'center', interactive: true, permanent: true, className: "sand", opacity: .7});
@@ -443,36 +443,44 @@ zoomex1.push(the_everdark);
 
 // FORESTS
 var forest_options = ({direction: 'center', interactive: true, permanent: true, className: "forest", opacity: .8});
+var forest_options_no_interact = ({direction: 'center', permanent: true, className: "forest", opacity: .8});
 var forests = [];
 
 // ESTORIA
-var wolfs_wood = L.tooltip([-44.5, -69.8], forest_options)
+var wolfs_wood = L.tooltip([-44.5, -69.8], forest_options_no_interact)
 .setContent("Wolf's<br>Wood")
 .bindPopup("<big>&#x1F661</big> <b>Wolf's Wood</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(wolfs_wood);
-zoom2.push(wolfs_wood);
+zoomex2.push(wolfs_wood);
 
-var oak_grove = L.tooltip([-67.8, -120.6], forest_options)
-.setContent("Oak<br>Grove")
-.bindPopup("<big>&#x1F661</big> <b>Oak Grove</b> <big>&#128611</big><br>\
+var storms_garden = L.tooltip([-69.8, -100.0], forest_options_no_interact)
+.setContent("Storm's<br>Garden")
+.bindPopup("<big>&#x1F661</big> <b>Storm's Garden</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
-forests.push(oak_grove);
-zoom3.push(oak_grove);
+forests.push(storms_garden);
+zoomex2.push(storms_garden);
+
+var groves_of_silverport = L.tooltip([-66.4, -119.2], forest_options_no_interact)
+.setContent("Groves of<br>Silverport")
+.bindPopup("<big>&#x1F661</big> <b>Groves of Silverport</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(groves_of_silverport);
+zoomex2.push(groves_of_silverport);
 
 var quiet_forest = L.tooltip([-61, -93.6], forest_options)
 .setContent("Quiet<br>Forest")
 .bindPopup("<big>&#x1F661</big> <b>Quiet Forest</b> <big>&#128611</big><br>\
             Many people believe that an elusive creature watches over these tranquil woods.", {offset: [0,-12]});
 forests.push(quiet_forest);
-zoom2.push(quiet_forest);
+zoomex2.push(quiet_forest);
 
 var old_woods = L.tooltip([-63.5, -52], forest_options)
 .setContent("Old Woods")
 .bindPopup("<big>&#x1F661</big> <b>Old Woods</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(old_woods);
-zoom2.push(old_woods);
+zoomex2.push(old_woods);
 
 var sighing_woodland = L.tooltip([-58, -106], forest_options)
 .setContent("Sighing<br>Woodland")
@@ -480,7 +488,7 @@ var sighing_woodland = L.tooltip([-58, -106], forest_options)
             The sound of the sea's gentle sighs and whispers can be heard from deep within the forest,\
             giving it its name.", {offset: [0,-12]});
 forests.push(sighing_woodland);
-zoom2.push(sighing_woodland);
+zoomex2.push(sighing_woodland);
 
 var theas_forest = L.tooltip([-66.8, -65.8], forest_options)
 .setContent("Thea's<br>Forest")
@@ -491,101 +499,116 @@ var theas_forest = L.tooltip([-66.8, -65.8], forest_options)
             her people were overcome by grief - but not by hate - and peace prevailed.\
             In her honor, they renamed this forest.", {offset: [0,-12]});
 forests.push(theas_forest);
-zoom2.push(theas_forest);
+zoomex2.push(theas_forest);
+
+// TOVA
+var wandering_woods = L.tooltip([56.0, 126.6], forest_options_no_interact)
+.setContent("Wandering<br>Woods")
+.bindPopup("<big>&#x1F661</big> <b>Wandering Woods</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(wandering_woods);
+zoomex2.push(wandering_woods);
 
 // PURPLE
-var rabbits_forest = L.tooltip([42.6, -4.2], forest_options)
+var rabbits_forest = L.tooltip([42.6, -4.2], forest_options_no_interact)
 .setContent("Rabbit's Forest")
 .bindPopup("<big>&#x1F661</big> <b>Rabbit's Forest</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(rabbits_forest);
-zoom3.push(rabbits_forest);
+zoomex2.push(rabbits_forest);
 
-var enchanted_jungle = L.tooltip([57.5, 4.2], forest_options)
+var enchanted_jungle = L.tooltip([57.5, 4.2], forest_options_no_interact)
 .setContent("Enchanted<br>Jungle")
 .bindPopup("<big>&#x1F661</big> <b>Enchanted Jungle</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(enchanted_jungle);
-zoom3.push(enchanted_jungle);
+zoomex2.push(enchanted_jungle);
 
-var voiceless_wilds = L.tooltip([51, -14.4], forest_options)
+var voiceless_wilds = L.tooltip([51, -14.4], forest_options_no_interact)
 .setContent("Voiceless<br>Wilds")
 .bindPopup("<big>&#x1F661</big> <b>Voiceless Wilds</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(voiceless_wilds);
-zoom2.push(voiceless_wilds);
+zoomex2.push(voiceless_wilds);
 
 // ICTUS ETELIOS
-var willow_trees = L.tooltip([-36.5, 62], forest_options)
+var willow_trees = L.tooltip([-36.5, 62], forest_options_no_interact)
 .setContent("<div style='font-size:12px;'>Willow<br>Trees</div>")
 .bindPopup("<big>&#x1F661</big> <b>The Willow Trees</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(willow_trees);
 zoom3.push(willow_trees);
 
-var vagabond_woods = L.tooltip([-37.4, 82.3], forest_options)
+var oak_grove = L.tooltip([-39.8, 62.], forest_options_no_interact)
+.setContent("Oak<br>Grove")
+.bindPopup("<big>&#x1F661</big> <b>Oak Grove</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(oak_grove);
+zoom3.push(oak_grove);
+
+var vagabond_woods = L.tooltip([-37.4, 82.3], forest_options_no_interact)
 .setContent("Vagabond<br>Woods")
 .bindPopup("<big>&#x1F661</big> <b>Vagabond Woods</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(vagabond_woods);
-zoom3.push(vagabond_woods);
+zoomex2.push(vagabond_woods);
 
-var laughing_covert = L.tooltip([-11.0, 93.9], forest_options)
+var laughing_covert = L.tooltip([-11.0, 93.9], forest_options_no_interact)
 .setContent("Laughing<br>Covert")
 .bindPopup("<big>&#x1F661</big> <b>Laughing Covert</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(laughing_covert);
-zoom2.push(laughing_covert);
+zoomex2.push(laughing_covert);
 
-var dreamers_jungle = L.tooltip([-64.5, 62.6], forest_options)
+var dreamers_jungle = L.tooltip([-64.5, 62.6], forest_options_no_interact)
 .setContent("The<br>Dreamer's<br>Jungle")
 .bindPopup("<big>&#x1F661</big> <b>The Dreamer's Jungle</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(dreamers_jungle);
-zoom2.push(dreamers_jungle);
+zoomex2.push(dreamers_jungle);
 
-var rains_whisper = L.tooltip([-66.4, 46.0], forest_options)
+var rains_whisper = L.tooltip([-66.4, 46.0], forest_options_no_interact)
 .setContent("Rain's<br>Whisper")
 .bindPopup("<big>&#x1F661</big> <b>Rain's Whisper</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(rains_whisper);
-zoom2.push(rains_whisper);
+zoomex2.push(rains_whisper);
 
 // KORISANTY
-var sweet_forest = L.tooltip([-1.9, -3.2], forest_options)
+var sweet_forest = L.tooltip([-1.9, -3.2], forest_options_no_interact)
 .setContent("<div style='font-size: 12px;'>Sweet<br>Forest</div>")
 .bindPopup("<big>&#x1F661</big> <b>Sweet Forest</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(sweet_forest);
-zoom2.push(sweet_forest);
+zoomex2.push(sweet_forest);
 
-var veiled_woods = L.tooltip([-18.6, -52.4], forest_options)
+var veiled_woods = L.tooltip([-18.6, -52.4], forest_options_no_interact)
 .setContent("Veiled<br>Woods")
 .bindPopup("<big>&#x1F661</big> <b>Veiled Woods</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(veiled_woods);
-zoom2.push(veiled_woods);
+zoomex2.push(veiled_woods);
 
-var champions_forest = L.tooltip([0.6, 6.6], forest_options)
+var champions_forest = L.tooltip([0.6, 6.6], forest_options_no_interact)
 .setContent("<div style='font-size: 12px;'>Champion's<br>Forest</div>")
 .bindPopup("<big>&#x1F661</big> <b>Champion's Forest</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(champions_forest);
-zoom3.push(champions_forest);
+zoomex2.push(champions_forest);
 
-var perfumers_grove = L.tooltip([7.6, -3.3], forest_options)
+var perfumers_grove = L.tooltip([7.6, -3.3], forest_options_no_interact)
 .setContent("<div style='font-size: 12px;'>Perfumer's<br>Grove</div>")
 .bindPopup("<big>&#x1F661</big> <b>Perfumer's Grove</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(perfumers_grove);
-zoom3.push(perfumers_grove);
+zoomex2.push(perfumers_grove);
 
 var miserys_garden = L.tooltip([22, -55.9], forest_options)
 .setContent("<div style='font-size: 12px;'>Misery's<br>Garden</div>")
 .bindPopup("<big>&#x1F661</big> <b>Misery's Garden</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(miserys_garden);
-zoom2.push(miserys_garden);
+zoomex2.push(miserys_garden);
 
 // TURQUOISE/SIBERIA
 var giants_woods = L.tooltip([70.1, -53.2], forest_options)
@@ -593,14 +616,14 @@ var giants_woods = L.tooltip([70.1, -53.2], forest_options)
 .bindPopup("<big>&#x1F661</big> <b>Giant's Woods</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(giants_woods);
-zoom3.push(giants_woods);
+zoomex2.push(giants_woods);
 
-var pale_woods = L.tooltip([45.5, -87.2], forest_options)
+var pale_woods = L.tooltip([45.5, -87.2], forest_options_no_interact)
 .setContent("Pale<br>Woods")
 .bindPopup("<big>&#x1F661</big> <b>Pale Woods</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(pale_woods);
-zoom2.push(pale_woods);
+zoomex2.push(pale_woods);
 // FORESTS end
 
 // MOUNTAINS

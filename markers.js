@@ -193,6 +193,29 @@ var vineyards = [];
 // SETTLEMENTS
 var camps = [];
 
+var wandering_flames = (L.marker([13.2, -32.2], {icon: camp_i})
+.bindPopup("<big>&#x1F661</big> <b>Wandering Flames</b> <big>&#128611</big><br>\
+            A proud tribe of dragonborn, fiercly independent but known for their hospitality.\
+            They are survivors of a great disaster that befell their home many generations ago."));
+camps.push(wandering_flames);
+zoom2.push(wandering_flames);
+
+var silent_splinters = (L.marker([4.4, -40.6], {icon: camp_i})
+.bindPopup("<big>&#x1F661</big> <b>Silent Splinters</b> <big>&#128611</big><br>\
+            An elusive clan of tabaxi, known for the jewelery and trinkets they sell.\
+            They have strange customs, such as eating with one hand behind their back\
+            or purr-gatherings, where the tribe shares stories and sings songs,\
+            all the while purring."));
+camps.push(silent_splinters);
+zoom2.push(silent_splinters);
+
+var the_herders = (L.marker([14.9, -48.9], {icon: camp_i})
+.bindPopup("<big>&#x1F661</big> <b>The Herders</b> <big>&#128611</big><br>\
+            A tribe of orcs who live with their domesticated goats and coyotes.\
+            They trade with milk and cheese and are generally peaceful towards strangers,\
+            but will stop at nothing to protect each other and their animals."));
+camps.push(the_herders);
+zoom2.push(the_herders);
 
 var cities = []
 

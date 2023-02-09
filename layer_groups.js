@@ -53,6 +53,18 @@ function change() {
         })
     });
 
+    // appear only on zoom level 2
+    map.on('zoomend', function () {
+        L.layerGroup(zoomex2).eachLayer(function (layer) {
+            if (map.getZoom() != 3 && map.hasLayer(layer) && decider.checked) {
+                map.removeLayer(layer);
+            }
+            if (map.getZoom() == 3 && map.hasLayer(layer) == false && decider.checked){
+                map.addLayer(layer);
+            }
+        })
+    });
+
     // appear from zoom level 3 on
     map.on('zoomend', function () {
         L.layerGroup(zoom3).eachLayer(function (layer) {
