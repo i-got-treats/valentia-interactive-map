@@ -123,6 +123,12 @@ var thorns = [];
 
 var waterfalls = [];
 
+var golden_cliff_falls = (L.marker([-56.5, -59], {icon: waterfall_i})
+.bindPopup("<big>&#x1F661</big> <b>Golden Cliff Falls</b> <big>&#128611</big><br>\
+            "));
+waterfalls.push(golden_cliff_falls);
+zoom2.push(golden_cliff_falls);
+
 var whirlpools = [];
 // LANDMARKS end
 
@@ -136,6 +142,12 @@ var albibabas_hideout = (L.marker([-61, -113], {icon: cave_i})
             Where our Party was completed."));
 caves.push(albibabas_hideout);
 zoom2.push(albibabas_hideout);
+
+var dumiers_home = (L.marker([-57.4, -61.6], {icon: cave_i})
+.bindPopup("<big>&#x1F661</big> <b>Home of the Dumiers</b> <big>&#128611</big><br>\
+            ..."));
+caves.push(dumiers_home);
+zoom3.push(dumiers_home);
 
 var docs = [];
 
@@ -272,6 +284,12 @@ zoom3.push(arrog);
 
 var huts = [];
 
+var butchers_hut = (L.marker([-59.8, -67.3], {icon: hut_i})
+.bindPopup("<big>&#x1F661</big> <b>Butcher's Hut</b> <big>&#128611</big><br>\
+            The home of a murderer and his pet gryffon. Killed by our party."));
+huts.push(butchers_hut);
+zoom2.push(butchers_hut);
+
 
 var legion_camps = [];
 
@@ -356,4 +374,10 @@ var chanter = (L.marker([-31.6, 51.3], {icon: village_i})
             A small halfling village."));
 villages.push(chanter);
 zoom3.push(chanter);
+
+var old_knells_village = (L.marker([-51.2, -88.6], {icon: village_i})
+.bindPopup("<big>&#x1F661</big> <b>Old Knell's Village</b> <big>&#128611</big><br>\
+            "));
+villages.push(old_knells_village);
+zoom3.push(old_knells_village);
 // SETTLEMENTS end

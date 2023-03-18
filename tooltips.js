@@ -5,39 +5,48 @@
 // COUNTRIES
 var countries_options= ({direction: 'center', permanent: true, interactive: true, className: "countries"});
 
+var countries = [];
+
 var estoria = L.tooltip([-58, -68], countries_options)
 .setContent('Estoria')
 .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
+countries.push(estoria);
 zoom0.push(estoria);
 
 var siberia = L.tooltip([35, -94], countries_options)
 .setContent('<div style="font:20px Copperplate Gothic Light;line-height: 0.7;">Turquoise<br>Country</div>')
 .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
+countries.push(siberia);
 zoom0.push(siberia);
 
 var tova = L.tooltip([26, 85], countries_options)
 .setContent('<div style="font:30px Copperplate Gothic Light;line-height: 0.7;">Flooded<br>Lands<br>of Tova</div>')
 .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
+countries.push(tova);
 zoom0.push(tova);
 
 var storm_isles = L.tooltip([72, 55], countries_options)
 .setContent('<div style="font:30px Copperplate Gothic Light;line-height: 0.7;">Storm<br>Isles</div>')
 .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
+countries.push(storm_isles);
 zoom0.push(storm_isles);
 
-var yellow_country = L.tooltip([-10, -18], countries_options)
+var korisanty = L.tooltip([-10, -18], countries_options)
 .setContent('<div style="font:32px Copperplate Gothic Light;line-height: 0.7;">Korisanty</div>')
 .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
-zoom0.push(yellow_country);
+countries.push(korisanty);
+zoom0.push(korisanty);
 
-var green_country = L.tooltip([-50, 61], countries_options)
+var ictus_etelios = L.tooltip([-50, 61], countries_options)
 .setContent('Ictus<br>Etelios')
 .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
-zoom0.push(green_country);
+countries.push(ictus_etelios);
+zoom0.push(ictus_etelios);
 
 var purple_country = L.tooltip([59, -14], countries_options)
 .setContent('Purple<br>Country')
 .on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
+countries.push(purple_country);
 zoom0.push(purple_country);
 // COUNTRIES end
 
@@ -364,7 +373,7 @@ var the_great_hollow = L.tooltip([49, -37], canyon_options)
 canyons.push(the_great_hollow);
 zoomex1.push(the_great_hollow);
 
-var farewell_shrublands = L.tooltip([-31.6, -59.8], canyon_options)
+var farewell_shrublands = L.tooltip([-31.6, -57.5], canyon_options)
 .setContent("<div style='font-size: 14px'>Farewell<br>Shrublands</div>")
 .bindPopup("<big>&#x1F661</big> <b>Farewell Shrublands</b> <big>&#128611</big><br>\
             ...", {offset: [0,-12]});
@@ -691,4 +700,4 @@ mountains.push(fearsome_mountain);
 zoom3.push(fearsome_mountain);
 // MOUNTAINS end
 
-var lettering = [].concat(waters, islands, canyons, sands, mountains, forests);
+var lettering = [].concat(countries, waters, islands, canyons, sands, mountains, forests);

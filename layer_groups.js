@@ -82,19 +82,14 @@ var base={
     label: 'MAP STYLE',
     children: [
         {label: 'color by country', layer: default_layer},
-        {label: 'color by biome', layer: biomes_layer}
+        {label: 'color by biome', layer: biomes_layer},
+        {label: '<label><input type="checkbox" id="switch" onclick="change()"/> zoom-regulation</lable>'},
     ]
 }
 var legend = {
     label: "MAP INFO",
     selectAllCheckbox: true,
     children: [
-        {label: '<input type="checkbox" id="switch" onclick="change()"/> zoom-regulation'},
-
-        {label: "(helpers)",
-        layer: L.layerGroup(helpers)},
-
-        {label: "Lettering", layer: L.layerGroup(lettering)},
 
         {label: "BUILDINGS",
         collapsed: true,
@@ -237,8 +232,25 @@ var legend = {
 
             { label: "<img class='ico' src='images/icons/settlements/village.png'/>\
             Villages", layer: L.layerGroup(villages) },
-        ]}
-        
+        ]},
+
+        {label: "PATHS",
+        collapsed: true,
+        selectAllCheckbox: true,
+        children:[
+            { label: "Path of our Party", layer: L.layerGroup(path_of_our_party) },
+
+            { label: "Main Roads", layer: L.layerGroup(main_roads) },
+
+            { label: "Trade Routes", layer: L.layerGroup(trade_routes) },
+
+            { label: "Adventurer's Paths", layer: L.layerGroup(adventurers_path) }
+        ]},
+
+        {label: "Lables", layer: L.layerGroup(lettering)},
+
+        {label: "Helpers",
+        layer: L.layerGroup(helpers)}
     ]
 };
 L.control.layers.tree(base, legend).addTo(map);
