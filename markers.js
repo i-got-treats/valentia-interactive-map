@@ -338,7 +338,8 @@ var aen_ethel = (L.marker([54.8, -7.6], {icon: castle_i})
             An ancient elvish castle town, ruled by the Arie family.\
             Nerry's birthplace.<br><br>\
             <b>Coat of Arms</b><br>\
-            a white lioness on a purple field, i think"));
+            <a target='_blank' href='images/coat_of_arms/aen_ethel_coa.png'>\
+            <img height='105px' src='images/coat_of_arms/aen_ethel_coa.png'/></a>"));
 towns.push(aen_ethel);
 zoom2.push(aen_ethel);
 
@@ -357,7 +358,7 @@ zoom2.push(leoquen);
 var impervious = (L.marker([13.7, 82.7], {icon: town_i})
 .bindPopup("<big>&#x1F661</big> <b>Impervious</b> <big>&#128611</big><br>\
             A town born out of an age-old allience of hill-dwarves and humans native to Tova."));
-cities.push(impervious);
+towns.push(impervious);
 zoom2.push(impervious);
 
 
