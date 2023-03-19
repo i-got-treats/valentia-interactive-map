@@ -40,6 +40,10 @@ var fort_i = L.icon({
     iconUrl: 'images/icons/buildings/fort.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
+    var hut_i = L.icon({
+        iconUrl: 'images/icons/buildings/hut.png',
+        iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
+
 var keep_i = L.icon({
     iconUrl: 'images/icons/buildings/keep.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
@@ -91,6 +95,10 @@ var bridge_i = L.icon({
     iconUrl: 'images/icons/landmarks/bridge.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
+    var cave_i = L.icon({
+        iconUrl: 'images/icons/landmarks/cave.png',
+        iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
+
 var dangerzone_i = L.icon({
     iconUrl: 'images/icons/landmarks/dangerzone.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
@@ -138,10 +146,6 @@ var alchemist_i = L.icon({
     iconUrl: 'images/icons/locations/alchemist.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
-var cave_i = L.icon({
-    iconUrl: 'images/icons/locations/cave.png',
-    iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
-
 var doc_i = L.icon({
     iconUrl: 'images/icons/locations/doc.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
@@ -160,10 +164,6 @@ var grainfarm_i = L.icon({
 
 var graveyard_i = L.icon({
     iconUrl: 'images/icons/locations/graveyard.png',
-    iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
-
-var hut_i = L.icon({
-    iconUrl: 'images/icons/locations/hut.png',
     iconSize: i_size, iconAnchor: i_anchor, popupAnchor: p_anchor});
 
 var mine_i = L.icon({

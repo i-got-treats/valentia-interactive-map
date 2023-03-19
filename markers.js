@@ -78,6 +78,20 @@ var altars = [];
 
 var bridges = [];
 
+var caves = [];
+
+var albibabas_hideout = (L.marker([-61, -113], {icon: cave_i})
+.bindPopup("<big>&#x1F661</big> <b>Alibaba's Hideout</b> <big>&#128611</big><br>\
+            Where our Party was completed."));
+caves.push(albibabas_hideout);
+zoom2.push(albibabas_hideout);
+
+var dumiers_home = (L.marker([-57.4, -61.6], {icon: cave_i})
+.bindPopup("<big>&#x1F661</big> <b>Home of the Dumiers</b> <big>&#128611</big><br>\
+            ..."));
+caves.push(dumiers_home);
+zoom3.push(dumiers_home);
+
 var dangerzones = [];
 
 var monoliths = [];
@@ -95,7 +109,7 @@ var ruins = [];
 var fallen_city_of_ardour = (L.marker([3.9, 6.7], {icon: ruin_i})
 .bindPopup("<big>&#x1F661</big> <b>Fallen City of Ardour</b> <big>&#128611</big><br>\
             ..."));
-obelisks.push(fallen_city_of_ardour);
+ruins.push(fallen_city_of_ardour);
 zoom2.push(fallen_city_of_ardour);
 
 var the_coral_citadel = (L.marker([-62.7, 99.5], {icon: ruin_i})
@@ -105,13 +119,6 @@ var the_coral_citadel = (L.marker([-62.7, 99.5], {icon: ruin_i})
             Now, the colorful seashells adorning the halls have brittled and the Tritons have disappeared."));
 ruins.push(the_coral_citadel);
 zoom2.push(the_coral_citadel);
-
-var the_grave = (L.marker([22.7, 64.3], {icon: dungeon_i})
-.bindPopup("<big>&#x1F661</big> <b>The Grave</b> <big>&#128611</big><br>\
-            The dungeon which once held archdevil Jaqon,\
-            imprisoned there for disobedience by the ruler of all devils."));
-obelisks.push(the_grave);
-zoom2.push(the_grave);
 
 var shipwrecks = [];
 
@@ -135,23 +142,16 @@ var whirlpools = [];
 // LOCATIONS
 var alchemists = [];
 
-var caves = [];
-
-var albibabas_hideout = (L.marker([-61, -113], {icon: cave_i})
-.bindPopup("<big>&#x1F661</big> <b>Alibaba's Hideout</b> <big>&#128611</big><br>\
-            Where our Party was completed."));
-caves.push(albibabas_hideout);
-zoom2.push(albibabas_hideout);
-
-var dumiers_home = (L.marker([-57.4, -61.6], {icon: cave_i})
-.bindPopup("<big>&#x1F661</big> <b>Home of the Dumiers</b> <big>&#128611</big><br>\
-            ..."));
-caves.push(dumiers_home);
-zoom3.push(dumiers_home);
-
 var docs = [];
 
 var dungeons = [];
+
+var the_grave = (L.marker([22.7, 64.3], {icon: dungeon_i})
+.bindPopup("<big>&#x1F661</big> <b>The Grave</b> <big>&#128611</big><br>\
+            The dungeon which once held archdevil Jaqon,\
+            imprisoned there for disobedience by the ruler of all devils."));
+dungeons.push(the_grave);
+zoom2.push(the_grave);
 
 var forges = [];
 

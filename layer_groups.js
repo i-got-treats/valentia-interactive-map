@@ -110,6 +110,9 @@ var legend = {
             { label: "<img class='ico' src='images/icons/buildings/fort.png'/>\
             Forts", layer: L.layerGroup(forts) },
 
+            { label: "<img class='ico' src='images/icons/buildings/hut.png'/>\
+            Huts", layer: L.layerGroup(huts) },
+
             { label: "<img class='ico' src='images/icons/buildings/lighthouse.png'/>\
             Lighthouses", layer: L.layerGroup(lighthouses) },
 
@@ -141,6 +144,9 @@ var legend = {
 
             { label: "<img class='ico' src='images/icons/landmarks/bridge.png'/>\
             Bridges", layer: L.layerGroup(bridges) },
+
+            { label: "<img class='ico' src='images/icons/landmarks/cave.png'/>\
+            Caves", layer: L.layerGroup(caves) },
 
             { label: "<img class='ico' src='images/icons/landmarks/dangerzone.png'/>\
             Dangerzones", layer: L.layerGroup(dangerzones) },
@@ -180,9 +186,6 @@ var legend = {
             { label: "<img class='ico' src='images/icons/locations/alchemist.png'/>\
             Alchemists", layer: L.layerGroup(alchemists) },
 
-            { label: "<img class='ico' src='images/icons/locations/cave.png'/>\
-            Caves", layer: L.layerGroup(caves) },
-
             { label: "<img class='ico' src='images/icons/locations/doc.png'/>\
             Docs", layer: L.layerGroup(docs) },
 
@@ -197,9 +200,6 @@ var legend = {
 
             { label: "<img class='ico' src='images/icons/locations/graveyard.png'/>\
             Graveyards", layer: L.layerGroup(graveyards) },
-
-            { label: "<img class='ico' src='images/icons/locations/hut.png'/>\
-            Huts", layer: L.layerGroup(huts) },
 
             { label: "<img class='ico' src='images/icons/locations/mine.png'/>\
             Mines", layer: L.layerGroup(mines) },
