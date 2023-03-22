@@ -8,46 +8,53 @@ var countries_options= ({direction: 'center', permanent: true, interactive: true
 var countries = [];
 
 var estoria = L.tooltip([-58, -68], countries_options)
-.setContent('Estoria')
-.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")});
+.setContent('<div style="font:32px Copperplate Gothic Light;line-height: 0.7;">Estoria</div>')
+//.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")})
+;
 countries.push(estoria);
 zoom0.push(estoria);
 
-var siberia = L.tooltip([35, -94], countries_options)
-.setContent('<div style="font:20px Copperplate Gothic Light;line-height: 0.7;">Turquoise<br>Country</div>')
-.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")});
-countries.push(siberia);
-zoom0.push(siberia);
+var frost_veil = L.tooltip([47.5, -89], countries_options)
+.setContent('<div style="font:28px Copperplate Gothic Light;line-height: 0.7;">Frost<br>Veil</div>')
+//.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")})
+;
+countries.push(frost_veil);
+zoom0.push(frost_veil);
 
 var tova = L.tooltip([26, 85], countries_options)
-.setContent('<div style="font:30px Copperplate Gothic Light;line-height: 0.7;">Flooded<br>Lands<br>of Tova</div>')
-.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")});
+.setContent('<div style="font:28px Copperplate Gothic Light;line-height: 0.7;">Flooded<br>Lands<br>of Tova</div>')
+//.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")})
+;
 countries.push(tova);
 zoom0.push(tova);
 
 var storm_isles = L.tooltip([72, 55], countries_options)
-.setContent('<div style="font:30px Copperplate Gothic Light;line-height: 0.7;">Storm<br>Isles</div>')
-.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")});
+.setContent('<div style="font:28px Copperplate Gothic Light;line-height: 0.7;">Storm<br>Isles</div>')
+//.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")})
+;
 countries.push(storm_isles);
 zoom0.push(storm_isles);
 
 var korisanty = L.tooltip([-10, -18], countries_options)
-.setContent('<div style="font:32px Copperplate Gothic Light;line-height: 0.7;">Korisanty</div>')
-.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")});
+.setContent('Korisanty')
+//.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")})
+;
 countries.push(korisanty);
 zoom0.push(korisanty);
 
-var ictus_etelios = L.tooltip([-50, 61], countries_options)
-.setContent('Ictus<br>Etelios')
-.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")});
-countries.push(ictus_etelios);
-zoom0.push(ictus_etelios);
+var verdant_ilysio = L.tooltip([-51, 60], countries_options)
+.setContent('Verdant<br>Ilysio')
+//.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")})
+;
+countries.push(verdant_ilysio);
+zoom0.push(verdant_ilysio);
 
-var purple_country = L.tooltip([59, -14], countries_options)
-.setContent('Purple<br>Country')
-.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")});
-countries.push(purple_country);
-zoom0.push(purple_country);
+var lilac_rest = L.tooltip([58, -12], countries_options)
+.setContent('<div style="font:32px Copperplate Gothic Light;line-height: 0.7;">Lilac-<br>rest</div>')
+//.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")})
+;
+countries.push(lilac_rest);
+zoom0.push(lilac_rest);
 // COUNTRIES end
 
 // WATERS
@@ -101,10 +108,10 @@ var nw_ocean = L.tooltip([4, -20], {direction: 'center', className: "light_water
 "</h1>")
 zoom0.push(nw_ocean);
 
-var winged_lions_sea = L.tooltip([-35, 132], light_water_options)
-.setContent("<div style='transform: rotate(-55deg); font-size: 28px; opacity:.8;'>Winged Lion's<br>Sea</div>");
-waters.push(winged_lions_sea);
-zoom1.push(winged_lions_sea);
+var emerald_sea = L.tooltip([-46, 105.8], light_water_options)
+.setContent("<div style='transform: rotate(-55deg); font-size: 24px; opacity:.8;'>Emerald<br>Sea</div>");
+waters.push(emerald_sea);
+zoom1.push(emerald_sea);
 
 var the_great_tear = L.tooltip([-60, -0.5], light_water_options)
 .setContent("<div style='transform: rotate(0deg); font-size: 23px; opacity:.8;'>The<br>Great<br>Tear</div>");
@@ -201,10 +208,10 @@ var pp_lake = L.tooltip([-65.5, 77], light_water_options)
 waters.push(pp_lake);
 zoom2.push(pp_lake);
 
-var moon_tear = L.tooltip([-53.1, 35.5], light_water_options)
-.setContent("<div style='transform: rotate(-25deg);'>Moon-Tear</div>");
-waters.push(moon_tear);
-zoom2.push(moon_tear);
+var moon_lake = L.tooltip([-53.1, 35.5], light_water_options)
+.setContent("<div style='transform: rotate(-25deg);'>Moon Lake</div>");
+waters.push(moon_lake);
+zoom2.push(moon_lake);
 
 var lovelets_crater = L.tooltip([-76.2, 58], dark_water_options_popup)
 .setContent("Lovelet's<br>Crater")
@@ -456,6 +463,13 @@ var forest_options_no_interact = ({direction: 'center', permanent: true, classNa
 var forests = [];
 
 // ESTORIA
+var ashen_wood = L.tooltip([-43.4, -92], forest_options_no_interact)
+.setContent("Ashen<br>Wood")
+.bindPopup("<big>&#x1F661</big> <b>Ashen Wood</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(ashen_wood);
+zoomex2.push(ashen_wood);
+
 var wolfs_wood = L.tooltip([-44.5, -69.8], forest_options_no_interact)
 .setContent("Wolf's<br>Wood")
 .bindPopup("<big>&#x1F661</big> <b>Wolf's Wood</b> <big>&#128611</big><br>\
@@ -484,14 +498,28 @@ var quiet_forest = L.tooltip([-61, -93.6], forest_options)
 forests.push(quiet_forest);
 zoomex2.push(quiet_forest);
 
-var old_woods = L.tooltip([-63.5, -52], forest_options)
+var old_woods = L.tooltip([-63.5, -52], forest_options_no_interact)
 .setContent("Old Woods")
 .bindPopup("<big>&#x1F661</big> <b>Old Woods</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(old_woods);
 zoomex2.push(old_woods);
 
-var sighing_woodland = L.tooltip([-58, -106], forest_options)
+var gold_grove = L.tooltip([-57.8, -63.3], forest_options_no_interact)
+.setContent("Gold<br>Grove")
+.bindPopup("<big>&#x1F661</big> <b>Gold Grove</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(gold_grove);
+zoomex2.push(gold_grove);
+
+var woods_of_song = L.tooltip([-72, -54.4], forest_options_no_interact)
+.setContent("Woods<br>of Song")
+.bindPopup("<big>&#x1F661</big> <b>Woods of Song</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(woods_of_song);
+zoomex2.push(woods_of_song);
+
+var sighing_woodland = L.tooltip([-58.3, -105], forest_options_no_interact)
 .setContent("Sighing<br>Woodland")
 .bindPopup("<big>&#x1F661</big> <b>Sighing Woodland</b> <big>&#128611</big><br>\
             The sound of the sea's gentle sighs and whispers can be heard from deep within the forest,\
@@ -519,19 +547,26 @@ forests.push(wandering_woods);
 zoomex2.push(wandering_woods);
 
 // PURPLE
-var rabbits_forest = L.tooltip([42.6, -4.2], forest_options_no_interact)
-.setContent("Rabbit's Forest")
-.bindPopup("<big>&#x1F661</big> <b>Rabbit's Forest</b> <big>&#128611</big><br>\
+var dew_grove = L.tooltip([51.6, -27.1], forest_options_no_interact)
+.setContent("Dew<br>Grove")
+.bindPopup("<big>&#x1F661</big> <b>Dew Grove</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
-forests.push(rabbits_forest);
-zoomex2.push(rabbits_forest);
+forests.push(dew_grove);
+zoomex2.push(dew_grove);
 
-var enchanted_jungle = L.tooltip([57.5, 4.2], forest_options_no_interact)
-.setContent("Enchanted<br>Jungle")
-.bindPopup("<big>&#x1F661</big> <b>Enchanted Jungle</b> <big>&#128611</big><br>\
+var rabbits_wood = L.tooltip([42.6, -4.2], forest_options_no_interact)
+.setContent("Rabbit's Wood")
+.bindPopup("<big>&#x1F661</big> <b>Rabbit's Wood</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
-forests.push(enchanted_jungle);
-zoomex2.push(enchanted_jungle);
+forests.push(rabbits_wood);
+zoomex2.push(rabbits_wood);
+
+var enchanted_woods = L.tooltip([57.5, 4.2], forest_options_no_interact)
+.setContent("Enchanted<br>Woods")
+.bindPopup("<big>&#x1F661</big> <b>Enchanted Woods</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(enchanted_woods);
+zoomex2.push(enchanted_woods);
 
 var voiceless_wilds = L.tooltip([51, -14.4], forest_options_no_interact)
 .setContent("Voiceless<br>Wilds")
@@ -548,12 +583,26 @@ var willow_trees = L.tooltip([-36.5, 62], forest_options_no_interact)
 forests.push(willow_trees);
 zoom3.push(willow_trees);
 
-var oak_grove = L.tooltip([-39.8, 62.], forest_options_no_interact)
+var ivy_wood = L.tooltip([-37.5, 57.9], forest_options_no_interact)
+.setContent("<div style='font-size:12px;'>Ivy<br>Wood</div>")
+.bindPopup("<big>&#x1F661</big> <b>Ivy Wood</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(ivy_wood);
+zoom3.push(ivy_wood);
+
+var oak_grove = L.tooltip([-39.8, 62], forest_options_no_interact)
 .setContent("Oak<br>Grove")
 .bindPopup("<big>&#x1F661</big> <b>Oak Grove</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
 forests.push(oak_grove);
 zoom3.push(oak_grove);
+
+var sunny_covert = L.tooltip([-42.0, 57.3], forest_options_no_interact)
+.setContent("Sunny<br>Covert")
+.bindPopup("<big>&#x1F661</big> <b>Sunny Covert</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(sunny_covert);
+zoom3.push(sunny_covert);
 
 var vagabond_woods = L.tooltip([-37.4, 82.3], forest_options_no_interact)
 .setContent("Vagabond<br>Woods")
@@ -568,6 +617,13 @@ var laughing_covert = L.tooltip([-11.0, 93.9], forest_options_no_interact)
             ", {offset: [0,-12]});
 forests.push(laughing_covert);
 zoomex2.push(laughing_covert);
+
+var morning_wood = L.tooltip([-60.7, 76.6], forest_options_no_interact)
+.setContent("Morning-<br>wood")
+.bindPopup("<big>&#x1F661</big> <b>Morningwood</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+forests.push(morning_wood);
+zoomex2.push(morning_wood);
 
 var dreamers_jungle = L.tooltip([-64.5, 62.6], forest_options_no_interact)
 .setContent("The<br>Dreamer's<br>Jungle")
@@ -591,12 +647,12 @@ var sweet_forest = L.tooltip([-1.9, -3.2], forest_options_no_interact)
 forests.push(sweet_forest);
 zoomex2.push(sweet_forest);
 
-var veiled_woods = L.tooltip([-18.6, -52.4], forest_options_no_interact)
-.setContent("Veiled<br>Woods")
-.bindPopup("<big>&#x1F661</big> <b>Veiled Woods</b> <big>&#128611</big><br>\
+var dark_wood = L.tooltip([-18.6, -54], forest_options_no_interact)
+.setContent("Dark<br>Wood")
+.bindPopup("<big>&#x1F661</big> <b>Dark Wood</b> <big>&#128611</big><br>\
             ", {offset: [0,-12]});
-forests.push(veiled_woods);
-zoomex2.push(veiled_woods);
+forests.push(dark_wood);
+zoomex2.push(dark_wood);
 
 var champions_forest = L.tooltip([0.6, 6.6], forest_options_no_interact)
 .setContent("<div style='font-size: 12px;'>Champion's<br>Forest</div>")
@@ -700,4 +756,17 @@ mountains.push(fearsome_mountain);
 zoom3.push(fearsome_mountain);
 // MOUNTAINS end
 
-var lettering = [].concat(countries, waters, islands, canyons, sands, mountains, forests);
+// HILLS
+var hill_options = ({direction: 'center', interactive: true, permanent: true, className: "inland", opacity: .7});
+
+var hills = [];
+
+var hills_of_hope = L.tooltip([-59.9, -77.7], hill_options)
+.setContent("<div style='font-size: 13px;'>Hills of<br>Hope</div>")
+.bindPopup("<big>&#x1F661</big> <b>Hills of Hope</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+mountains.push(hills_of_hope);
+zoomex1.push(hills_of_hope);
+// HILLS end
+
+var lettering = [].concat(countries, waters, islands, canyons, sands, mountains, hills, forests);

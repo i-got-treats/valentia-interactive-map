@@ -1,6 +1,6 @@
-var i_size = [34, 30];
-var i_anchor = [17, 15];
-var p_anchor = [0, -22];
+var i_size = [30, 26];
+var i_anchor = [15, 13];
+var p_anchor = [0, -18];
 
 var doticon = L.icon({
     iconUrl: 'images/icons/unused/dot.png',
