@@ -94,6 +94,12 @@ zoom3.push(dumiers_home);
 
 var dangerzones = [];
 
+var hydra_lair = (L.marker([-38.8, -82.0], {icon: dangerzone_i})
+.bindPopup("<big>&#x1F661</big> <b>Hydra Lair</b> <big>&#128611</big><br>\
+            "));
+dangerzones.push(hydra_lair);
+zoom3.push(hydra_lair);
+
 var monoliths = [];
 
 var obelisks = [];

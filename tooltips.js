@@ -7,54 +7,54 @@ var countries_options= ({direction: 'center', permanent: true, interactive: true
 
 var countries = [];
 
-var estoria = L.tooltip([-58, -68], countries_options)
-.setContent('<div style="font:32px Copperplate Gothic Light;line-height: 0.7;">Estoria</div>')
+var estoria = L.tooltip([-57, -69], countries_options)
+.setContent('Estoria')
 //.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/23/estoria', "_blank")})
 ;
 countries.push(estoria);
 zoom0.push(estoria);
 
-var frost_veil = L.tooltip([47.5, -89], countries_options)
-.setContent('<div style="font:28px Copperplate Gothic Light;line-height: 0.7;">Frost<br>Veil</div>')
+var frost_veil = L.tooltip([47, -90], countries_options)
+.setContent('Frost<br>Veil')
 //.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")})
 ;
 countries.push(frost_veil);
 zoom0.push(frost_veil);
 
-var tova = L.tooltip([26, 85], countries_options)
-.setContent('<div style="font:28px Copperplate Gothic Light;line-height: 0.7;">Flooded<br>Lands<br>of Tova</div>')
+var tova = L.tooltip([26, 83], countries_options)
+.setContent('Flooded<br>Lands<br>of Tova')
 //.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/26/tova', "_blank")})
 ;
 countries.push(tova);
 zoom0.push(tova);
 
 var storm_isles = L.tooltip([72, 55], countries_options)
-.setContent('<div style="font:28px Copperplate Gothic Light;line-height: 0.7;">Storm<br>Isles</div>')
+.setContent('Storm<br>Isles')
 //.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/24/storm-isles', "_blank")})
 ;
 countries.push(storm_isles);
 zoom0.push(storm_isles);
 
-var korisanty = L.tooltip([-10, -18], countries_options)
+var korisanty = L.tooltip([-10, -16], countries_options)
 .setContent('Korisanty')
 //.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/27/yellow-country', "_blank")})
 ;
 countries.push(korisanty);
 zoom0.push(korisanty);
 
-var verdant_ilysio = L.tooltip([-51, 60], countries_options)
+var verdant_ilysio = L.tooltip([-50, 55], countries_options)
 .setContent('Verdant<br>Ilysio')
 //.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/29/green-country', "_blank")})
 ;
 countries.push(verdant_ilysio);
 zoom0.push(verdant_ilysio);
 
-var lilac_rest = L.tooltip([58, -12], countries_options)
-.setContent('<div style="font:32px Copperplate Gothic Light;line-height: 0.7;">Lilac-<br>rest</div>')
+var lailyrio = L.tooltip([59, -9], countries_options)
+.setContent('Lilac<br>Lailyrio')
 //.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/28/purple-country', "_blank")})
 ;
-countries.push(lilac_rest);
-zoom0.push(lilac_rest);
+countries.push(lailyrio);
+zoom0.push(lailyrio);
 // COUNTRIES end
 
 // WATERS
@@ -114,15 +114,25 @@ waters.push(emerald_sea);
 zoom1.push(emerald_sea);
 
 var the_great_tear = L.tooltip([-60, -0.5], light_water_options)
-.setContent("<div style='transform: rotate(0deg); font-size: 23px; opacity:.8;'>The<br>Great<br>Tear</div>");
+.setContent("<div style='font-size: 23px; opacity:.8;'>The<br>Great<br>Tear</div>");
 waters.push(the_great_tear);
 zoom1.push(the_great_tear);
+
+var shattered_lake = L.tooltip([4.6, 35.5], light_water_options)
+.setContent("<div style='font-size: 14px;'>uuuh</div>");
+waters.push(shattered_lake);
+zoom2.push(shattered_lake);
 
 // ESTORIA
 var great_lake_of_raveling = L.tooltip([-47, -55], light_water_options)
 .setContent("<div style='font-size: 14px;'>Great<br>Lake of<br>Raveling</div>");
 waters.push(great_lake_of_raveling);
 zoom2.push(great_lake_of_raveling);
+
+var split_lake = L.tooltip([-69.35, -52.1], light_water_options)
+.setContent("<div style=';'>Split<br>Lake</div>");
+waters.push(split_lake);
+zoom3.push(split_lake);
 
 var bogtrus_shallows = L.tooltip([-38.7, -108], light_water_options_popup)
 .setContent("<div style='font-size: 12px;'>Bogtru's<br>Shallows</div>")
@@ -229,6 +239,11 @@ var soaring_lagoon = L.tooltip([-74.7, 70.5], dark_water_options_popup)
 waters.push(soaring_lagoon);
 zoom3.push(soaring_lagoon);
 
+var hot_spring_1 = L.tooltip([-24.5, 47.2], light_water_options)
+.setContent("<div style='font-size:10px;'>Hot<br>Spring</div>");
+waters.push(hot_spring_1);
+zoom3.push(hot_spring_1);
+
 // TOVA
 var cresters_basin = L.tooltip([35.3, -44], light_water_options)
 .setContent("<div style='font-size: 13px;'>Crester's<br>Basin</div>");
@@ -244,11 +259,6 @@ var the_mirrored_expanse = L.tooltip([21.4, 84], light_water_options)
 .setContent("<div style='font-size: 14px;'>The Guiltless Expanse</div>");
 waters.push(the_mirrored_expanse);
 zoom2.push(the_mirrored_expanse);
-
-var living_waters = L.tooltip([33.4, 33.2], light_water_options)
-.setContent("<div style='font-size: 14px;'>Living<br>Waters</div>");
-waters.push(living_waters);
-zoom2.push(living_waters);
 
 // SIBERIA
 
@@ -273,6 +283,11 @@ var ith = L.tooltip([48, -5], dark_water_options)
 .setContent("<div style='font-size: 13px; transform: rotate(16deg);'>Ith</div>");
 waters.push(ith);
 zoom3.push(ith);
+
+var living_waters = L.tooltip([68.3, -14], light_water_options)
+.setContent("<div style='font-size: 14px;'>Living<br>Waters</div>");
+waters.push(living_waters);
+zoom2.push(living_waters);
 
 // YELLOW COUNTRY
 var felicity = L.tooltip([4, -18], light_water_options)
