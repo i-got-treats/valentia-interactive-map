@@ -19,7 +19,7 @@ function copyDivToClipboard() {
                 window.getSelection().removeAllRanges();// to deselect
 }
 
-var latlngmarker = L.marker([85.2, -125.2], {
+var latlngmarker = L.marker([-3.2, -76.3], {
     draggable:true,
     icon: doticon,
     opacity: .5

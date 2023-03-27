@@ -15,7 +15,7 @@ countries.push(estoria);
 zoom0.push(estoria);
 
 var frost_veil = L.tooltip([47, -90], countries_options)
-.setContent('Frost<br>Veil')
+.setContent('The<br>Frost<br>Veil')
 //.on('click', function() {window.open('https://heroes-of-valentia.boards.net/thread/25/siberia', "_blank")})
 ;
 countries.push(frost_veil);
@@ -398,7 +398,9 @@ zoomex1.push(the_great_hollow);
 var farewell_shrublands = L.tooltip([-31.6, -57.5], canyon_options)
 .setContent("<div style='font-size: 14px'>Farewell<br>Shrublands</div>")
 .bindPopup("<big>&#x1F661</big> <b>Farewell Shrublands</b> <big>&#128611</big><br>\
-            ...", {offset: [0,-12]});
+            Named after the 'Farewell Shrub', a woody plant that grows in the shape of a hand.\
+            When the wind rustles through the branches, it looks as though the hand was waving.\
+            According to legend, this place used to be a forest. When it died, ents left behind the shrubs.", {offset: [0,-12]});
 canyons.push(farewell_shrublands);
 zoomex1.push(farewell_shrublands);
 
@@ -721,35 +723,45 @@ zoomex1.push(snowy_peaks);
 var the_first_rise = L.tooltip([-51.6, -30.8], mountain_options)
 .setContent("<div style='font-size: 18px;'>The<br>First<br>Rise</div>")
 .bindPopup("<big>&#x1F661</big> <b>The First Rise</b> <big>&#128611</big><br>\
-            ", {offset: [0,-12]});
+            According to legend, the first rise was the first mountain region to form on Valentia.", {offset: [0,-12]});
 mountains.push(the_first_rise);
 zoomex1.push(the_first_rise);
 
 var evenfall_heights = L.tooltip([-39.9, 37.3], mountain_options)
 .setContent("<div style='font-size: 16px;'>Evenfall<br>Heights</div>")
 .bindPopup("<big>&#x1F661</big> <b>Evenfall Heights</b> <big>&#128611</big><br>\
-            ", {offset: [0,-12]});
+            The mountain region behind which the sun sets for Ilysio.", {offset: [0,-12]});
 mountains.push(evenfall_heights);
 zoomex1.push(evenfall_heights);
 
 var bronze_peaks = L.tooltip([-19.4, 49.6], mountain_options)
-.setContent("<div style='font-size: 13px'>Bronze Peaks</div>")
+.setContent("<div style='font-size: 13px'>Bronze<br>Peaks</div>")
 .bindPopup("<big>&#x1F661</big> <b>Bronze Peaks</b> <big>&#128611</big><br>\
-            ", {offset: [0,-12]});
+            Some of the mountains in this region have the metallic, brown color of bronze.", {offset: [0,-12]});
 mountains.push(bronze_peaks);
 zoomex1.push(bronze_peaks);
 
 var forgotten_mountains = L.tooltip([-69.2, 27.1], mountain_options)
 .setContent("<div style='font-size: 13px;'>Forgotten<br>Mountains</div>")
 .bindPopup("<big>&#x1F661</big> <b>Forgotten Mountains</b> <big>&#128611</big><br>\
-            ", {offset: [0,-12]});
+            A curse looms over these mountains, making them inhospitable.\
+            The few animals that live here stumble about in confusion,\
+            plants grow into twisted shapes.\
+            Words of warning are written on scattered signs:\
+            \"Beware the Forgotten Mountains ahead, where memories go to die.\
+            Turn back now, or lose yourself and all you hold dear forever.\"\
+            <br><br><br><br>\
+            (Memory elimination spell cast by a chaotic good ancient copper dragon. \
+            His lair is in the mountains. To make himself forget a terribly evil deed he had committed, \
+            he used magic. The spell was meant to only affect him. By accident it was instead cast over the entire region.)", {offset: [0,-12]});
 mountains.push(forgotten_mountains);
 zoomex1.push(forgotten_mountains);
 
 var slumbering_mountains = L.tooltip([-20.3, 10.5], mountain_options)
 .setContent("<div style='font-size: 14px;'>Slumbering<br>Mountains</div>")
-.bindPopup("<big>&#x1F661</big> <b>Slumbering Mountains</b> <big>&#128611</big><br>\
-            ", {offset: [0,-12]});
+.bindPopup("<b>Slumbering Mountains</b><br>\
+            After disobeying Dheion, god of earth, these once living, moving mountains \
+            were put to sleep. They are said to slowly rise and fall with their deep breaths.", {offset: [0,-12]});
 mountains.push(slumbering_mountains);
 zoomex1.push(slumbering_mountains);
 
@@ -769,6 +781,16 @@ var fearsome_mountain = L.tooltip([-29.8, 54.1], mountain_options)
             The mountain in itself is quite peacful and pretty.", {offset: [0,-12]});
 mountains.push(fearsome_mountain);
 zoom3.push(fearsome_mountain);
+
+var the_first_peak = L.tooltip([-62.3, -26.0], mountain_options)
+.setContent("<div style=';'>The First<br>Peak</div>")
+.bindPopup("<big>&#x1F661</big> <b>The First Peak</b> <big>&#128611</big><br>\
+            Legend says there was a time when mountains were alive and roamed the earth freely.\
+            One day each and every mountain died; or at least stopped moving for \
+            inexplicable reasons. The First Peak is said to have been the first mountain to die.",
+            {offset: [0,-12]});
+mountains.push(the_first_peak);
+zoomex2.push(the_first_peak);
 // MOUNTAINS end
 
 // HILLS
@@ -782,6 +804,13 @@ var hills_of_hope = L.tooltip([-59.9, -77.7], hill_options)
             ", {offset: [0,-12]});
 mountains.push(hills_of_hope);
 zoomex1.push(hills_of_hope);
+
+var green_hill_zone = L.tooltip([-23, 61.0], hill_options)
+.setContent("<div style='font-size: 13px;'>Green<br>Hill<br>Zone</div>")
+.bindPopup("<big>&#x1F661</big> <b>Green Hill Zone</b> <big>&#128611</big><br>\
+            ", {offset: [0,-12]});
+mountains.push(green_hill_zone);
+zoomex2.push(green_hill_zone);
 // HILLS end
 
 var lettering = [].concat(countries, waters, islands, canyons, sands, mountains, hills, forests);
